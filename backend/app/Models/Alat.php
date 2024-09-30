@@ -13,5 +13,5 @@ class Alat extends Model
     protected $table = 'alat';
 
     // Tentukan kolom yang bisa diisi secara massal
-    protected $fillable = ['nama', 'harga', 'status'];
+    protected $fillable = ['nama', 'harga', 'status', 'image'];
 }

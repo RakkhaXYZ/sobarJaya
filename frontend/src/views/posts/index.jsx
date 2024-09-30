@@ -45,6 +45,7 @@ export default function PostIndex(){
                     <th scope="col">Nama</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Foto Barang</th>
                     <th scope="col" style={{  'width': '15%' }}>Actions</th>
                   </tr>
                 </thead>
@@ -57,10 +58,11 @@ export default function PostIndex(){
                         <td>{ post.nama}</td>
                         <td>{ post.harga}</td>
                         <td>{ post.status}</td>
+                        <td><img src={post.image_url} alt="" className="rounded" width="200" /></td>
 
                         <td className="text-center">
                           <Link to={`posts/edit/${post.id}`} className="btn btn-sm btn-primary rounded-sm shadow border-0 me-2">Edit</Link>
-                          <Link to={"btn btn-sm btn-danger rounded-sm shadow border-0"}>Delete</Link>
+                          <Link to={""} className="btn btn-sm btn-danger rounded-sm shadow border-0">Delete</Link>
                         </td>
                       </tr>
                     )) 
