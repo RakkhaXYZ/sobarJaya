@@ -1,11 +1,11 @@
 import React from 'react';
-import NavigationBar from './Navbar';  // Import Navbar
+import Navigator from './Navbar'; 
 import Pengeboran from '../img/pengeboran.jpg';  // Import gambar perusahaan
 
-export default function Home() {
+const Home = ()=> {
   return (
     <>
-      <NavigationBar />
+      <Navigator />
       <div
         className="relative h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${Pengeboran})` }}
@@ -19,3 +19,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

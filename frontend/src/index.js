@@ -1,11 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';  // CSS bisa diatur di sini
-import App from './App';
+import ReactDOM from 'react-dom/client';
+import './App.css';  // Mengimpor Tailwind CSS
+import App from "./App";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    
+  </React.StrictMode>
 );
+
+
+
+
+
+
+
