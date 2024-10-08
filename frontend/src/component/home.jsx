@@ -20,7 +20,7 @@ const Home = ()=> {
                            </div>
          
                            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 space-y-2">
-                              <a href="#" className="block w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md">
+                              <a href="ig.png" className="block w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md">
                                 <i className="fab fa-instagram text-black" />
                               </a>
                               <a href="#" className="block w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md">
@@ -76,6 +76,13 @@ const Home = ()=> {
                     </div>
                 </section>
                 <footer className="bg-blue-900 text-white py-12">
+                <div className="text-center mt-4">
+                            <div className="flex justify-center space-x-2">
+                                <span className="h-8 w-8 bg-white rounded-full inline-block"></span>
+                                <span className="h-8 w-8 bg-white rounded-full inline-block"></span>
+                                <span className="h-8 w-8 bg-white rounded-full inline-block"></span>
+                            </div>
+                        </div>
                     <div className="container mx-auto px-4">
                         <div className="flex justify-between">
                             <div>
@@ -90,13 +97,13 @@ const Home = ()=> {
                                 <ul className="mt-4 space-y-2">
                                     <li><a href="#" className="hover:underline">Profile</a></li>
                                     <li><a href="/sejarah" className="hover:underline">Sejarah</a></li>
-                                    <li><a href="#" className="hover:underline">Kegiatan</a></li>
-                                    <li><a href="#" className="hover:underline">Artikel</a></li>
-                                    <li><a href="#" className="hover:underline">Hubungi Kami</a></li>
-                                    <li><a href="#" className="hover:underline">Tentang Kami</a></li>
+                                    <li><a href="/kegiatan" className="hover:underline">Kegiatan</a></li>
+                                    <li><a href="/artikel" className="hover:underline">Artikel</a></li>
+                                    <li><a href="/hubungikami" className="hover:underline">Hubungi Kami</a></li>
+                                    <li><a href="/tentang" className="hover:underline">Tentang Kami</a></li>
                                 </ul>
                                 <br></br>
-                                <img className="w-[77px] h-16" src="pc1.png" alt="logo"/>                            </div>
+                                <img className="w-[77px] h-16" src="logo.png" alt="logo"/>                            </div>
                             
                         </div>
                         <br>

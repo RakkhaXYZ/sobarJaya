@@ -1,14 +1,13 @@
 import React from 'react';
-import logo from '../img/pc1.png'; // Ganti dengan path logo Anda
 
 const Navbar = () => {
   return (
     <nav className="bg-white bg-opacity-80 shadow-md fixed w-full top-[5%] left-0 z-10 flex justify-between items-center p-4 rounded-full h-16">
       <div className="flex items-center">
-        <img src="pc1.png" alt="Logo Perusahaan" className="h-10 mr-2" /> 
+        <img src="logo.png" alt="Logo" className="h-10 mr-2" /> 
         <div className="text-blue-600 text-2xl font-bold"></div>
       </div>
-      <ul className="flex space-x-10 text-[#22467d] text-xl font-semibold font-['Poppins']">
+      <ul className="flex space-x-8 text-[#22467d] text-xl font-semibold font-['Poppins']">
         <li>
           <a href="/"className="text-gray-700 font-semibold hover:text-blue-500">Profile</a>
         </li>
