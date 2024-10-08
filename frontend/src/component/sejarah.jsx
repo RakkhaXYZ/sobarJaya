@@ -6,7 +6,7 @@ const Sejarah = ()=> {
  
                     <header className="bg-blue-900 text-white py-4">
                         <div className="container mx-auto flex justify-between items-center">
-                            <img src="logo.png" alt="Company Logo" className="h-10 mr-2"/>
+                            <img src="logo.png" alt="Logo" className="h-10 mr-2"/>
                             <nav>
                                 <ul className="flex space-x-6">
                                     <li><a href="/" className="hover:underline">Profile</a></li>
@@ -74,7 +74,7 @@ const Sejarah = ()=> {
                                     <li><a href="/kegiatan" className="hover:underline">Kegiatan</a></li>
                                     <li><a href="/artikel" className="hover:underline">Artikel</a></li>
                                     <li><a href="/hubungikami" className="hover:underline">Hubungi Kami</a></li>
-                                    <li><a href="tentang" className="hover:underline">Tentang Kami</a></li>
+                                    <li><a href="/tentang" className="hover:underline">Tentang Kami</a></li>
                                 </ul>
                                 <br></br>
                                 <img className="w-[77px] h-16" src="logo.png" alt="logo"/>                            </div>
