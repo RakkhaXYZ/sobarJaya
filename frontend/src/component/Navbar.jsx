@@ -1,30 +1,40 @@
 import React from 'react';
+<<<<<<< HEAD
 import {Link} from "react-router-dom"
 import Logo from '../img/pengeboran.jpg'; // Ganti dengan path logo Anda
 import Home from './home';
+=======
+>>>>>>> 38d099b8552313c7070c12768348ab6cb8d1e19c
 
 const Navbar = () => {
   return (
     <nav className="bg-white bg-opacity-80 shadow-md fixed w-full top-[5%] left-0 z-10 flex justify-between items-center p-4 rounded-full h-16">
       <div className="flex items-center">
-        <img src={Logo} alt="Logo Perusahaan" className="h-10 mr-2" /> {/* Logo */}
-        <div className="text-blue-600 text-2xl font-bold">Nama Perusahaan</div>
+        <img src="logo.png" alt="Logo" className="h-10 mr-2" /> 
+        <div className="text-blue-600 text-2xl font-bold"></div>
       </div>
-      <ul className="flex space-x-6">
+      <ul className="flex space-x-8 text-[#22467d] text-xl font-semibold font-['Poppins']">
         <li>
+<<<<<<< HEAD
           <Link to="/" className="text-black font-bold hover:text-blue-600">Profile</Link>
+=======
+          <a href="/"className="text-gray-700 font-semibold hover:text-blue-500">Profile</a>
+>>>>>>> 38d099b8552313c7070c12768348ab6cb8d1e19c
         </li>
         <li>
-          <a href="#sejarah" className="text-black font-bold hover:text-blue-600">Sejarah</a>
+          <a href="/sejarah" target="_blank" className="text-gray-700 font-semibold hover:text-blue-500">Sejarah</a>
         </li>
         <li>
-          <a href="#kegiatan" className="text-black font-bold hover:text-blue-600">Kegiatan</a>
+          <a href="/kegiatan" className="text-gray-700 font-semibold hover:text-blue-500">Kegiatan</a>
         </li>
         <li>
-          <a href="#artikel" className="text-black font-bold hover:text-blue-600">Artikel</a>
+          <a href="/artikel" className="text-gray-700 font-semibold hover:text-blue-500">Artikel</a>
         </li>
         <li>
-          <a href="#hubungi-kami" className="text-black font-bold hover:text-blue-600">Hubungi Kami</a>
+          <a href="/hubungikami" className="text-gray-700 font-semibold hover:text-blue-500">Hubungi Kami</a>
+        </li>
+        <li>
+          <a href="/tentang" className="text-gray-700 font-semibold hover:text-blue-500">Tentang Kami</a>
         </li>
       </ul>
       <div className="relative">
