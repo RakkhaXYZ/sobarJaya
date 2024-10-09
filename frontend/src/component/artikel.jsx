@@ -20,7 +20,7 @@ const Artikel = ()=> {
         <input
           type="text"
           placeholder="Cari..."
-          className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="p-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <button className="absolute right-0 top-0 mt-2 mr-2">
           <svg
@@ -42,6 +42,89 @@ const Artikel = ()=> {
                     </header>   
                     <br />
                     <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">ARTIKEL</div>
+                    <div className="flex justify-center p-4">
+                    <div className="w-3/4">
+                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="https://via.placeholder.com/234x173" />
+                                <div className="ml-4 w-3/4">
+                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
+                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
+                                    <div className="flex justify-between items-center mt-4">
+                                        <div className="flex items-center text-gray-500">
+                                            <i className="fas fa-calendar-alt mr-2"></i>
+                                            <span>Jumat</span>
+                                            <i className="fas fa-user ml-4 mr-2"></i>
+                                            <span>Admin</span>
+                                        </div>
+                                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">See More</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="https://via.placeholder.com/234x173" />
+                                <div className="ml-4 w-3/4">
+                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
+                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
+                                    <div className="flex justify-between items-center mt-4">
+                                        <div className="flex items-center text-gray-500">
+                                            <i className="fas fa-calendar-alt mr-2"></i>
+                                            <span>Jumat</span>
+                                            <i className="fas fa-user ml-4 mr-2"></i>
+                                            <span>Admin</span>
+                                        </div>
+                                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">See More</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="https://via.placeholder.com/234x173" />
+                                <div className="ml-4 w-3/4">
+                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
+                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
+                                    <div className="flex justify-between items-center mt-4">
+                                        <div className="flex items-center text-gray-500">
+                                            <i className="fas fa-calendar-alt mr-2"></i>
+                                            <span>Jumat</span>
+                                            <i className="fas fa-user ml-4 mr-2"></i>
+                                            <span>Admin</span>
+                                        </div>
+                                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">See More</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="https://via.placeholder.com/234x173" />
+                                <div className="ml-4 w-3/4">
+                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
+                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
+                                    <div className="flex justify-between items-center mt-4">
+                                        <div className="flex items-center text-gray-500">
+                                            <i className="fas fa-calendar-alt mr-2"></i>
+                                            <span>Jumat</span>
+                                            <i className="fas fa-user ml-4 mr-2"></i>
+                                            <span>Admin</span>
+                                        </div>
+                                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">See More</button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    
+                    <div className="w-1/4 ml-4">
+                        <div className="bg-white rounded-lg shadow-md p-4">
+                            <h3 className="text-lg font-bold mb-4">Artikel Lain</h3>
+                            <ul className="list-disc list-inside text-gray-600">
+                                <li>Gunung Sari Street Color</li>
+                                <li>Gunung Sari Street Color</li>
+                                <li>Gunung Sari Street Color</li>
+                                <li>Gunung Sari Street Color</li>
+                                <li>Gunung Sari Street Color</li>
+                                <li>Gunung Sari Street Color</li>
+                                <li>Gunung Sari Street Color</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                     <footer className="bg-blue-900 text-white py-12">
                 <div className="text-center mt-4">
                             <div className="flex justify-center space-x-2">

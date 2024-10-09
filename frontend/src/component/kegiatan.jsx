@@ -20,7 +20,7 @@ const Kegiatan = ()=> {
         <input
           type="text"
           placeholder="Cari..."
-          className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="p-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <button className="absolute right-0 top-0 mt-2 mr-2">
           <svg
