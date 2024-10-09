@@ -57,4 +57,15 @@ class ProfileController extends Controller
             'data' => $profilePerushaan
         ], 201);
     }
+
+    public function show($id)
+    {
+        $profile_perushaan = ProfilePerusahaan::with('team')->find($id);
+
+        if (!$profile_perushaan) {
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+        }
+
+        return response()->json($profile_perushaan);
+    }
 }

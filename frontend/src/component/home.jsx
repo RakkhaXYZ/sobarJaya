@@ -1,8 +1,45 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+
 import Navigator from './Navbar'; 
 import baground from '../img/bg.png';
 
+
 const Home = ()=> {
+    const [profileData, setProfileData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        // fungsi untuk mengaambil data dari api laravel
+
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:8000/api/Profile/1');
+                setProfileData(response.data);
+                setLoading(false);
+            } catch (error) {
+                setError('Terjadi Kesalahan saat mengambil data');
+                setLoading(false);
+                
+            }
+
+        };
+
+        fetchData();
+    }, []);
+
+    if(loading){
+        return <div>Loading....</div>
+    }
+
+    if(error){
+        return <div>{error}</div>
+    }
+
+    if(!profileData){
+        return <div>Data tidak ditemukan</div>
+    }
   return (
     <>
       <Navigator />
@@ -35,9 +72,9 @@ const Home = ()=> {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
                                 <div>
                                     <div className="text-white text-[40px] font-bold font-['Poppins']">VISI</div>
-                                    <div className="w-[545px] text-white text-2xl font-bold font-['Poppins']">SEBAGAI KONSULTAN DAN JASA DALAM BIDANG GEOTEKNIK YANG TERARAH DAN AMANAH</div>
+                                    <div className="w-[545px] text-white text-2xl font-bold font-['Poppins']">{profileData.visi}</div>
                                     <div className="w-[86px] text-white text-[40px] font-bold font-['Poppins']">MISI</div>
-                                    <div className="w-[560px] text-white text-base font-bold font-['Poppins']">MENJALANKAN USAHA GEOTEKNIK DENGAN MENYEDIAKAN SUMBER DAYA MANUSIA YANG BERKOMPETEN DI BIDANGNYA SERTA DIDUKUNG OLEH SARANA DAN PRASARANA YANG MEMADAI DEMI KEBERSHASILAN PEMBANGUNAN KONSTRUKSI BERDASARKAN TAHAPAN PENYELIDIKAN YANG AKURAT</div>
+                                    <div className="w-[560px] text-white text-base font-bold font-['Poppins']">{profileData.misi}</div>
                                     </div>
                                 <div>
                                     <img className="w-[661px] h-[391px] shadow" src="visi2.png" />
@@ -52,7 +89,7 @@ const Home = ()=> {
                                 <img src="https://ilmutambang.com/wp-content/uploads/2022/04/Pelajari-Yuk-6-Metode-Pengeboran-di-Industri-Pertambangan.jpg" alt="Article Image" className="w-full h-48 object-cover"/>
                                 <div className="p-4">
                                     <h3 className="text-xl font-bold">Lorem Ipsum</h3>
-                                    <p className="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget diam nec.</p>
+                                    <p className="mt-2 text-gray-600">{profileData.team.deskripsi_team}</p>
                                     <a href="#" className="mt-4 inline-block text-blue-500 hover:underline">Read more</a>
                                 </div>
                             </div>

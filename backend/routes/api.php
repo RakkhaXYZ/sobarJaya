@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlatController;
 use App\Http\Controllers\ProfileController;
+use App\Models\ProfilePerusahaan;
 use Illuminate\Support\Facades\Route;
 
 // Route untuk mendapatkan semua data alat
@@ -15,3 +16,4 @@ Route::post('/addAlat', [AlatController::class, 'store']);
 
 Route::post('/storeProfile', [ProfileController::class, 'store']);
 Route::get('/Profile', [ProfileController::class, 'index']);
+Route::get('/Profile/{id}', [ProfileController::class, 'show']);

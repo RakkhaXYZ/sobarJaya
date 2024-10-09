@@ -1,10 +1,9 @@
 import React from 'react';
-<<<<<<< HEAD
+
 import {Link} from "react-router-dom"
 import Logo from '../img/pengeboran.jpg'; // Ganti dengan path logo Anda
 import Home from './home';
-=======
->>>>>>> 38d099b8552313c7070c12768348ab6cb8d1e19c
+
 
 const Navbar = () => {
   return (
@@ -15,11 +14,8 @@ const Navbar = () => {
       </div>
       <ul className="flex space-x-8 text-[#22467d] text-xl font-semibold font-['Poppins']">
         <li>
-<<<<<<< HEAD
           <Link to="/" className="text-black font-bold hover:text-blue-600">Profile</Link>
-=======
           <a href="/"className="text-gray-700 font-semibold hover:text-blue-500">Profile</a>
->>>>>>> 38d099b8552313c7070c12768348ab6cb8d1e19c
         </li>
         <li>
           <a href="/sejarah" target="_blank" className="text-gray-700 font-semibold hover:text-blue-500">Sejarah</a>

@@ -15,8 +15,8 @@ class ProfilePerusahaan extends Model
     protected $fillable = ['id', 'visi', 'tentang_kami', 'foto_team', 'team_id', 'misi'];
 
 
-    public function profile_perusahaan()
+    public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'team_id');
     }
 }
