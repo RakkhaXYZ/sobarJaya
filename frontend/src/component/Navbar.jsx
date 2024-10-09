@@ -1,5 +1,7 @@
 import React from 'react';
+import {Link} from "react-router-dom"
 import Logo from '../img/pengeboran.jpg'; // Ganti dengan path logo Anda
+import Home from './home';
 
 const Navbar = () => {
   return (
@@ -10,7 +12,7 @@ const Navbar = () => {
       </div>
       <ul className="flex space-x-6">
         <li>
-          <a href="#profile" className="text-black font-bold hover:text-blue-600">Profile</a>
+          <Link to="/" className="text-black font-bold hover:text-blue-600">Profile</Link>
         </li>
         <li>
           <a href="#sejarah" className="text-black font-bold hover:text-blue-600">Sejarah</a>
