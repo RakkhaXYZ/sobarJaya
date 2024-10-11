@@ -45,7 +45,7 @@ const Artikel = ()=> {
                     <div className="flex justify-center p-4">
                     <div className="w-3/4">
                             <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="https://via.placeholder.com/234x173" />
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.png" />
                                 <div className="ml-4 w-3/4">
                                 <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
@@ -61,7 +61,7 @@ const Artikel = ()=> {
                                 </div>
                             </div>
                             <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="https://via.placeholder.com/234x173" />
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.png" />
                                 <div className="ml-4 w-3/4">
                                 <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
@@ -77,7 +77,7 @@ const Artikel = ()=> {
                                 </div>
                             </div>
                             <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="https://via.placeholder.com/234x173" />
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.png" />
                                 <div className="ml-4 w-3/4">
                                 <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
@@ -93,7 +93,7 @@ const Artikel = ()=> {
                                 </div>
                             </div>
                             <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="https://via.placeholder.com/234x173" />
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.png" />
                                 <div className="ml-4 w-3/4">
                                 <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>

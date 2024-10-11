@@ -5,8 +5,7 @@ import Navigator from './Navbar';
 const Sejarah = ()=> {
   return (
     <>
- 
-                    <header className="bg-blue-900 text-white py-4">
+            <header className="bg-blue-900 text-white py-4">
                         <div className="container mx-auto flex justify-between items-center">
                             <img src="logo.png" alt="Logo" className="h-10 mr-2"/>
                             <nav>
