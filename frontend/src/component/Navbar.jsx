@@ -1,24 +1,22 @@
 import React from 'react';
 
 import {Link} from "react-router-dom"
-import Logo from '../img/pengeboran.jpg'; // Ganti dengan path logo Anda
 import Home from './home';
 
 
 const Navbar = () => {
   return (
-    <nav className="bg-white bg-opacity-80 shadow-md fixed w-full top-[5%] left-0 z-10 flex justify-between items-center p-4 rounded-full h-16">
+    <nav className="bg-white shadow-md fixed w-800 top-[5%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-16">
       <div className="flex items-center">
-        <img src="logo.png" alt="Logo" className="h-10 mr-2" /> 
+        <img src="logo.png" alt="Logo" className="h-12 mr-2" /> 
         <div className="text-blue-600 text-2xl font-bold"></div>
       </div>
       <ul className="flex space-x-8 text-[#22467d] text-xl font-semibold font-['Poppins']">
         <li>
-          <Link to="/" className="text-black font-bold hover:text-blue-600">Profile</Link>
-          <a href="/"className="text-gray-700 font-semibold hover:text-blue-500">Profile</a>
+          <Link to="/" className="text-gray-700 font-semibold hover:text-blue-500">Profile</Link>
         </li>
         <li>
-          <a href="/sejarah" target="_blank" className="text-gray-700 font-semibold hover:text-blue-500">Sejarah</a>
+          <a href="/sejarah" className="text-gray-700 font-semibold hover:text-blue-500">Sejarah</a>
         </li>
         <li>
           <a href="/kegiatan" className="text-gray-700 font-semibold hover:text-blue-500">Kegiatan</a>
