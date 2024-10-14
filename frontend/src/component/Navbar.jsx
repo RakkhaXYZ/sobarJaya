@@ -13,7 +13,7 @@ const Navbar = () => {
       </div>
       <ul className="flex space-x-8 text-[#22467d] text-xl font-semibold font-['Poppins']">
         <li>
-          <Link to="/" className="text-gray-700 font-semibold hover:text-blue-500">Profile</Link>
+          <Link to="/" className="text-blue-600 font-semibold hover:text-blue-500">Profile</Link>
         </li>
         <li>
           <a href="/sejarah" className="text-gray-700 font-semibold hover:text-blue-500">Sejarah</a>

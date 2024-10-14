@@ -6,6 +6,7 @@ import Artikel from "./component/artikel";
 import Kegiatan from "./component/kegiatan";
 import HubungiKami from "./component/hubungikami";
 import TentangKami from "./component/tentang";
+import Kegiatan1 from "./component/kegiatan1";
 
 const AppContent = () => {
   return (
@@ -16,6 +17,8 @@ const AppContent = () => {
       <Route path="/kegiatan" element={<Kegiatan />} />
       <Route path="/hubungikami" element={<HubungiKami />} />
       <Route path="/tentang" element={<TentangKami />} />
+      <Route path="/kegiatan1" element={<Kegiatan1/>} />
+
     </Routes>
   );
 };

@@ -3,20 +3,33 @@ import React from 'react';
 const Artikel = ()=> {
   return (
     <>
-       <header className="bg-blue-900 text-white py-4">
-                        <div className="container mx-auto flex justify-between items-center">
-                            <img src="logo.png" alt="Company Logo" className="h-10 mr-2"/>
-                            <nav>
-                                <ul className="flex space-x-6">
-                                    <li><a href="/" className="hover:underline">Profile</a></li>
-                                    <li><a href="/sejarah" className="hover:underline">Sejarah</a></li>
-                                    <li><a href="/kegiatan" className="hover:underline">Kegiatan</a></li>
-                                    <li><a href="/artikel" className="hover:underline">Artikel</a></li>
-                                    <li><a href="/hubungikami" className="hover:underline">Hubungi Kami</a></li>
-                                    <li><a href="/tentang" className="hover:underline">Tentang Kami</a></li>
-                                </ul>
-                            </nav>
-                            <div className="relative">
+      <header>
+         <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-16">
+      <div className="flex items-center">
+        <img src="logo.png" alt="Logo" className="h-12 mr-2" /> 
+        <div className="text-white text-2xl font-bold"></div>
+      </div>
+      <ul className="flex space-x-8 text-[#22467d] text-xl font-semibold font-['Poppins']">
+        <li>
+          <a href="/" className="text-white font-semibold hover:text-blue-500">Profile</a>
+        </li>
+        <li>
+          <a href="/sejarah" className="text-white font-semibold hover:text-blue-500">Sejarah</a>
+        </li>
+        <li>
+          <a href="/kegiatan" className="text-white font-semibold hover:text-blue-500">Kegiatan</a>
+        </li>
+        <li>
+          <a href="/artikel" className="text-blue-600 font-semibold hover:text-blue-500">Artikel</a>
+        </li>
+        <li>
+          <a href="/hubungikami" className="text-white font-semibold hover:text-blue-500">Hubungi Kami</a>
+        </li>
+        <li>
+          <a href="/tentang" className="text-white font-semibold hover:text-blue-500">Tentang Kami</a>
+        </li>
+      </ul>
+      <div className="relative">
         <input
           type="text"
           placeholder="Cari..."
@@ -38,14 +51,17 @@ const Artikel = ()=> {
           </svg>
         </button>
       </div>
-                        </div>
-                    </header>   
+    </nav>
+    </header>   
+                    <br />
+                    <br />
+                    <br />
                     <br />
                     <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">ARTIKEL</div>
                     <div className="flex justify-center p-4">
                     <div className="w-3/4">
                             <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.png" />
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
                                 <div className="ml-4 w-3/4">
                                 <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
@@ -61,7 +77,7 @@ const Artikel = ()=> {
                                 </div>
                             </div>
                             <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.png" />
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
                                 <div className="ml-4 w-3/4">
                                 <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
@@ -77,7 +93,7 @@ const Artikel = ()=> {
                                 </div>
                             </div>
                             <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.png" />
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
                                 <div className="ml-4 w-3/4">
                                 <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
@@ -93,7 +109,7 @@ const Artikel = ()=> {
                                 </div>
                             </div>
                             <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.png" />
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
                                 <div className="ml-4 w-3/4">
                                 <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>

@@ -54,9 +54,6 @@ const Home = ()=> {
                             </div>
          </div>
          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 space-y-2">
-                           </div>
-         
-                           <div className="absolute right-4 top-1/2 transform -translate-y-1/2 space-y-2">
                               <a href="ig.png" className="block w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md">
                                 <i className="fab fa-instagram text-black" />
                               </a>
@@ -68,7 +65,9 @@ const Home = ()=> {
                               </a>
                             </div>
                             
-                        <section className="container mx-auto py-12 px-6 text-white bg-blue-900">
+                        
+                           
+                        <section className="bg-blue-900 text-white py-12 px-10 text-white">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
                                 <div>
                                     <div className="text-white text-[40px] font-bold font-['Poppins']">VISI</div>

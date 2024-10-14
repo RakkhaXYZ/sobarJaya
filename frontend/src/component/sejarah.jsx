@@ -5,20 +5,33 @@ import Navigator from './Navbar';
 const Sejarah = ()=> {
   return (
     <>
-            <header className="bg-blue-900 text-white py-4">
-                        <div className="container mx-auto flex justify-between items-center">
-                            <img src="logo.png" alt="Logo" className="h-10 mr-2"/>
-                            <nav>
-                                <ul className="flex space-x-6">
-                                    <li><a href="/" className="hover:underline">Profile</a></li>
-                                    <li><a href="/sejarah" className="hover:underline">Sejarah</a></li>
-                                    <li><a href="/kegiatan" className="hover:underline">Kegiatan</a></li>
-                                    <li><a href="/artikel" className="hover:underline">Artikel</a></li>
-                                    <li><a href="/hubungikami" className="hover:underline">Hubungi Kami</a></li>
-                                    <li><a href="/tentang" className="hover:underline">Tentang Kami</a></li>
-                                </ul>
-                            </nav>
-                            <div className="relative">
+    <header>
+         <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-16">
+      <div className="flex items-center">
+        <img src="logo.png" alt="Logo" className="h-12 mr-2" /> 
+        <div className="text-white text-2xl font-bold"></div>
+      </div>
+      <ul className="flex space-x-8 text-[#22467d] text-xl font-semibold font-['Poppins']">
+        <li>
+          <a href="/" className="text-white font-semibold hover:text-blue-500">Profile</a>
+        </li>
+        <li>
+          <a href="/sejarah" className="text-blue-600 font-semibold hover:text-blue-500">Sejarah</a>
+        </li>
+        <li>
+          <a href="/kegiatan" className="text-white font-semibold hover:text-blue-500">Kegiatan</a>
+        </li>
+        <li>
+          <a href="/artikel" className="text-white font-semibold hover:text-blue-500">Artikel</a>
+        </li>
+        <li>
+          <a href="/hubungikami" className="text-white font-semibold hover:text-blue-500">Hubungi Kami</a>
+        </li>
+        <li>
+          <a href="/tentang" className="text-white font-semibold hover:text-blue-500">Tentang Kami</a>
+        </li>
+      </ul>
+      <div className="relative">
         <input
           type="text"
           placeholder="Cari..."
@@ -40,10 +53,14 @@ const Sejarah = ()=> {
           </svg>
         </button>
       </div>
-                        </div>
-                    </header>
-                    <main className="container mx-auto my-8">
-                        <div className="bg-white shadow-md rounded-lg overflow-hidden">
+    </nav>
+    </header>
+    <br />
+    <br />
+    <br />
+    <br />
+                    <main className="container mx-auto my-5">
+                        <div className="bg-white shadow-md rounded-lg overflow-hidden ">
                             <img src="sejarah 1.png" alt="Foto Sejarah" className="w-full"/>
                             <div className="p-6">
                                 <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">SEJARAH</div>                           
