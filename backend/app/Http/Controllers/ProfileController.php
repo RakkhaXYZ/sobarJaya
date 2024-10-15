@@ -19,8 +19,7 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
-        // Tambahkan Log sebelum validasi
-        Log::info('Data request:', $request->all());
+
         $request->validate([
             'visi' => 'required|string',
             'tentang_kami' => 'required|string|max:255',
