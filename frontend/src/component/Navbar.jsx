@@ -16,19 +16,19 @@ const Navbar = () => {
           <Link to="/" className="text-blue-600 font-semibold hover:text-blue-500">Profile</Link>
         </li>
         <li>
-          <a href="/sejarah" className="text-gray-700 font-semibold hover:text-blue-500">Sejarah</a>
+          <a href="/sejarah" className="text-blue-900 font-semibold hover:text-blue-500">Sejarah</a>
         </li>
         <li>
-          <a href="/kegiatan" className="text-gray-700 font-semibold hover:text-blue-500">Kegiatan</a>
+          <a href="/kegiatan" className="text-blue-900 font-semibold hover:text-blue-500">Kegiatan</a>
         </li>
         <li>
-          <a href="/artikel" className="text-gray-700 font-semibold hover:text-blue-500">Artikel</a>
+          <a href="/artikel" className="text-blue-900 font-semibold hover:text-blue-500">Artikel</a>
         </li>
         <li>
-          <a href="/hubungikami" className="text-gray-700 font-semibold hover:text-blue-500">Hubungi Kami</a>
+          <a href="/hubungikami" className="text-blue-900 font-semibold hover:text-blue-500">Hubungi Kami</a>
         </li>
         <li>
-          <a href="/tentang" className="text-gray-700 font-semibold hover:text-blue-500">Tentang Kami</a>
+          <a href="/tentang" className="text-blu3-900 font-semibold hover:text-blue-500">Tentang Kami</a>
         </li>
       </ul>
       <div className="relative">
