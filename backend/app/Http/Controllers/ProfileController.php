@@ -57,6 +57,67 @@ class ProfileController extends Controller
         ], 201);
     }
 
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'visi' => 'required|string',
+            'tentang_kami' => 'required|string',
+            'foto_team' => 'nullable|image|mimes:jpeg,jpg,png|max:10000',
+            'misi' => 'required|string',
+            'deskripsi_team' => 'required|string',
+        ]);
+
+        Log::info('Validated request data:', $request->all());
+
+        // ambil data profile berdasarkan ID
+        $profilePerusahaan = ProfilePerusahaan::findOrFail($id);
+
+        //ambil data team terkait dengan profile_perusahaan
+        $team = Team::findOrFail($profilePerusahaan->team_id);
+        $team->update([
+            'deskripsi_team' => $request->deskripsi_team
+        ]);
+
+        // // Log team setelah update
+        // Log::info('Data team setelah update:', $team->toArray());
+
+        if ($request->hasFile('foto_team')) {
+            // Hapus File lama jika ada 
+            if ($profilePerusahaan->foto_team && file_exists(storage_path('app/public/team/' . $profilePerusahaan->foto_team))) {
+                unlink(storage_path('app/public/team/' . $profilePerusahaan->foto_team));
+            }
+
+            $fotoPath = $request->file('foto_team')->storeAs('public/team', $request->file('foto_team')->hashName());
+            $profilePerusahaan->foto_team = basename($fotoPath);
+        }
+
+        // simpan file baru 
+
+
+
+
+        // update data ProfilePerusahaan
+
+        $profilePerusahaan->update([
+            'visi' => $request->visi,
+            'tentang_kami' => $request->tentang_kami,
+            'misi' => $request->misi,
+            'foto_team' => $profilePerusahaan->foto_team,
+        ]);
+
+        // Log data profile setelah update
+        // Log::info('Data profile setelah update:', $profilePerusahaan->toArray());
+
+
+
+
+        return response()->json([
+            'message' => 'Data Profile Perusahaan dan Team berhasil diperbarui',
+            'data' => $profilePerusahaan
+        ], 200);
+    }
+
     public function show($id)
     {
         $profile_perushaan = ProfilePerusahaan::with('team')->find($id);

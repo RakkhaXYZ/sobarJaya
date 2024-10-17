@@ -19,6 +19,8 @@ Route::post('/addAlat', [AlatController::class, 'store']);
 Route::post('/storeProfile', [ProfileController::class, 'store']);
 Route::get('/Profile', [ProfileController::class, 'index']);
 Route::get('/Profile/{id}', [ProfileController::class, 'show']);
+Route::post('/updateProfile/{id}', [ProfileController::class, 'update']);
+
 
 // sejarah 
 Route::post('/storeSejarah', [SejarahController::class, 'storeSejarah']);
