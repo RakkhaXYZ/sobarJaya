@@ -1,8 +1,10 @@
 import React from 'react';
+import BackToTop from './BackToTop';
 
 const Kegiatan = ()=> {
   return (
     <>
+    <BackToTop />
    <header>
          <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-16">
       <div className="flex items-center">
@@ -163,10 +165,10 @@ const Kegiatan = ()=> {
                         </div>
                     <div className="flex justify-end mt-4 space-x-4">
                         <p>Follow Us</p>
-                        <i className="fab fa-facebook-f"></i>
-                        <i className="fab fa-twitter"></i>
-                        <i className="fab fa-instagram"></i>
-                        <i className="fab fa-youtube"></i>
+                        <a href="#" className="text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-youtube"></i></a>
                     </div>
                     <br>
                         </br>

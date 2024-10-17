@@ -67,10 +67,27 @@ const Artikel = ()=> {
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
                                     <div className="flex justify-between items-center mt-4">
                                         <div className="flex items-center text-gray-500">
-                                            <i className="fas fa-calendar-alt mr-2"></i>
-                                            <span>Jumat</span>
-                                            <i className="fas fa-user ml-4 mr-2"></i>
+                                            <i className="fas fa-user mr-2"></i>
                                             <span>Admin</span>
+                                            <br />
+                                            <i className="fas fa-calendar-alt ml-4 mr-2"></i>
+                                            <span>01 Januari 2024</span>
+                                        </div>
+                                        <a href="/artikel1"><button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
+                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
+                                <div className="ml-4 w-3/4">
+                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
+                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
+                                    <div className="flex justify-between items-center mt-4">
+                                        <div className="flex items-center text-gray-500">
+                                            <i className="fas fa-user mr-2"></i>
+                                            <span>Admin</span>
+                                            <i className="fas fa-calendar-alt ml-4 mr-2"></i>
+                                            <span>01 Januari 2024</span>
                                         </div>
                                         <button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button>
                                     </div>
@@ -83,10 +100,10 @@ const Artikel = ()=> {
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
                                     <div className="flex justify-between items-center mt-4">
                                         <div className="flex items-center text-gray-500">
-                                            <i className="fas fa-calendar-alt mr-2"></i>
-                                            <span>Jumat</span>
-                                            <i className="fas fa-user ml-4 mr-2"></i>
+                                            <i className="fas fa-user mr-2"></i>
                                             <span>Admin</span>
+                                            <i className="fas fa-calendar-alt ml-4 mr-2"></i>
+                                            <span>01 Januari 2024</span>
                                         </div>
                                         <button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button>
                                     </div>
@@ -99,26 +116,11 @@ const Artikel = ()=> {
                                 <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
                                     <div className="flex justify-between items-center mt-4">
                                         <div className="flex items-center text-gray-500">
-                                            <i className="fas fa-calendar-alt mr-2"></i>
-                                            <span>Jumat</span>
-                                            <i className="fas fa-user ml-4 mr-2"></i>
+                                            <i className="fas fa-user mr-2"></i>
                                             <span>Admin</span>
-                                        </div>
-                                        <button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
-                                <div className="ml-4 w-3/4">
-                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
-                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
-                                    <div className="flex justify-between items-center mt-4">
-                                        <div className="flex items-center text-gray-500">
-                                            <i className="fas fa-calendar-alt mr-2"></i>
-                                            <span>Jumat</span>
-                                            <i className="fas fa-user ml-4 mr-2"></i>
-                                            <span>Admin</span>
+                                            <i className="fas fa-calendar-alt ml-4 mr-2"></i>
+                                            <span>01 Januari 2024</span>
+                                            
                                         </div>
                                         <button className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg">Selengkapnya</button>
                                     </div>
@@ -189,11 +191,11 @@ const Artikel = ()=> {
                         </div>
                     <div className="flex justify-end mt-4 space-x-4">
                         <p>Follow Us</p>
-                        <i className="fab fa-facebook-f"></i>
-                        <i className="fab fa-twitter"></i>
-                        <i className="fab fa-instagram"></i>
-                        <i className="fab fa-youtube"></i>
-                    </div>
+                        <a href="#" className="text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-youtube"></i></a>
+                      </div>
                     <br>
                         </br>
                         <div className="w-[1192.02px] h-[0px] border border-white"></div>

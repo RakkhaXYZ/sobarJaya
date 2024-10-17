@@ -1,4 +1,5 @@
 import React from 'react';
+import BackToTop from './BackToTop';
 
 const TentangKami = ()=> {
   
@@ -22,7 +23,9 @@ const TentangKami = ()=> {
         alt: "photo"
     }
 ];return (
+    
     <>
+    <BackToTop/>
   <header>
          <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-16">
       <div className="flex items-center">
@@ -101,16 +104,56 @@ const TentangKami = ()=> {
                 </div>
                 <br />
                 <br />
-                <div>
-                <img className="w-[1400px] h-[800px] shadow" src="quotes1.JPG" />
-                <br />
-                <img className="w-[1400px] h-[822px]" src="quotes2.JPG" />
-                <br />
-                <img className="w-[1400px] h-[822px]" src="quotes3.JPG" />
-                <br />
-                <img className="w-[1400px] h-[822px]" src="quotes4.JPG" />
-                <br />
+                <div class="relative">
+                    <img src="quotes1.jpg" alt="direktur" class="w-full h-auto object-cover" />
+                    <div class="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
+                        <div class="flex justify-end">
+                            <div class="w-[653px] text-white text-3xl font-bold font-['Poppins']">
+                                “BEKERJA DENGAN SUNGGUH – SUNGGUH DENGAN HATI YANG TULUS, AMANAH TERCAPAI HASILPUN MAKSIMAL.”
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-start left-3">
+                          <div class="text-white text-[40px] font-bold font-['Poppins']">MUHARDIKA, S.T</div>
+                          <div class="w-[374px] h-[0px] border-8 border-white"></div>
+                      </div>
+                    </div>
                 </div>
+                <br />
+                <div class="relative">
+                    <img src="quotes2.jpg" alt="wakil direktur" class="w-full h-auto object-cover" />
+                    <div class="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
+                        <div class="flex justify-start">
+                            <div class="w-[653px] text-white text-3xl font-bold font-['Poppins']">
+                              “BERANI MELANGKAH DENGAN TEKAT YANG KUAT AGAR KESUKSESAN TERCAPAI SESUAI KEINGINAN.”
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-start">
+                          <div class="text-white text-[40px] font-bold font-['Poppins']">MUHAMMAD SOBAR, S.T</div>
+                          <div class="w-[480px] h-[0px] border-8 border-white"></div>
+                      </div>
+                    </div>
+                </div>
+                <br />
+                <div class="relative">
+                    <img src="quotes3.jpg" alt="penasihat" class="w-full h-auto object-cover" />
+                    <div class="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
+                        <div class="flex justify-start">
+                            <div class="w-[653px] text-white text-3xl font-bold font-['Poppins']">
+                             “AMANAH YANG TERSAMPAIKAN MEMBUAT TUJUAN PEKERJAAN MENJADI IBADAH.”
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <div class="text-white text-[40px] font-bold font-['Poppins']">IR. MUKINI MANAN, S.ENG</div>
+                            <div class="w-[480px] h-[0px] border-8 border-white"></div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div>
+                <img src="quotes4.jpg" alt="penasihat" class="w-full h-auto object-cover" />
+
+                </div>
+                <br />
                 <footer>
                     <div className="bg-blue-900 text-white p-9">
                     <div className="flex justify-between items-start">
@@ -159,10 +202,10 @@ const TentangKami = ()=> {
                         </div>
                     <div className="flex justify-end mt-4 space-x-4">
                         <p>Follow Us</p>
-                        <i className="fab fa-facebook-f"></i>
-                        <i className="fab fa-twitter"></i>
-                        <i className="fab fa-instagram"></i>
-                        <i className="fab fa-youtube"></i>
+                        <a href="#" className="text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-youtube"></i></a>
                     </div>
                     <br>
                         </br>
