@@ -60,6 +60,7 @@ const Home = ()=> {
             alt: "photo"
         }
     ];
+    
   return (
     <>
       <Navigator />
@@ -74,7 +75,7 @@ const Home = ()=> {
                             <div className="text-white text-8xl font-bold font-['Poppins']">CV. SOBAR JAYA</div>                                
                             <div className="w-[508px] text-white text-2xl font-bold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ullamcorper.</div>                            
                             <button className="mt-6 px-6 py-3 bg-blue-900 text-white rounded-full flex items-center">
-                            <span>CONTACT US</span>
+                            <span><div className="font-bold">CONTACT US</div></span>
                             <i className="fas fa-arrow-right ml-2"></i>
                         </button>
                             </div>

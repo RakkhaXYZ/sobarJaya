@@ -8,6 +8,9 @@ import HubungiKami from "./component/hubungikami";
 import TentangKami from "./component/tentang";
 import Kegiatan1 from "./component/kegiatan1";
 import Artikel1 from "./component/artikel1";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 const AppContent = () => {
   return (
     <Routes>
