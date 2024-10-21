@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alat;
+
 use App\Models\ProfilePerusahaan;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
         $fotoPath = null;
         if ($request->hasFile('foto_team')) {
-            $fotoPath = $request->file('foto_team')->storeAs('public/team', $request->file('foto_team')->hashName());
+            $fotoPath = $request->file('foto_team')->storeAs('public/artikel', $request->file('foto_team')->hashName());
         }
 
         // menyimpan ke tabel profile_perusahaan

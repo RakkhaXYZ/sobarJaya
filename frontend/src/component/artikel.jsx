@@ -1,6 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 const Artikel = ()=> {
+
+  const [artikels, setArtikel] = useState([]);
+
+  useEffect(()=>{
+    // fetch data from backend
+
+    fetch('http://localhost:8000/api/Artikel')
+    .then((response)=> response.json())
+    .then((data)=> {
+      setArtikel(data);
+    })
+
+    .catch((error)=> {
+      console.log('Error Fetching aticles:', error);
+    });
+  }, []);
   return (
     <>
       <header>
@@ -60,72 +76,28 @@ const Artikel = ()=> {
                     <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">ARTIKEL</div>
                     <div className="flex justify-center p-4">
                     <div className="w-3/4">
-                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
-                                <div className="ml-4 w-3/4">
-                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
-                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
-                                    <div className="flex justify-between items-center mt-4">
-                                        <div className="flex items-center text-gray-500">
-                                            <i className="fas fa-user mr-2"></i>
-                                            <span>Admin</span>
-                                            <br />
-                                            <i className="fas fa-calendar-alt ml-4 mr-2"></i>
-                                            <span>01 Januari 2024</span>
-                                        </div>
-                                        <a href="/artikel1"><button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button></a>
+                    {artikels.map((artikel, index)=>(
+                        <div key={index} className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
+                        <img className="w-[234px] h-[173px] rounded-[20px] shadow" src={artikel.foto} />
+                            <div className="ml-4 w-3/4">
+                            <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">{artikel.judul}</div>
+                            <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">{artikel.deskripsi}</div>
+                                <div className="flex justify-between items-center mt-4">
+                                    <div className="flex items-center text-gray-500">
+                                        <i className="fas fa-user mr-2"></i>
+                                        <span>Admin</span>
+                                        <br />
+                                        <i className="fas fa-calendar-alt ml-4 mr-2"></i>
+                                        <span>{artikel.waktu_kegiatan}</span>
                                     </div>
+                                    <a href="/artikel1"><button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button></a>
                                 </div>
                             </div>
-                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
-                                <div className="ml-4 w-3/4">
-                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
-                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
-                                    <div className="flex justify-between items-center mt-4">
-                                        <div className="flex items-center text-gray-500">
-                                            <i className="fas fa-user mr-2"></i>
-                                            <span>Admin</span>
-                                            <i className="fas fa-calendar-alt ml-4 mr-2"></i>
-                                            <span>01 Januari 2024</span>
-                                        </div>
-                                        <button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
-                                <div className="ml-4 w-3/4">
-                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
-                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
-                                    <div className="flex justify-between items-center mt-4">
-                                        <div className="flex items-center text-gray-500">
-                                            <i className="fas fa-user mr-2"></i>
-                                            <span>Admin</span>
-                                            <i className="fas fa-calendar-alt ml-4 mr-2"></i>
-                                            <span>01 Januari 2024</span>
-                                        </div>
-                                        <button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-white rounded-lg shadow-md p-4 mb-4 flex">
-                            <img className="w-[234px] h-[173px] rounded-[20px] shadow" src="kegiatan2.jpeg" />
-                                <div className="ml-4 w-3/4">
-                                <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
-                                <div className="w-[491px] text-[#3c3c3c] text-lg font-semibold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla....</div>
-                                    <div className="flex justify-between items-center mt-4">
-                                        <div className="flex items-center text-gray-500">
-                                            <i className="fas fa-user mr-2"></i>
-                                            <span>Admin</span>
-                                            <i className="fas fa-calendar-alt ml-4 mr-2"></i>
-                                            <span>01 Januari 2024</span>
-                                            
-                                        </div>
-                                        <button className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg">Selengkapnya</button>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+
+                    ))}
+                          
+                           
                     </div>
                     
                     <div className="w-1/4 ml-4">
