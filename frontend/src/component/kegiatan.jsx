@@ -1,8 +1,10 @@
 import React from 'react';
+import BackToTop from './BackToTop';
 
 const Kegiatan = ()=> {
   return (
     <>
+    <BackToTop />
    <header>
          <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-16">
       <div className="flex items-center">
@@ -115,45 +117,67 @@ const Kegiatan = ()=> {
                         </div>
                     </div>
                 </div>
-
-                    <footer className="bg-blue-900 text-white py-12">
-                <div className="text-center mt-4">
-                            <div className="flex justify-center space-x-2">
-                                <span className="h-8 w-8 bg-white rounded-full inline-block"></span>
-                                <span className="h-8 w-8 bg-white rounded-full inline-block"></span>
-                                <span className="h-8 w-8 bg-white rounded-full inline-block"></span>
-                            </div>
-                        </div>
-                    <div className="container mx-auto px-4">
-                        <div className="flex justify-between">
-                            <div>
-                                <div className="text-white text-[32px] font-bold font-['Poppins']">CV. SOBAR JAYA</div>                               
+                <footer>
+                    <div className="bg-blue-900 text-white p-9">
+                    <div className="flex justify-between items-start">
+                        <div className="flex items-start">
+                        <img className="w-[77px] h-16" src="logo.png" alt="logo"/>                            
+                        <div>
+                        <div className="text-white text-[42px] font-bold font-['Poppins'] ">CV. SOBAR JAYA</div> 
+                        <br />                              
                                 <div className="text-white text-xl font-semibold font-['Poppins']">ALAMAT :JLN. CIBEUNYING PERMAI V NO. 7 CIGADUNG
                                 <br/>BANDUNG 40191 INDONESIA</div>
                                 <div className="text-white text-xl font-semibold font-['Poppins']">PHONE :<br/>+ 0123-4567-8910</div>
                                 <div className="text-white text-xl font-semibold font-['Poppins']">EMAIL :<br/>E.MAILKAMI@EMAIL.COM</div>
-                                    </div>
-                            <div>
-                                <h3 className="text-white text-xl font-medium font-['Poppins']"></h3>
-                                <ul className="mt-4 space-y-2">
-                                    <li><a href="/" className="hover:underline">Profile</a></li>
-                                    <li><a href="/sejarah" className="hover:underline">Sejarah</a></li>
-                                    <li><a href="/kegiatan" className="hover:underline">Kegiatan</a></li>
-                                    <li><a href="/artikel" className="hover:underline">Artikel</a></li>
-                                    <li><a href="/hubungikami" className="hover:underline">Hubungi Kami</a></li>
-                                    <li><a href="/tentang" className="hover:underline">Tentang Kami</a></li>
-                                </ul>
-                                <br></br>
-                                <img className="w-[77px] h-16" src="logo.png" alt="logo"/>                            </div>
-                            
+                            </div>
                         </div>
-                        <br>
+                        <div className="flex-grow border-l border-white mx-8"></div>
+                        <div className="flex space-x-16">
+                            <div>
+                            <div className="text-white text-2xl font-bold font-['Poppins']">Company</div>
+                            <br />
+                            <div className="text-white text-xl font-normal font-['Poppins']">Kegiatan</div>
+                            <div className="text-white text-xl font-normal font-['Poppins']">Tentang Kami</div>
+                            <div className="text-white text-xl font-normal font-['Poppins']">Sejarah</div>
+                            </div>
+                            <div>
+                            <div className="text-white text-2xl font-bold font-['Poppins']">Costumer Service</div>
+                            <br />
+                            <div className="text-white text-xl font-normal font-['Poppins']">Hubungi Kami</div>
+                            </div>
+                            <div>
+                            <div className="text-white text-2xl font-bold font-['Poppins']">Content</div>
+                            <br />
+                            <div className="text-white text-xl font-normal font-['Poppins']">Artikel</div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                       
+                    </div>
+                    <div className="flex items-right justify-end right-50 ">
+                            <input type="text" placeholder=" " className="p-2 rounded relative top-[-3rem]">
+                            </input>
+                            <button className="bg-blue-700 p-2 rounded relative top-[-3rem] ">Cari
+                           
+                            </button>
+                        </div>
+                    <div className="flex justify-end mt-4 space-x-4">
+                        <p>Follow Us</p>
+                        <a href="#" className="text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <br>
                         </br>
                         <div className="w-[1192.02px] h-[0px] border border-white"></div>
                         <div className="mt-8 text-center">
-                            <p>Copyright 2024 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>Copyright 2024 © CV. Sobar Jaya Kota Bandung</p>
                         </div>
-                    </div>
+                </div>
+               
                 </footer>
     </>
           
