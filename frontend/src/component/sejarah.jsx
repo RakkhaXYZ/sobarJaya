@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigator from './Navbar'; 
 import BackToTop from './BackToTop';
 
 
