@@ -8,38 +8,53 @@ const Sejarah = ()=> {
     <>
       <BackToTop />
     <header>
-         <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-16">
+         <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-18">
       <div className="flex items-center">
         <img src="logo.png" alt="Logo" className="h-12 mr-2" /> 
         <div className="text-white text-2xl font-bold"></div>
       </div>
-      <ul className="flex space-x-8 text-[#22467d] text-xl font-semibold font-['Poppins']">
+      <ul className="flex space-x-6 text-[#22467d] text-xl font-semibold font-['Poppins']">
         <li>
           <a href="/" className="text-white font-semibold hover:text-blue-500">Profile</a>
+        </li>
+        <li>
+          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
         </li>
         <li>
           <a href="/sejarah" className="text-blue-600 font-semibold hover:text-blue-500">Sejarah</a>
         </li>
         <li>
+          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
+        </li>
+        <li>
           <a href="/kegiatan" className="text-white font-semibold hover:text-blue-500">Kegiatan</a>
+        </li>
+        <li>
+          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
         </li>
         <li>
           <a href="/artikel" className="text-white font-semibold hover:text-blue-500">Artikel</a>
         </li>
         <li>
+          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
+        </li>
+        <li>
           <a href="/hubungikami" className="text-white font-semibold hover:text-blue-500">Hubungi Kami</a>
+        </li>
+        <li>
+          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
         </li>
         <li>
           <a href="/tentang" className="text-white font-semibold hover:text-blue-500">Tentang Kami</a>
         </li>
       </ul>
-      <div className="relative">
+      <div className="relative ">
         <input
           type="text"
           placeholder="Cari..."
-          className="p-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className=" w-32 h-[35px] p-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 mr-28"
         />
-        <button className="absolute right-0 top-0 mt-2 mr-2">
+        <button className="absolute right-0 top-0 mt-2 mr-28">
           <svg
             className="h-5 w-5 text-gray-500"
             fill="none"
@@ -55,8 +70,10 @@ const Sejarah = ()=> {
           </svg>
         </button>
       </div>
+      <a href="/login"><div className="absolute right-16 top-6 w-[84px] h-[35px] bg-white rounded-[10px]"><div className=" absolute top-1 right-5 text-blue-900 text-base font-semibold font-['Poppins']">Login</div></div></a>
     </nav>
     </header>
+    <br />
     <br />
     <br />
     <br />

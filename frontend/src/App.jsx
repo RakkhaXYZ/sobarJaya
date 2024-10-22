@@ -10,6 +10,7 @@ import Kegiatan1 from "./component/kegiatan1";
 import Artikel1 from "./component/artikel1";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Login from "./component/login";
 
 const AppContent = () => {
   return (
@@ -22,7 +23,7 @@ const AppContent = () => {
       <Route path="/tentang" element={<TentangKami />} />
       <Route path="/kegiatan1" element={<Kegiatan1/>} />
       <Route path="/artikel1" element={<Artikel1/>} />
-
+      <Route path="/login" element={<Login/>} />
     </Routes>
   );
 };

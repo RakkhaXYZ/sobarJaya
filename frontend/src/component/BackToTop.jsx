@@ -13,7 +13,8 @@ function BackToTop() {
       onClick={(handleClick)}
     >
       <div className="w-16 h-16 relative">
-        <div className="w-16 h-16 left-0 top-0 absolute bg-white/50 rounded-full shadow" />
+        <div className="w-16 h-16 left-0 top-0 absolute bg-white rounded-full shadow" />
+        <div className="absolute"><img src="arrow.png" alt=""  /></div>
     </div>
     </button>
   );
