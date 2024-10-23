@@ -41,6 +41,7 @@ class SejarahController extends Controller
                 "message" => "data tidak ditemukan",
             ], 404);
         }
+        $sejarah->foto = asset('storage/sejarah/' . $sejarah->foto);
 
         return response()->json($sejarah);
     }
