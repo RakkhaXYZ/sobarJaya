@@ -20,12 +20,9 @@ const Home = ()=> {
                 setLoading(false);
             } catch (error) {
                 setError('Terjadi Kesalahan saat mengambil data');
-                setLoading(false);
-                
+                setLoading(false);                
             }
-
         };
-
         fetchData();
     }, []);
 
@@ -66,17 +63,16 @@ const Home = ()=> {
       <Navigator />
       <BackToTop />
       <div
-        className="relative h-screen bg-cover bg-center"
+        className=" h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${baground})` }}
       >
-        <div className="absolute top-0 left-0 w-16 h-16 bg-white"></div>
-        
-                            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-left">
+        <br />        
+                            <div className="absolute top-64 left-28">
                             <div className="text-white text-8xl font-bold font-['Poppins']">CV. SOBAR JAYA</div>                                
                             <div className="w-[508px] text-white text-2xl font-bold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ullamcorper.</div>                            
                             <button className="mt-6 px-6 py-3 bg-blue-900 text-white rounded-full flex items-center">
-                            <span><div className="font-bold">CONTACT US</div></span>
-                            <i className="fas fa-arrow-right ml-2"></i>
+                            <a href="/hubungikami"><span><div className="font-bold">CONTACT US</div></span></a>
+                            <a href="/hubungikami"><i className="fas fa-arrow-right ml-2"></i></a>
                         </button>
                             </div>
                      </div>   
@@ -91,6 +87,7 @@ const Home = ()=> {
                                 <div>
                                     <img className="w-[661px] h-[391px] shadow" src="visi2.png" />
                                     </div>
+                                    
                             </div>
                         </section>
                         <section className="bg-gray-100 py-12">
@@ -175,7 +172,6 @@ const Home = ()=> {
                         <div class="text-white text-xl font-semibold font-['Poppins']">EMAIL :<br/>E.MAILKAMI@EMAIL.COM</div>
                     </div>
                 </div>
-
                 <div class="flex-grow border-l border-white mx-8"></div>
                 <div class="flex space-x-16">
                     <div>
@@ -225,9 +221,6 @@ const Home = ()=> {
     </footer>
   
     </>
-          
-
   );
 }
-
 export default Home;

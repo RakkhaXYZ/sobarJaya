@@ -6,38 +6,53 @@ import Home from './home';
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-md fixed w-800 top-[5%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-16">
+    <nav className="bg-white shadow-md fixed w-800 top-[5%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-18">
       <div className="flex items-center">
         <img src="logo.png" alt="Logo" className="h-12 mr-2" /> 
         <div className="text-blue-600 text-2xl font-bold"></div>
       </div>
-      <ul className="flex space-x-8 text-[#22467d] text-xl font-semibold font-['Poppins']">
+      <ul className="flex space-x-6 text-[#22467d] text-xl font-semibold font-['Poppins']">
         <li>
           <Link to="/" className="text-blue-600 font-semibold hover:text-blue-500">Profile</Link>
+        </li>
+        <li>
+          <a href="" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
         </li>
         <li>
           <a href="/sejarah" className="text-blue-900 font-semibold hover:text-blue-500">Sejarah</a>
         </li>
         <li>
+          <a href="" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
+        </li>
+        <li>
           <a href="/kegiatan" className="text-blue-900 font-semibold hover:text-blue-500">Kegiatan</a>
+        </li>
+        <li>
+          <a href="" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
         </li>
         <li>
           <a href="/artikel" className="text-blue-900 font-semibold hover:text-blue-500">Artikel</a>
         </li>
         <li>
+          <a href="" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
+        </li>
+        <li>
           <a href="/hubungikami" className="text-blue-900 font-semibold hover:text-blue-500">Hubungi Kami</a>
         </li>
         <li>
-          <a href="/tentang" className="text-blu3-900 font-semibold hover:text-blue-500">Tentang Kami</a>
+          <a href="" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
+        </li>
+        <li>
+          <a href="/tentang" className="text-blue-900 font-semibold hover:text-blue-500">Tentang Kami</a>
         </li>
       </ul>
-      <div className="relative">
+      <div className="relative ">
         <input
           type="text"
           placeholder="Cari..."
-          className="p-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className=" w-32 h-[35px] p-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 mr-28"
         />
-        <button className="absolute right-0 top-0 mt-2 mr-2">
+        <button className="absolute right-0 top-0 mt-2 mr-28">
           <svg
             className="h-5 w-5 text-gray-500"
             fill="none"
@@ -53,6 +68,8 @@ const Navbar = () => {
           </svg>
         </button>
       </div>
+      <a href="/login"><div className="absolute right-16 top-6 w-[84px] h-[35px] bg-[#22467d] rounded-[10px]"><div className=" absolute top-1 right-5 text-white text-base font-semibold font-['Poppins']">Login</div></div></a>
+
     </nav>
   );
 }
