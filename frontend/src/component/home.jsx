@@ -82,10 +82,10 @@ const Home = ()=> {
                                     <div className="text-white text-[40px] font-bold font-['Poppins']">VISI</div>
                                     <div className="w-[545px] text-white text-2xl font-bold font-['Poppins']">{profileData.visi}</div>
                                     <div className="w-[86px] text-white text-[40px] font-bold font-['Poppins']">MISI</div>
-                                    <div className="w-[560px] text-white text-base font-bold font-['Poppins']">{profileData.misi}</div>
+                                    <div className="w-[560px] text-white text-base font-bold font-['Poppins']">{profileData.misi} </div>
                                     </div>
                                 <div>
-                                    <img className="w-[661px] h-[391px] shadow" src="visi2.png" />
+                                    <img className="w-[661px] h-[391px] shadow" src={profileData.foto_team} />
                                     </div>
                                     
                             </div>
