@@ -188,7 +188,7 @@ const TentangKami = ()=> {
                         <div className="flex space-x-16">
                             <div>
                             <div className="text-white text-2xl font-bold font-['Poppins']">Company</div>
-                            <br />
+                                                                                                                <br />
                             <div className="text-white text-xl font-normal font-['Poppins']">Kegiatan</div>
                             <div className="text-white text-xl font-normal font-['Poppins']">Tentang Kami</div>
                             <div className="text-white text-xl font-normal font-['Poppins']">Sejarah</div>
