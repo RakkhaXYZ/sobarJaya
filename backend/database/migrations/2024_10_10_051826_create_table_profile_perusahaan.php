@@ -12,19 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('profile_perusahaan', function (Blueprint $table) {
-
             $table->id();
             $table->text('visi');
             $table->text('tentang_kami');
             $table->text('misi');
             $table->string('foto_team');
-            $table->unsignedBigInteger('team_id');
+            $table->unsignedBigInteger('team_id'); // Kolom team_id sebagai foreign key
             $table->timestamps();
         });
 
+        // Definisikan foreign key
         Schema::table('profile_perusahaan', function (Blueprint $table) {
             $table->foreign('team_id')
-                ->references('id')->id('team')
+                ->references('id') // Kolom yang dirujuk
+                ->on('team')       // Nama tabel referensi (bukan 'id')
                 ->onDelete('cascade');
         });
     }
@@ -34,10 +35,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-
         Schema::table('profile_perusahaan', function (Blueprint $table) {
-            $table->dropForeign(['team_id']);
+            $table->dropForeign(['team_id']); // Hapus foreign key
         });
-        Schema::dropIfExists('profile_perusahaan');
+
+        Schema::dropIfExists('profile_perusahaan'); // Hapus tabel jika ada
     }
 };

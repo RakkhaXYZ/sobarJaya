@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-import React from 'react';
+
+
 import BackToTop from './BackToTop';
-=======
 import React, {useEffect, useState} from 'react';
->>>>>>> fed8f46bf7f086cec9f35ea3da49fa7b50242a3b
+
 
 const Artikel = ()=> {
 
