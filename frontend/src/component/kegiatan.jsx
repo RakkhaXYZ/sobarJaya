@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BackToTop from './BackToTop';
 
+
 const Kegiatan = ()=> {
+
+const [kegiatan, setKegiatan] = useState([]);
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  fetch('http://localhost:8000/api/kegiatan')
+  .then(response => response.json())
+  .then(data => {
+    setKegiatan(data.data);
+    setLoading(false);
+  })
+  .catch(error => {
+    console.error('error fething data :', error);
+    setLoading(false);
+  })
+}, []);
+
+if (loading) return <p>Loadig...</p>
+
+
+
   return (
     <>
     <BackToTop />
@@ -76,64 +98,32 @@ const Kegiatan = ()=> {
           <br />
           <br />
           <br />
-                    <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">KEGIATAN</div>
-                    <div className="p-4">
-                    <div className="bg-white shadow-md rounded-lg p-6">
-                    <a href="/kegiatan1"><div className="text-[#3c3c3c] text-4xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>                       
-                    <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PADANG ARO, KECAMATAN SANGGIR, KABUPATEN SOLOK SELATAN, SUMATERA BARAT</div>
-                    </a>
-                    <br />
-                        <div className="grid grid-cols-3 gap-4">
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                                <img src="kegiatan1.jpeg" alt="kegiatan1" className="w-full h-full object-cover"/>
-                            </div>
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                                <img src="kegiatan2.jpeg" alt="kegiatan2" className="w-full h-full object-cover"/>
-                            </div>
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                                <img src="kegiatan3.jpeg" alt="kegiatan3" className="w-full h-full object-cover"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">KEGIATAN</div>
+<div className="p-4">
+  {kegiatan.map((item, index) => (
+    <div key={index} className="bg-white shadow-md rounded-lg p-6">
+      <a href={`/kegiatan/${item.id}`}>
+        <div className="text-[#3c3c3c] text-4xl font-semibold font-['Poppins']">{item.judul}</div>
+        <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">{item.deskripsi}</div>
+      </a>
+      <br />
+      <div className="grid grid-cols-3 gap-4">
+        {item.FotoKegiatan && item.FotoKegiatan.map((foto, idx) => (
+          <div key={idx} className="rounded-lg overflow-hidden shadow-md">
+            <img 
+              src={foto.url} 
+              alt={`kegiatan${idx + 1}`} 
+              className="w-full h-full object-cover" 
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+
                 
-                <div className="p-4">
-                    <div className="bg-white shadow-md rounded-lg p-6">
-                    <div className="text-[#3c3c3c] text-4xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>                       
-                    <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PADANG ARO, KECAMATAN SANGGIR, KABUPATEN SOLOK SELATAN, SUMATERA BARAT</div>
-                    <br />
-                        <div className="grid grid-cols-3 gap-4">
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                                <img src="kegiatan1.jpeg" alt="kegiatan1" className="w-full h-full object-cover"/>
-                            </div>
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                                <img src="kegiatan2.jpeg" alt="kegiatan2" className="w-full h-full object-cover"/>
-                            </div>
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                                <img src="kegiatan3.jpeg" alt="kegiatan3" className="w-full h-full object-cover"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <div className="p-4">
-                    <div className="bg-white shadow-md rounded-lg p-6">
-                    <div className="text-[#3c3c3c] text-4xl font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>                       
-                    <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">PADANG ARO, KECAMATAN SANGGIR, KABUPATEN SOLOK SELATAN, SUMATERA BARAT</div>
-                       <br />
-                        <div className="grid grid-cols-3 gap-4">
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                                <img src="kegiatan1.jpeg" alt="kegiatan1" className="w-full h-full object-cover"/>
-                            </div>
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                                <img src="kegiatan2.jpeg" alt="kegiatan2" className="w-full h-full object-cover"/>
-                            </div>
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                                <img src="kegiatan3.jpeg" alt="kegiatan3" className="w-full h-full object-cover"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <footer>
                     <div className="bg-blue-900 text-white p-9">
                     <div className="flex justify-between items-start">

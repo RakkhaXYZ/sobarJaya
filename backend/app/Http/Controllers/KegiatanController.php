@@ -49,12 +49,20 @@ class KegiatanController extends Controller
 
     public function IndexKegiatan()
     {
-        $kegiatan = Kegiatan::with('fotoKegiatan')->get();
-
-
+        $kegiatan = Kegiatan::with('fotoKegiatan')->get()->map(function ($kegiatan) {
+            $kegiatan->FotoKegiatan = $kegiatan->fotoKegiatan->map(function ($foto){
+                return [
+                    'id'=> $foto->id,
+                    'url'=> asset('storage/kegiatan/'.$foto->foto),
+                ];
+            });
+            return $kegiatan;
+        });
+    
         return response()->json([
             'message' => "semua data kegiatan berhasil diambil",
             'data' => $kegiatan,
         ]);
     }
+    
 }
