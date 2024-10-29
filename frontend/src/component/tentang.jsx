@@ -120,7 +120,7 @@ const TentangKami = ()=> {
                 </div>
                 <br />
                 <br />
-                <div class="">
+                <div class="relative">
                     <img src="quotes1.jpg" alt="direktur" class="w-full h-auto object-cover" />
                     <div class="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
                         <div class="flex justify-end">
@@ -135,7 +135,7 @@ const TentangKami = ()=> {
                     </div>
                 </div>
                 <br />
-                <div class="">
+                <div class="relative">
                     <img src="quotes2.jpg" alt="wakil direktur" class="w-full h-auto object-cover" />
                     <div class="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
                         <div class="flex justify-start">
@@ -150,7 +150,7 @@ const TentangKami = ()=> {
                     </div>
                 </div>
                 <br />
-                <div class="">
+                <div class="relative">
                     <img src="quotes3.jpg" alt="penasihat" class="w-full h-auto object-cover" />
                     <div class="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
                         <div class="flex justify-start">

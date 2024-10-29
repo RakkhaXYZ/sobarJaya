@@ -1,7 +1,12 @@
 
+<<<<<<< HEAD
 
 import BackToTop from './BackToTop';
 import React, {useEffect, useState} from 'react';
+=======
+import React, { useEffect, useState } from 'react';
+import BackToTop from './BackToTop';
+>>>>>>> 4d9861d95b8b8dab4e97f5f5017f1ee661a55769
 
 
 const Artikel = ()=> {

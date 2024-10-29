@@ -1,11 +1,37 @@
-import React from 'react';
-import BackToTop from './BackToTop';
+
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
 
-const Sejarah = ()=> {
+
+
+
+
+
+
+const Sejarah = ({id})=> {
+  const [sejarah, setSejarah] = useState(null);
+
+  useEffect(() => {
+
+    axios.get('http://127.0.0.1:8000/api/showSejarah/4')
+    .then(response =>{
+      setSejarah(response.data);
+    })
+
+    .catch(error => {
+      console.error('Errror fetching data:', error);
+    });
+
+  }, [4]);
+
+  if (!sejarah){
+    return <div>loading...</div>;
+  }
+
   return (
     <>
-      <BackToTop />
+
     <header>
          <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-18">
       <div className="flex items-center">
@@ -79,10 +105,10 @@ const Sejarah = ()=> {
     <br />
                     <main className="container mx-auto my-5">
                         <div className="bg-white shadow-md rounded-lg overflow-hidden ">
-                            <img src="sejarah 1.png" alt="Foto Sejarah" className="w-full"/>
+                            <img src={sejarah.foto} alt="Foto Sejarah" className="w-full"/>
                             <div className="p-6">
                                 <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">SEJARAH</div>                           
-                                <div className="w-[1206px] h-[283px] text-[#3c3c3c] text-[32px] font-medium font-['Poppins']">Sobar jaya berdiri sejak tahun 1981 oleh ir. Mukini manan sebagai geologist yang berpengalaman di bidangnya. Diawali dari konsultan sederhana hingga akhirnya memikili sarana, prasarana dan tenaga kerja yang kompeten. Disahkan pada 7 desember 2013 oleh notaris dan ppat di kota bandung sebagai cv. Sobar Jaya.</div>                            </div>
+                                <div className="w-[1206px] h-[283px] text-[#3c3c3c] text-[32px] font-medium font-['Poppins']">{sejarah.sejarah}</div>                            </div>
                         </div>
                     </main>
                     <footer>

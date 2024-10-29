@@ -71,8 +71,8 @@ const Home = ()=> {
                             <div className="text-white text-8xl font-bold font-['Poppins']">CV. SOBAR JAYA</div>                                
                             <div className="w-[508px] text-white text-2xl font-bold font-['Poppins']">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ullamcorper.</div>                            
                             <button className="mt-6 px-6 py-3 bg-blue-900 text-white rounded-full flex items-center">
-                            <span><div className="font-bold">CONTACT US</div></span>
-                            <i className="fas fa-arrow-right ml-2"></i>
+                            <a href="/hubungikami"><span><div className="font-bold">CONTACT US</div></span></a>
+                            <a href="/hubungikami"><i className="fas fa-arrow-right ml-2"></i></a>
                         </button>
                             </div>
                      </div>   
@@ -82,10 +82,10 @@ const Home = ()=> {
                                     <div className="text-white text-[40px] font-bold font-['Poppins']">VISI</div>
                                     <div className="w-[545px] text-white text-2xl font-bold font-['Poppins']">{profileData.visi}</div>
                                     <div className="w-[86px] text-white text-[40px] font-bold font-['Poppins']">MISI</div>
-                                    <div className="w-[560px] text-white text-base font-bold font-['Poppins']">{profileData.misi}</div>
+                                    <div className="w-[560px] text-white text-base font-bold font-['Poppins']">{profileData.misi} </div>
                                     </div>
                                 <div>
-                                    <img className="w-[661px] h-[391px] shadow" src="visi2.png" />
+                                    <img className="w-[661px] h-[391px] shadow" src={profileData.foto_team} />
                                     </div>
                                     
                             </div>
