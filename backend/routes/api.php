@@ -36,3 +36,4 @@ Route::get('/Artikel', [ArtikelController::class, 'IndexArtikel']);
 
 // kegiatan 
 Route::post('/storeKegiatan', [KegiatanController::class, 'storeKegiatan']);
+Route::get('/kegiatan', [KegiatanController::class, 'IndexKegiatan']);

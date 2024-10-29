@@ -46,4 +46,15 @@ class KegiatanController extends Controller
             ]
         ], 201);
     }
+
+    public function IndexKegiatan()
+    {
+        $kegiatan = Kegiatan::with('fotoKegiatan')->get();
+
+
+        return response()->json([
+            'message' => "semua data kegiatan berhasil diambil",
+            'data' => $kegiatan,
+        ]);
+    }
 }
