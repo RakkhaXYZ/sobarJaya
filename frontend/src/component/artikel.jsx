@@ -1,12 +1,9 @@
 
-<<<<<<< HEAD
 
-import BackToTop from './BackToTop';
+
 import React, {useEffect, useState} from 'react';
-=======
-import React, { useEffect, useState } from 'react';
-import BackToTop from './BackToTop';
->>>>>>> 4d9861d95b8b8dab4e97f5f5017f1ee661a55769
+
+
 
 
 const Artikel = ()=> {
@@ -28,7 +25,7 @@ const Artikel = ()=> {
   }, []);
   return (
     <>
-    <BackToTop/>
+   
       <header>
          <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-18">
       <div className="flex items-center">
