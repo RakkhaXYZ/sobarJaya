@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-import React from 'react';
+
 import BackToTop from './BackToTop';
-=======
+
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 
->>>>>>> 0e7e4ea75883451ed157478d27d44f10f97524f2
+
 
 
 const Sejarah = ()=> {
@@ -112,7 +111,6 @@ const Sejarah = ()=> {
     <br />
                     <main className="container mx-auto my-5">
                         <div className="bg-white shadow-md rounded-lg overflow-hidden ">
-<<<<<<< HEAD
                             <img src="sejarah 1.png" alt="Foto Sejarah" className="w-full"/>
                             <div className="p-6">
                                 <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">SEJARAH</div>                           
@@ -182,7 +180,7 @@ const Sejarah = ()=> {
                
                 </footer>
     </>
-=======
+
                           {sejarahDta && (
                             <>
                            <img src={`http://localhost:8000/storage/sejarah/${sejarahDta.foto}`} alt="Foto Sejarah" className="w-full"/>
@@ -207,8 +205,6 @@ const Sejarah = ()=> {
   );
 };
                 
->>>>>>> 0e7e4ea75883451ed157478d27d44f10f97524f2
-          
 
  
 export default Sejarah;
