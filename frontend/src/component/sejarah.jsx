@@ -1,8 +1,41 @@
+<<<<<<< HEAD
 import React from 'react';
 import BackToTop from './BackToTop';
+=======
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+
+
+>>>>>>> 0e7e4ea75883451ed157478d27d44f10f97524f2
 
 
 const Sejarah = ()=> {
+  const [sejarahDta, setSejarahDta] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchSejarah = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/showSejarah/1');
+        setSejarahDta(response.data);
+      } catch (err) {
+        setError('Data tidak ditemukan atau terjadi kesalahan');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSejarah();
+  }, []);
+
+  if (loading){
+    return <div>Loading...</div>
+  }
+
+  if (error){
+    return <div>(error)</div>
+  }
+
   return (
     <>
       <BackToTop />
@@ -79,6 +112,7 @@ const Sejarah = ()=> {
     <br />
                     <main className="container mx-auto my-5">
                         <div className="bg-white shadow-md rounded-lg overflow-hidden ">
+<<<<<<< HEAD
                             <img src="sejarah 1.png" alt="Foto Sejarah" className="w-full"/>
                             <div className="p-6">
                                 <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">SEJARAH</div>                           
@@ -148,9 +182,33 @@ const Sejarah = ()=> {
                
                 </footer>
     </>
+=======
+                          {sejarahDta && (
+                            <>
+                           <img src={`http://localhost:8000/storage/sejarah/${sejarahDta.foto}`} alt="Foto Sejarah" className="w-full"/>
+                           <div className="p-6">
+                                <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">SEJARAH</div>  
+                                                        
+                                  <div className="w-[1206px] h-[283px] text-[#3c3c3c] text-[32px] font-medium font-['Poppins']">{sejarahDta.sejarah}</div>                            
+                                
+                                  <div>Data sejarah tidak tersedia.</div>
+                              
+                                </div>
+                            
+                            </>
+                          )}
+                            
+                                </div>
+                                </main>
+                                <footer>
+
+                                </footer>
+                                </>
+  );
+};
+                
+>>>>>>> 0e7e4ea75883451ed157478d27d44f10f97524f2
           
 
-  );
-}
-
+ 
 export default Sejarah;
