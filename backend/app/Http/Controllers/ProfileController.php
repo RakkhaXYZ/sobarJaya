@@ -8,11 +8,19 @@ use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // Import Log di sini
 
+use function PHPUnit\Framework\returnSelf;
+
 class ProfileController extends Controller
 {
     public function index()
     {
         $profile_perushaan = ProfilePerusahaan::with('team')->get();
+
+        $profile_perushaan->map(function ($profile_perushaan) {
+            $profile_perushaan->foto_tem = asset('public/team' . $profile_perushaan->foto_team);
+
+            return $profile_perushaan;
+        });
 
         return response()->json($profile_perushaan);
     }
@@ -125,6 +133,11 @@ class ProfileController extends Controller
         if (!$profile_perushaan) {
             return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
+
+
+        $profile_perushaan->foto_team = asset('storage/team/' . $profile_perushaan->foto_team);
+
+
 
         return response()->json($profile_perushaan);
     }

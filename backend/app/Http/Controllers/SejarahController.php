@@ -43,6 +43,7 @@ class SejarahController extends Controller
         }
         $sejarah->foto = asset('storage/sejarah/' . $sejarah->foto);
 
+        $sejarah->foto = asset('storage/sejarah/' . $sejarah->foto);
         return response()->json($sejarah);
     }
 }
