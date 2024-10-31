@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\OurTeamControllers;
+
 
 
 use Illuminate\Support\Facades\Route;
@@ -37,3 +39,9 @@ Route::get('/Artikel', [ArtikelController::class, 'IndexArtikel']);
 // kegiatan 
 Route::post('/storeKegiatan', [KegiatanController::class, 'storeKegiatan']);
 Route::get('/kegiatan', [KegiatanController::class, 'IndexKegiatan']);
+
+
+// Our Team 
+
+Route::post('/storeOurTeam', [OurTeamControllers::class, 'storeOurTeam']);
+Route::get('/ourteam', [OurTeamControllers::class, 'IndexTeam']);

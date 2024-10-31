@@ -27,6 +27,9 @@
                     <a class="nav-link" href="{{ url('/artikel') }}">Artikel</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/ourteam') }}">Our Team</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Tentang Kami</a>
                 </li>
             </ul>
