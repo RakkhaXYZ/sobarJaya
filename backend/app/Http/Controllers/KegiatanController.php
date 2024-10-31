@@ -49,6 +49,7 @@ class KegiatanController extends Controller
 
     public function IndexKegiatan()
     {
+<<<<<<< HEAD
         $kegiatan = Kegiatan::with('fotoKegiatan')->get()->map(function ($kegiatan) {
             $kegiatan->FotoKegiatan = $kegiatan->fotoKegiatan->map(function ($foto){
                 return [
@@ -59,6 +60,17 @@ class KegiatanController extends Controller
             return $kegiatan;
         });
     
+=======
+        $kegiatan = Kegiatan::with('fotoKegiatan')->get()->map(function ($item) {
+            $item->fotoUrls = $item->fotoKegiatan->map(function ($foto) {
+                return asset('storage/kegiatan/' . $foto->foto);
+            });
+
+            return $item;
+        });
+
+
+>>>>>>> 71ac54a91e734afcce8630e8cce4c3ee0faad9c4
         return response()->json([
             'message' => "semua data kegiatan berhasil diambil",
             'data' => $kegiatan,

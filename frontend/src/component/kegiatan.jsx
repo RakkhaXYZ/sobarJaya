@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react';
+
+
+import React,{useEffect, useState} from 'react';
+import axios from "axios";
+
 import BackToTop from './BackToTop';
 
 
 const Kegiatan = ()=> {
+
 
 const [kegiatan, setKegiatan] = useState([]);
 const [loading, setLoading] = useState(true);
@@ -23,6 +28,18 @@ useEffect(() => {
 if (loading) return <p>Loadig...</p>
 
 
+
+  const [kegiatanData, setKegiatanData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/kegiatan')
+    .then((response)=> {
+      setKegiatanData(response.data.data);
+    })
+    .catch((error) => {
+      console.log("Terjadi Error Saat Mengambil data kegiatan:", error)
+    })
+  })
 
   return (
     <>
@@ -98,6 +115,7 @@ if (loading) return <p>Loadig...</p>
           <br />
           <br />
           <br />
+
           <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">KEGIATAN</div>
 <div className="p-4">
   {kegiatan.map((item, index) => (
@@ -124,6 +142,33 @@ if (loading) return <p>Loadig...</p>
 
                 
                 
+
+                    <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">KEGIATAN</div>
+                    <div className="p-4">
+                      {kegiatanData.map((kegiatan)=> (
+                         <div className="bg-white shadow-md rounded-lg p-6">
+                         <a href={`/kegiatan1/${kegiatan.id}`}><div className="text-[#3c3c3c] text-4xl font-semibold font-['Poppins']">{kegiatan.judul}</div>                       
+                         <div className="text-[#3c3c3c] text-2xl font-semibold font-['Poppins']">{kegiatan.deskripsi}</div>
+                         </a>
+                         <br />
+                             <div className="grid grid-cols-3 gap-4">
+                              {kegiatan.fotoUrls.map((url, index) => (
+                                 <div key={index}className="rounded-lg overflow-hidden shadow-md">
+                                 <img src={url} alt="kegiatan1" className="w-full h-full object-cover"/>
+                             </div>
+
+                              ))}
+                                
+                                 
+                             </div>
+                         </div>
+
+                      ))}
+                   
+                </div>
+                
+                
+
                 <footer>
                     <div className="bg-blue-900 text-white p-9">
                     <div className="flex justify-between items-start">
