@@ -37,10 +37,8 @@ const Home = () => {
       <Navigator />
       <BackToTop />
       
-      <div
-        className="h-screen bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${background})` }}
-      >
+      <div className="h-screen bg-cover bg-center relative" style={{ backgroundImage: `url(${background})` }} ></div>
+      
 
         <div className="absolute top-64 left-28 text-white">
           <h1 className="text-8xl font-bold">CV. SOBAR JAYA</h1>
@@ -315,8 +313,7 @@ const Home = () => {
                         </div>
                 </div>
                
-                </footer>
-          
+                </footer>          
     </>
   );
 };

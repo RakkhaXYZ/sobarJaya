@@ -28,18 +28,9 @@ const Sejarah = ()=> {
 
   if (error){
     return <div>(error)</div>
-
-
-
-
-
-
-
 const Sejarah = ({id})=> {
   const [sejarah, setSejarah] = useState(null);
-
   useEffect(() => {
-
     axios.get('http://127.0.0.1:8000/api/showSejarah/4')
     .then(response =>{
       setSejarah(response.data);
