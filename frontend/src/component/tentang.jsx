@@ -1,28 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import BackToTop from './BackToTop';
 
 const TentangKami = ()=> {
+  const [ourTeams, setOurTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/ourteam')
+    .then(response => {
+      setOurTeams(response.data);
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("Terjadi error saat mengambil data :",error);
+      setLoading(false);
+    })
+  }, []);
+
+  if (loading) return  <p>Loading...</p>
   
-  const teamMembers = [
-    {
-        name: "Muhardika, S.T",
-        title: "Direktur",
-        image: "dika.png",
-        alt: "photo"
-    },
-    {
-        name: "Muhammad Sobar, S.T",
-        title: "Wakil Direktur",
-        image: "sobar.png",
-        alt: "Photo"
-    },
-    {
-        name: "Ir. Mukini Manan, M. Eng",
-        title: "Penasehat",
-        image: "mukini.png",
-        alt: "photo"
-    }
-];return (
+  return (
     
     <>
     <BackToTop/>
@@ -107,14 +105,14 @@ const TentangKami = ()=> {
               <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins'] text-center">TIM KAMI</div>
               </div>
               <div className="flex justify-center items-center space-x-16 mt-8">
-                    {teamMembers.map((member, index) => (
+                    {ourTeams.map((member, index) => (
                         <div key={index} className="text-center">
                             <div className="w-[200px] h-[200px] mx-auto mb-4">
-                                <img src={member.image} alt={member.alt} className="rounded-full w-full h-full object-cover" />
+                                <img src={member.foto} alt={member.alt} className="rounded-full w-full h-full object-cover" />
                             </div>
-                            <div className="text-[#3c3c3c] text-[32px] font-bold font-['Poppins']">{member.name}</div>
+                            <div className="text-[#3c3c3c] text-[32px] font-bold font-['Poppins']">{member.nama_anggota}</div>
                             <div className="w-[374px] h-[0px] border-2 border-[#3c3c3c]"></div>
-                            <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins']">{member.title}</div>
+                            <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins']">{member.divisi_anggota}</div>
                         </div>
                     ))}
                 </div>
