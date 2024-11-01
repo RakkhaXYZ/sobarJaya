@@ -41,14 +41,14 @@ const Home = () => {
         className="h-screen bg-cover bg-center relative"
         style={{ backgroundImage: `url(${background})` }}
       >
-<<<<<<< HEAD
+
         <div className="absolute top-64 left-28 text-white">
           <h1 className="text-8xl font-bold">CV. SOBAR JAYA</h1>
           <p className="w-[508px] text-2xl font-bold mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ullamcorper.</p>
           <a href="/hubungikami" className="mt-6 inline-block px-6 py-3 bg-blue-900 text-white rounded-full">
             <span className="font-bold">CONTACT US</span>
           </a>
-=======
+
         <br />        
                             <div className="absolute top-64 left-28">
                             <div className="text-white text-8xl font-bold font-['Poppins']">CV. SOBAR JAYA</div>                                
@@ -142,6 +142,7 @@ const Home = () => {
                 <br />
                 
                 <footer>
+
         <div class="bg-blue-900 text-white p-8">
             <div class="flex justify-between items-start">
                 <div class="flex items-start">
@@ -199,9 +200,9 @@ const Home = () => {
                 <p>Copyright 2024 © CV. Sobar Jaya Kota Bandung</p>
             </div>
             
->>>>>>> 7c4fe8b2da23d1a99bf1de315d9868b19a4500e8
+
         </div>
-      </div>
+
 
       <section className="bg-blue-900 text-white py-12 px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -315,6 +316,7 @@ const Home = () => {
                 </div>
                
                 </footer>
+          
     </>
   );
 };

@@ -1,19 +1,8 @@
-
-<<<<<<< HEAD
 import BackToTop from './BackToTop';
-=======
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
->>>>>>> 7c4fe8b2da23d1a99bf1de315d9868b19a4500e8
-
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-
-
-
-
-
-<<<<<<< HEAD
 const Sejarah = ()=> {
   const [sejarahDta, setSejarahDta] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -39,7 +28,7 @@ const Sejarah = ()=> {
 
   if (error){
     return <div>(error)</div>
-=======
+
 
 
 
@@ -64,7 +53,7 @@ const Sejarah = ({id})=> {
 
   if (!sejarah){
     return <div>loading...</div>;
->>>>>>> 7c4fe8b2da23d1a99bf1de315d9868b19a4500e8
+
   }
 
   return (
@@ -227,16 +216,11 @@ const Sejarah = ({id})=> {
                             
                             </>
                           )}
-                            
                                 </div>
                                 </main>
                                 <footer>
-
                                 </footer>
                                 </>
   );
 };
-                
-
- 
 export default Sejarah;
