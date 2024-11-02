@@ -51,4 +51,21 @@ class ArtikelController extends Controller
 
         return response()->json($artikels);
     }
+
+
+    public function getArtikelTerbaru()
+    {
+        $artikelTerbaru = Artikel::orderBy('created_at', 'desc')->take(3)->get();
+
+        $artikelTerbaru->each(function ($artikel) {
+            $artikel->foto = $artikel->foto ? asset('storage/artikel/' . $artikel->foto) : null;
+        });
+
+        // kembalikan respons dengan artikel terbaru dan url foto
+
+        return response()->json([
+            'message' => 'Data Atikel Terbaru',
+            'data' => $artikelTerbaru,
+        ], 200);
+    }
 }
