@@ -7,6 +7,8 @@ import baground from '../img/bg.png';
 
 const Home = ()=> {
     const [profileData, setProfileData] = useState([]);
+    const [articles, setArticles] = useState ([]);
+    const [loadingArticles, setLoadingArticles] = useState(true);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -25,8 +27,22 @@ const Home = ()=> {
         };
         fetchData();
     }, []);
+    
+    useEffect(() => {
+        const fetchArticles = async () => {
+            try {
+                const response = await axios.get('http://localhost:8000/api/NewArtikel');
+                setArticles(response.data.data);
+                setLoadingArticles(false);
+            }catch(error){
+                setError('Terjadi kesalahan saat mengambil data artikel');
+                setLoadingArticles(false);
+            }
+        };
+        fetchArticles();
+    }, []);
 
-    if(loading){
+    if(loading || loadingArticles ){
         return <div>Loading....</div>
     }
 
@@ -96,32 +112,23 @@ const Home = ()=> {
                     <div className="w-20 h-3 bg-blue-900"></div>
                     <div className="ml-auto text-[#22467d] text-[32px] font-bold font-['Poppins']">ARTIKEL</div>
                 </div>
-                        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                                <img src="https://ilmutambang.com/wp-content/uploads/2022/04/Pelajari-Yuk-6-Metode-Pengeboran-di-Industri-Pertambangan.jpg" alt="Article Image" className="w-full h-48 object-cover"/>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-bold">Lorem Ipsum</h3>
-                                    <p className="mt-2 text-gray-600">{profileData.team.deskripsi_team}</p>
-                                    <a href="#" className="mt-4 inline-block text-blue-500 hover:underline">Selengkapnya</a>
-                                </div>
-                            </div>
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                                <img src="https://ilmutambang.com/wp-content/uploads/2022/04/Pelajari-Yuk-6-Metode-Pengeboran-di-Industri-Pertambangan.jpg" alt="Article Image" className="w-full h-48 object-cover"/>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-bold">Lorem Ipsum</h3>
-                                    <p className="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget diam nec.</p>
-                                    <a href="#" className="mt-4 inline-block text-blue-500 hover:underline">Selengkapnya</a>
-                                </div>
-                            </div>
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                                <img src="https://ilmutambang.com/wp-content/uploads/2022/04/Pelajari-Yuk-6-Metode-Pengeboran-di-Industri-Pertambangan.jpg" alt="Article Image" className="w-full h-48 object-cover"/>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-bold">Lorem Ipsum</h3>
-                                    <p className="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget diam nec.</p>
-                                    <a href="#" className="mt-4 inline-block text-blue-500 hover:underline">Selengkapnya</a>
-                                </div>
-                            </div>
-                        </div>
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                {articles && articles.length > 0 ? (
+        articles.map((article, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src={article.foto} alt={article.judul} className="w-full h-48 object-cover" />
+                <div className="p-4">
+                    <h3 className="text-xl font-bold">{article.judul}</h3>
+                    <p className="mt-2 text-gray-600">{article.deskripsi}</p>
+                    <a href="#" className="mt-4 inline-block text-blue-500 hover:underline">Selengkapnya</a>
+                </div>
+            </div>
+        ))
+    ) : (
+        <p>Tidak ada artikel.</p>
+    )}
+</div>
+
                     </div>
                 </section>
                 <section>
