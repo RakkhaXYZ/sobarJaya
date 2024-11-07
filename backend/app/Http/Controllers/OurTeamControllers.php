@@ -72,4 +72,19 @@ class OurTeamControllers extends Controller
             ]
         );
     }
+
+    public function ourteamTerbaru()
+    {
+
+        $newourteam = OurTeam::orderBy('created_at', 'desc')->take(3)->get();
+
+        $newourteam->each(function ($ourteam) {
+            $ourteam->foto = $ourteam->foto ? asset('storage/ourteam/' . $ourteam->foto) : null;
+        });
+
+        return response()->json([
+            "message" => "Data Team terbaru Berhasil diambil",
+            "data" => $newourteam,
+        ]);
+    }
 }

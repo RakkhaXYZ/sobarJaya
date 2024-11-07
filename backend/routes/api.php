@@ -46,3 +46,4 @@ Route::get('/kegiatan', [KegiatanController::class, 'IndexKegiatan']);
 
 Route::post('/storeOurTeam', [OurTeamControllers::class, 'storeOurTeam']);
 Route::get('/ourteam', [OurTeamControllers::class, 'IndexTeam']);
+Route::get('/newOurteam', [OurTeamControllers::class, 'ourteamTerbaru']);
