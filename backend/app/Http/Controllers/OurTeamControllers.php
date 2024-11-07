@@ -46,15 +46,30 @@ class OurTeamControllers extends Controller
 
     public function IndexTeam()
     {
-        $ourteams = OurTeam::all();
+        $ourteams = OurTeam::with('ourTeam2')->get();
 
         $ourteams->map(function ($ourteam) {
 
             $ourteam->foto = asset('storage/ourteam/' . $ourteam->foto);
 
+            // konversi path foto untuk setiap item pada ourteam2
+
+            $ourteam->ourTeam2->map(function ($ourteam2) {
+
+                $ourteam2->foto_anggota = asset('storage/ourteam/' . $ourteam2->foto_anggota);
+
+                return $ourteam2;
+            });
+
             return $ourteam;
         });
 
-        return response()->json($ourteams);
+        return response()->json(
+            [
+                'message' => "Data Berhasil diambil",
+                'data' => $ourteams,
+
+            ]
+        );
     }
 }
