@@ -7,8 +7,10 @@ import background from '../img/bg.png';
 const Home = () => {
   const [profileData, setProfileData] = useState({});
   const [articles, setArticles] = useState([]);
+  const [ourTeam, setOurTeam ] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingArticles, setLoadingArticles] = useState(true);
+  const [loadingOurTeam, setLoadingOurTeam] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -39,7 +41,22 @@ const Home = () => {
     fetchArticles();
   }, []);
 
-  if (loading || loadingArticles) {
+  useEffect(() => {
+    const fetchOurTeam = async () => {
+        try {
+            const ourTeamResponse = await axios.get('http://localhost:8000/api/newOurteam');
+            setOurTeam(ourTeamResponse.data.data);
+            setLoadingOurTeam(false);
+        
+        } catch(error){
+            setError('terjadi kesalahan saat mengambil data our team');
+            setLoadingOurTeam(false);
+        }
+    };
+    fetchOurTeam();
+  }, []);
+
+  if (loading || loadingArticles || loadingOurTeam) {
     return <div>Loading...</div>;
   }
 
@@ -47,23 +64,7 @@ const Home = () => {
     return <div>{error}</div>;
   }
 
-  const teamMembers = [
-    {
-      name: "Muhardika, S.T",
-      title: "Direktur",
-      image: "dika.png",
-    },
-    {
-      name: "Muhammad Sobar, S.T",
-      title: "Wakil Direktur",
-      image: "sobar.png",
-    },
-    {
-      name: "Ir. Mukini Manan, M. Eng",
-      title: "Penasehat",
-      image: "mukini.png",
-    }
-  ];
+  
 
   return (
     <>
@@ -125,11 +126,11 @@ const Home = () => {
       <section className="bg-white py-9 px-4">
         <h2 className="text-[#22467d] text-3xl font-bold text-center">TENTANG KAMI</h2>
         <div className="flex justify-center items-center space-x-16 mt-8">
-          {teamMembers.map((member, index) => (
+          {ourTeam.map((member, index) => (
             <div key={index} className="text-center">
-              <img src={member.image} alt={`${member.name}'s photo`} className="w-48 h-48 rounded-full object-cover mx-auto mb-4" />
-              <h3 className="text-[#3c3c3c] text-2xl font-bold">{member.name}</h3>
-              <p className="text-[#3c3c3c] text-xl">{member.title}</p>
+              <img src={member.foto} alt={`${member.nama_anggota}'s photo`} className="w-48 h-48 rounded-full object-cover mx-auto mb-4" />
+              <h3 className="text-[#3c3c3c] text-2xl font-bold">{member.nama_anggota}</h3>
+              <p className="text-[#3c3c3c] text-xl">{member.divisi_anggota}</p>
             </div>
           ))}
         </div>
