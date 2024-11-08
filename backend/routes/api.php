@@ -35,6 +35,7 @@ Route::get('/showSejarah/{id}', [SejarahController::class, 'sejarahShow']);
 Route::post('/storeArtikel', [ArtikelController::class, 'storeArtikel']);
 Route::get('/Artikel', [ArtikelController::class, 'IndexArtikel']);
 Route::get('/NewArtikel', [ArtikelController::class, 'getArtikelTerbaru']);
+Route::get('/artikel/{id}', [ArtikelController::class, 'getArtikelId']);
 
 
 // kegiatan 
