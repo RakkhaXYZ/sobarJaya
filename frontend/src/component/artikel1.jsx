@@ -1,11 +1,39 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
+
 const Artikel1 = ()=> {
+  const {artikelId} = useParams();
+  const [artikel, setArtikel]= useState(null);
+  const [error, setError]= useState(null);
+
+  useEffect (() => {
+    fetch(`http://localhost:8000/api/artikel/${artikelId}`)
+    .then((response)=> {
+      if (!response.ok) {
+        throw new Error("Data tidak ditemukan");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      setArtikel(data.data);
+    })
+  .catch((error) => {
+    setError(error.message);
+  });
+  }, [artikelId]);
+
+  if (error) return <p>{error}</p>
+
+  if(!artikel) return <p>Data artikel tidek ditemukan</p>
+
+  console.log("id artikel :", artikelId)
+
     return (
       <>
         <header>
          <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-18">
       <div className="flex items-center">
-        <img src="logo.png" alt="Logo" className="h-12 mr-2" /> 
+        <img src="/logo.png" alt="Logo" className="h-12 mr-2" /> 
         <div className="text-white text-2xl font-bold"></div>
       </div>
       <ul className="flex space-x-6 text-[#22467d] text-xl font-semibold font-['Poppins']">
@@ -76,19 +104,16 @@ const Artikel1 = ()=> {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div className="md:col-span-2 bg-white p-6 rounded-lg shadow-lg">
                         <div className="text-[#3c3c3c] text-xl font-semibold font-['Poppins']">Artikel</div>
-                            <div className="text-[#3c3c3c] text-[32px] font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
+                            <div className="text-[#3c3c3c] text-[32px] font-semibold font-['Poppins']">{artikel.judul}</div>
                             <div className="flex items-center text-gray-600 mb-4">
                                 <i className="fas fa-user mr-2"></i> Admins
-                                <i className="fas fa-calendar-alt ml-4 mr-2"></i> 01 Januari 2024
+                                <i className="fas fa-calendar-alt ml-4 mr-2"></i>{artikel.waktu_kegiatan}
                                 <i className="fas fa-eye ml-4 mr-2"></i> Dibaca 1073 Kali
                             </div>
-                            <img src="kegiatan2.jpeg" alt="Construction workers at a drilling site" className="rounded mb-4"/>
+                            <img src={artikel.foto} alt="Construction workers at a drilling site" className="rounded mb-4"/>
                             <p className="text-gray-700 mb-4">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla. Sed eget enim turpis. Aenean eu eleifend est, in feugiat tellus. Donec dapibus, lorem vel rutrum eleifend, nisl lorem dapibus ex, in auctor odio nulla non lorem. Nullam vel pulvinar magna, at rhoncus elit. Integer rutrum nec. Nulla eu augue purus sollicitudin pharetra non sit amet.
-                            </p>
-                            <p className="text-gray-700 mb-4">
-                                Sed vestibulum viverra ullamcorper. Donec nec tellus dui. Suspendisse dapibus ullamcorper. Nunc est metus, egestas a eros convallis, suscipit ultricies urna. Maecenas sollicitudin nisi nec luctus ultricies. Sed interdum, odio a finibus euismod, enim nibh pulvinar velit, et eleifend metus nulla non nulla. Nullam non nisi urna. Nullam quis venenatis elit commodo rutrum. Duis vel viverra odio, at tempus lorem. In consequat eros nec cursus. Sed semper faucibus augue, non ultricies diam bibendum ullamcorper. Aliquam quis metus, quis ullamcorper massa. Fusce blandit sapien odio, non luctus justo laoreet sed.
-                            </p>
+                               {artikel.deskripsi.toLowerCase()} </p>
+                           
                         </div>
                      
                         <div className="w-30 ml-4">

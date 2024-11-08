@@ -2,6 +2,8 @@
 
 
 import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+
 
 
 
@@ -114,7 +116,9 @@ const Artikel = ()=> {
                                         <i className="fas fa-calendar-alt ml-4 mr-2"></i>
                                         <span>{artikel.waktu_kegiatan}</span>
                                     </div>
-                                    <a href="/artikel1"><button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button></a>
+                                   <Link to={`/artikel1/${artikel.id}`}>
+                                   <button className='bg-blue-500 text-white px-4 py-2 font-bold rounded-lg'>Selengkapnya</button>
+                                   </Link>
                                 </div>
                             </div>
                         </div>
