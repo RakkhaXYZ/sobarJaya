@@ -90,4 +90,15 @@ class ArtikelController extends Controller
             'data' => $artikel,
         ], 200);
     }
+
+    public function getArtikel5()
+    {
+        $artikelTerbaru = Artikel::orderBy('created_at', 'desc')->take(5)->get();
+
+        $artikelTerbaru->each(function ($artikel) {
+            $artikel->foto = $artikel->foto ? asset('storage/artikel/' . $artikel->foto) : null;
+        });
+
+        return response()->json($artikelTerbaru);
+    }
 }

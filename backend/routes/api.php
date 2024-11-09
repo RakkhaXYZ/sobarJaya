@@ -6,9 +6,7 @@ use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\OurTeamControllers;
-
-
-
+use App\Models\Artikel;
 use Illuminate\Support\Facades\Route;
 
 // Route untuk mendapatkan semua data alat
@@ -36,6 +34,7 @@ Route::post('/storeArtikel', [ArtikelController::class, 'storeArtikel']);
 Route::get('/Artikel', [ArtikelController::class, 'IndexArtikel']);
 Route::get('/NewArtikel', [ArtikelController::class, 'getArtikelTerbaru']);
 Route::get('/artikel/{id}', [ArtikelController::class, 'getArtikelId']);
+Route::get('/getArtikel5', [ArtikelController::class, 'getArtikel5']);
 
 
 // kegiatan 
