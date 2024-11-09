@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 const Artikel1 = ()=> {
   const {artikelId} = useParams();
   const [artikel, setArtikel]= useState(null);
+  const [artikel5, setArtikel5]= useState([]);
   const [error, setError]= useState(null);
 
   useEffect (() => {
@@ -21,6 +22,23 @@ const Artikel1 = ()=> {
     setError(error.message);
   });
   }, [artikelId]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/getArtikel5')
+    .then((response) => {
+      if (!response.ok){
+        throw new Error("Data tidak ditemukan");
+      }
+      return response.json();
+    })
+    .then((data) =>{
+      setArtikel5(data);
+    })
+    .catch((error) => {
+      setError(error.message);
+    });
+  },[]);
+  
 
   if (error) return <p>{error}</p>
 
@@ -134,56 +152,23 @@ const Artikel1 = ()=> {
                         </div>
                          <div className="bg-white p-6 rounded-lg shadow-lg">
                             <ul className="space-y-4">
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
+                               
+                              
+                            {artikel5.map((atk5, index)=>(
+                               <li key={index} className="flex items-center">
+                               <img src={atk5.foto} alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
+                               <div>
+                                   <h3 className="text-sm font-bold">{atk5.judul}</h3>
+                                   <div className="text-gray-600 text-xs">
+                                       <i className="fas fa-user mr-1"></i> Admins
+                                       <i className="fas fa-calendar-alt ml-2 mr-1"></i>{atk5.waktu_kegiatan}
+                                   </div>
+                               </div>
+                           </li>
+                                 
+
+                                ))}
+                               
                             </ul>
                         </div>
                     </div>
