@@ -101,4 +101,21 @@ class ArtikelController extends Controller
 
         return response()->json($artikelTerbaru);
     }
+
+
+    public function searchArtikel(Request $request)
+    {
+
+        $query = $request->input('query');
+        $artikels = Artikel::where('judul', 'like', '%' . $query . '%')
+            ->orWhere('deskripsi', 'like', '%' . $query . '%')
+            ->get();
+
+
+        foreach ($artikels as $artikel) {
+            $artikel->foto = asset('storage/artikel/' . $artikel->foto);
+        }
+
+        return response()->json($artikels);
+    }
 }

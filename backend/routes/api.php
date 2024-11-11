@@ -35,6 +35,7 @@ Route::get('/Artikel', [ArtikelController::class, 'IndexArtikel']);
 Route::get('/NewArtikel', [ArtikelController::class, 'getArtikelTerbaru']);
 Route::get('/artikel/{id}', [ArtikelController::class, 'getArtikelId']);
 Route::get('/getArtikel5', [ArtikelController::class, 'getArtikel5']);
+Route::get('/searchArtikel', [ArtikelController::class, 'searchArtikel']);
 
 
 // kegiatan 
