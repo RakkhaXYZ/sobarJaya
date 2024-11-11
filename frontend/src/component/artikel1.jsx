@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Artikel1 = ()=> {
   const {artikelId} = useParams();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredArticles, setFilteredarticles] = useState([]);
   const [artikel, setArtikel]= useState(null);
   const [artikel5, setArtikel5]= useState([]);
   const [error, setError]= useState(null);
@@ -38,6 +41,28 @@ const Artikel1 = ()=> {
       setError(error.message);
     });
   },[]);
+
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+    if (event.target.value.length > 2){
+    axios.get(`http://localhost:8000/api/searchArtikel?query=${event.target.value}`)
+    .then(response => {
+      const articles = response.data;
+      setFilteredarticles(articles);
+      
+      // if(articles.length === 0){
+      //   setError('artikel tidak ditemukan');
+
+      // }else{
+      //   setError(null);
+      // }
+    })
+    .catch(error => console.error(error));
+  } else {
+    setFilteredarticles([]);
+  
+  }
+};
   
 
   if (error) return <p>{error}</p>
@@ -138,23 +163,17 @@ const Artikel1 = ()=> {
                         <div className="bg-white rounded-lg shadow-lg p-6">
                             <h3 className="text-lg font-bold mb-4">Artikel Lain</h3>
                             <div className="mb-4">
-                                <input type="text" placeholder="Cari" className="w-full p-2 border border-gray-300 rounded"/>
+                                <input type="text" placeholder="Cari" value={searchQuery} onChange={handleSearch} className="w-full p-2 border border-gray-300 rounded"/>
                             </div>
-                            <ul className="list-disc list-inside text-gray-600">
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                            </ul>
+                           
                         </div>
                          <div className="bg-white p-6 rounded-lg shadow-lg">
                             <ul className="space-y-4">
+
+                            
                                
                               
-                            {artikel5.map((atk5, index)=>(
+                            {(filteredArticles.length > 0 ? filteredArticles : artikel5).map((atk5, index)=>(
                                <li key={index} className="flex items-center">
                                <img src={atk5.foto} alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
                                <div>
@@ -168,6 +187,9 @@ const Artikel1 = ()=> {
                                  
 
                                 ))}
+                                {filteredArticles.length === 0 && searchQuery.length > 2 && (
+                                  <p className='text-red-500 text-sm mt-2'>Artikel Tidak Ditemukan</p>
+                                )}
                                
                             </ul>
                         </div>
@@ -216,11 +238,9 @@ const Artikel1 = ()=> {
                        
                     </div>
                     <div className="flex items-right justify-end right-50 ">
-                            <input type="text" placeholder=" " className="p-2 rounded relative top-[-3rem]">
-                            </input>
-                            <button className="bg-blue-700 p-2 rounded relative top-[-3rem] ">Cari
-                           
-                            </button>
+                            <input type="text" placeholder=" " className="p-2 rounded relative top-[-3rem]" />
+                            
+                            <button className="bg-blue-700 p-2 rounded relative top-[-3rem] ">Cari</button>
                         </div>
                     <div className="flex justify-end mt-4 space-x-4">
                         <p>Follow Us</p>
@@ -244,6 +264,7 @@ const Artikel1 = ()=> {
   
     );
   }
+  
   
   export default Artikel1;
   
