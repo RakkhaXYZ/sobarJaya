@@ -6,6 +6,7 @@ use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\OurTeamControllers;
+use App\Http\Controllers\AdminController;
 use App\Models\Artikel;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware(['cors'])->group(function () {
 //   Route::get('/alat', [AlatController::class, 'index']);
 // });
-
 Route::get('/alat', [AlatController::class, 'index']);
 Route::post('/addAlat', [AlatController::class, 'store']);
 
@@ -48,3 +48,9 @@ Route::get('/kegiatan', [KegiatanController::class, 'IndexKegiatan']);
 Route::post('/storeOurTeam', [OurTeamControllers::class, 'storeOurTeam']);
 Route::get('/ourteam', [OurTeamControllers::class, 'IndexTeam']);
 Route::get('/newOurteam', [OurTeamControllers::class, 'ourteamTerbaru']);
+
+
+// Admin
+Route::post('/admin/login', [AdminController::class, 'login']);
+Route::post('/admin/logout', [AdminController::class, 'logout']);
+Route::post('/adminCreate', [AdminController::class, 'store']);

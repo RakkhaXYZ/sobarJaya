@@ -30,7 +30,7 @@
                     <a class="nav-link" href="{{ url('/ourteam') }}">Our Team</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tentang Kami</a>
+                    <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
                 </li>
             </ul>
         </div>
