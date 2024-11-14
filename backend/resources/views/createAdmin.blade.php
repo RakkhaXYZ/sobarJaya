@@ -4,6 +4,17 @@
 <div class="container">
     <h2 class="mb-4">Create New Admin</h2>
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                
+                    <a class="nav-link" href="{{ url('/LoginAdmin') }}">Login Admin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Display errors if any -->
     @if($errors->any())
         <div class="alert alert-danger">

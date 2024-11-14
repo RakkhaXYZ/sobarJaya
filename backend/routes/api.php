@@ -52,5 +52,5 @@ Route::get('/newOurteam', [OurTeamControllers::class, 'ourteamTerbaru']);
 
 // Admin
 Route::post('/admin/login', [AdminController::class, 'login']);
-Route::post('/admin/logout', [AdminController::class, 'logout']);
+Route::middleware(['auth:sanctum'])->post('/admin/logout', [AdminController::class, 'logout']);
 Route::post('/adminCreate', [AdminController::class, 'store']);

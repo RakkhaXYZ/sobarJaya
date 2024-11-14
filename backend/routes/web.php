@@ -15,6 +15,9 @@ Route::get('/ourteam', function () {
 Route::get('/admin', function () {
     return view('createAdmin');
 });
+Route::get('/LoginAdmin', function () {
+    return view('LoginAdmin');
+});
 
 
 // LOGIN ADMIN

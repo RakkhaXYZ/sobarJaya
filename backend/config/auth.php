@@ -40,6 +40,9 @@ return [
     */
 
     'guards' => [
+        'sanctum' => [
+            'driver' => 'sanctum',
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',

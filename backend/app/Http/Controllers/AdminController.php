@@ -47,21 +47,21 @@ class AdminController extends Controller
 
     public function logout(Request $request)
     {
-        $admin = Auth::user();
-        if ($admin) {
-            $admin->tokens->delete();
+        $admin = Auth::guard('sanctum')->user();
 
+        if (!$admin) {
             return response()->json([
-                'status' => 'success',
-                'message' => 'Logout Berhasil',
-            ]);
+                'status' => 'error',
+                'message' => 'anda belum login',
+            ], 401);
         }
 
+        // Menghapus semua token pengguna saat ini
+        $admin->tokens()->delete();
         return response()->json([
-            'status' => 'error',
-            'message' => 'No User logged in',
-            'admin' => $admin
-        ], 401);
+            'status' => 'success',
+            'message' => 'Logout Berhasil',
+        ]);
     }
 
 
