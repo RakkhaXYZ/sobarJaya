@@ -24,8 +24,12 @@
                 <textarea class="form-control" id="quetes" name="quetes" rows="3" required></textarea>
             </div>
             <div class="mb-3">
-                <label for="foto" class="form-label">Foto</label>
+                <label for="foto" class="form-label">Foto Formal</label>
                 <input type="file" class="form-control" id="foto" name="foto" accept="image/*" required>
+            </div>
+            <div class="mb-3">
+                <label for="foto_anggota" class="form-label">Foto Informal</label>
+                <input type="file" class="form-control" id="foto_anggota" name="foto_anggota" accept="image/*" required>
             </div>
             <button type="submit" class="btn btn-primary">Tambah Anggota Tim</button>
         </form>

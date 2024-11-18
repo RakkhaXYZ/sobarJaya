@@ -9,7 +9,8 @@ const TentangKami = ()=> {
   useEffect(() => {
     axios.get('http://localhost:8000/api/ourteam')
     .then(response => {
-      setOurTeams(response.data);
+      console.log("data Yang diterima :", response.data.data)
+      setOurTeams(response.data.data);
       setLoading(false);
     })
     .catch(error => {
@@ -118,51 +119,38 @@ const TentangKami = ()=> {
                 </div>
                 <br />
                 <br />
-                <div class="relative">
-                    <img src="quotes1.jpg" alt="direktur" class="w-full h-auto object-cover" />
-                    <div class="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
-                        <div class="flex justify-end">
-                            <div class="w-[653px] text-white text-3xl font-bold font-['Poppins']">
-                                “BEKERJA DENGAN SUNGGUH – SUNGGUH DENGAN HATI YANG TULUS, AMANAH TERCAPAI HASILPUN MAKSIMAL.”
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-start left-3">
-                          <div class="text-white text-[40px] font-bold font-['Poppins']">MUHARDIKA, S.T</div>
-                          <div class="w-[374px] h-[0px] border-8 border-white"></div>
-                      </div>
-                    </div>
-                </div>
+                {
+  ourTeams.map((member, index) => (
+    // Memastikan bahwa our_team2 ada dan bukan kosong
+    member.our_team2 && member.our_team2.length > 0 ? (
+      member.our_team2.map((team2, index2) => (
+        <div className="relative" key={team2.id}> {/* Gunakan 'id' sebagai key untuk mencegah error */}
+          <img 
+            src={team2.foto_anggota} 
+            alt={member.nama_anggota} 
+            className="w-full h-auto object-cover"
+          />
+          <div className="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
+            <div className="flex justify-end">
+              <div className="w-[653px] text-white text-3xl font-bold font-['Poppins']">
+                "{member.quetes || 'No quote available'}"
+              </div>
+            </div>
+            <div className="flex flex-col items-start left-3">
+              <div className="text-white text-[40px] font-bold font-['Poppins']">{member.nama_anggota}</div>
+              <div className="w-[374px] h-[0px] border-8 border-white"></div>
+            </div>
+          </div>
+        </div>
+      ))
+    ) : (
+      <p>No team members available</p>
+    )
+  ))
+}
+
                 <br />
-                <div class="relative">
-                    <img src="quotes2.jpg" alt="wakil direktur" class="w-full h-auto object-cover" />
-                    <div class="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
-                        <div class="flex justify-start">
-                            <div class="w-[653px] text-white text-3xl font-bold font-['Poppins']">
-                              “BERANI MELANGKAH DENGAN TEKAT YANG KUAT AGAR KESUKSESAN TERCAPAI SESUAI KEINGINAN.”
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-start">
-                          <div class="text-white text-[40px] font-bold font-['Poppins']">MUHAMMAD SOBAR, S.T</div>
-                          <div class="w-[480px] h-[0px] border-8 border-white"></div>
-                      </div>
-                    </div>
-                </div>
-                <br />
-                <div class="relative">
-                    <img src="quotes3.jpg" alt="penasihat" class="w-full h-auto object-cover" />
-                    <div class="absolute top-0 left-0 w-[1400px] h-[800px] flex flex-col justify-between p-8">
-                        <div class="flex justify-start">
-                            <div class="w-[653px] text-white text-3xl font-bold font-['Poppins']">
-                             “AMANAH YANG TERSAMPAIKAN MEMBUAT TUJUAN PEKERJAAN MENJADI IBADAH.”
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-center justify-center">
-                            <div class="text-white text-[40px] font-bold font-['Poppins']">IR. MUKINI MANAN, S.ENG</div>
-                            <div class="w-[480px] h-[0px] border-8 border-white"></div>
-                        </div>
-                    </div>
-                </div>
-                <br />
+               
                 <div>
                 <img src="quotes4.jpg" alt="penasihat" class="w-full h-auto object-cover" />
 
@@ -186,7 +174,7 @@ const TentangKami = ()=> {
                         <div className="flex space-x-16">
                             <div>
                             <div className="text-white text-2xl font-bold font-['Poppins']">Company</div>
-                                                                                                                <br />
+                            <br />
                             <div className="text-white text-xl font-normal font-['Poppins']">Kegiatan</div>
                             <div className="text-white text-xl font-normal font-['Poppins']">Tentang Kami</div>
                             <div className="text-white text-xl font-normal font-['Poppins']">Sejarah</div>

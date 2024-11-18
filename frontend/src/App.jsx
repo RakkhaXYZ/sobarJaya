@@ -22,7 +22,7 @@ const AppContent = () => {
       <Route path="/hubungikami" element={<HubungiKami />} />
       <Route path="/tentang" element={<TentangKami />} />
       <Route path="/kegiatan1" element={<Kegiatan1/>} />
-      <Route path="/artikel1" element={<Artikel1/>} />
+      <Route path="/artikel1/:artikelId" element={<Artikel1/>} />
       <Route path="/login" element={<Login/>} />
     </Routes>
   );

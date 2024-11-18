@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
 
+use function PHPSTORM_META\map;
+
 class ArtikelController extends Controller
 {
     public function storeArtikel(Request $request)
@@ -67,5 +69,53 @@ class ArtikelController extends Controller
             'message' => 'Data Atikel Terbaru',
             'data' => $artikelTerbaru,
         ], 200);
+    }
+
+    public function getArtikelId($id)
+    {
+
+        $artikel = Artikel::find($id);
+
+        if (!$artikel) {
+            return response()->json([
+                'message' => "Data tidak ditemukan"
+            ], 404);
+        }
+
+        $artikel->foto = asset('storage/artikel/' . $artikel->foto);
+
+
+        return response()->json([
+            'message' => "artikel dengan id ditemukan",
+            'data' => $artikel,
+        ], 200);
+    }
+
+    public function getArtikel5()
+    {
+        $artikelTerbaru = Artikel::orderBy('created_at', 'desc')->take(5)->get();
+
+        $artikelTerbaru->each(function ($artikel) {
+            $artikel->foto = $artikel->foto ? asset('storage/artikel/' . $artikel->foto) : null;
+        });
+
+        return response()->json($artikelTerbaru);
+    }
+
+
+    public function searchArtikel(Request $request)
+    {
+
+        $query = $request->input('query');
+        $artikels = Artikel::where('judul', 'like', '%' . $query . '%')
+            ->orWhere('deskripsi', 'like', '%' . $query . '%')
+            ->get();
+
+
+        foreach ($artikels as $artikel) {
+            $artikel->foto = asset('storage/artikel/' . $artikel->foto);
+        }
+
+        return response()->json($artikels);
     }
 }

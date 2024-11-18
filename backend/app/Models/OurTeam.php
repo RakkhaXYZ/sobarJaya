@@ -14,7 +14,7 @@ class OurTeam extends Model
     protected $fillable = ["id", "nama_anggota", "divisi_anggota", "quetes", "foto"];
 
 
-    public function OurTeam2()
+    public function ourTeam2()
     {
 
         return $this->hasMany(Ourteam2::class, 'ourteam_id');

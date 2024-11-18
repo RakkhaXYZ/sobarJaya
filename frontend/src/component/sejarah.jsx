@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import BackToTop from './BackToTop';
 
-const Sejarah = ({ id = 1 }) => {
+const Sejarah = ({ id = 4 }) => {
   const [sejarahDta, setSejarahDta] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ const Sejarah = ({ id = 1 }) => {
   useEffect(() => {
     const fetchSejarah = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/showSejarah/${id}`);
+        const response = await axios.get(`http://localhost:8000/api/showSejarah/1`);
         setSejarahDta(response.data);
       } catch (err) {
         setError('Data tidak ditemukan atau terjadi kesalahan');
@@ -66,9 +66,9 @@ const Sejarah = ({ id = 1 }) => {
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
           {sejarahDta ? (
             <>
-              <img src={`http://localhost:8000/storage/sejarah/${sejarahDta.foto}`} alt="Foto Sejarah" className="w-full" />
+              <img src={sejarahDta.foto} alt="Foto Sejarah" className="w-full" />
               <div className="p-6">
-                <div className="text-[#3c3c3c] text-[40px] font-bold text-center">SEJARAH</div>
+                <div className="text-[#3c3c3c] text-[40px] font-bold text-center">SEJARAH </div>
                 <div className="w-[1206px] h-[283px] text-[#3c3c3c] text-[32px] font-medium">{sejarahDta.sejarah}</div>
               </div>
             </>

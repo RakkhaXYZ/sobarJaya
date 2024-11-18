@@ -2,6 +2,8 @@
 
 
 import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+
 
 
 
@@ -9,6 +11,7 @@ import React, {useEffect, useState} from 'react';
 const Artikel = ()=> {
 
   const [artikels, setArtikel] = useState([]);
+  const [artikel5, setArtikel5] = useState([]);
 
   useEffect(()=>{
     // fetch data from backend
@@ -23,6 +26,21 @@ const Artikel = ()=> {
       console.log('Error Fetching aticles:', error);
     });
   }, []);
+
+  useEffect(()=> {
+    fetch('http://localhost:8000/api/getArtikel5')
+    .then((response) => response.json())
+    .then((data) => {
+      setArtikel5(data);
+    })
+
+    .catch((error)=> {
+      console.log('Error Fetching articles:', error);
+    });
+  }, []);
+
+ 
+
   return (
     <>
    
@@ -114,7 +132,9 @@ const Artikel = ()=> {
                                         <i className="fas fa-calendar-alt ml-4 mr-2"></i>
                                         <span>{artikel.waktu_kegiatan}</span>
                                     </div>
-                                    <a href="/artikel1"><button className="bg-blue-500 text-white px-4 py-2 font-bold rounded-lg">Selengkapnya</button></a>
+                                   <Link to={`/artikel1/${artikel.id}`}>
+                                   <button className='bg-blue-500 text-white px-4 py-2 font-bold rounded-lg'>Selengkapnya</button>
+                                   </Link>
                                 </div>
                             </div>
                         </div>
@@ -127,14 +147,17 @@ const Artikel = ()=> {
                     <div className="w-1/4 ml-4">
                         <div className="bg-white rounded-lg shadow-md p-4">
                             <h3 className="text-lg font-bold mb-4">Artikel Lain</h3>
+                           
                             <ul className="list-disc list-inside text-gray-600">
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
+                            {artikel5.map((artikel5, index)=>(
+                              <Link to={`/artikel1/${artikel5.id}`}>
+                                <li>{artikel5.judul}</li>
+
+                              </Link>
+                              
+                              
+                            ))}
+                                
                             </ul>
                         </div>
                     </div>

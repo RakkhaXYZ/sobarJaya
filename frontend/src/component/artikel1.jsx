@@ -1,11 +1,82 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
 const Artikel1 = ()=> {
+  const {artikelId} = useParams();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredArticles, setFilteredarticles] = useState([]);
+  const [artikel, setArtikel]= useState(null);
+  const [artikel5, setArtikel5]= useState([]);
+  const [error, setError]= useState(null);
+
+  useEffect (() => {
+    fetch(`http://localhost:8000/api/artikel/${artikelId}`)
+    .then((response)=> {
+      if (!response.ok) {
+        throw new Error("Data tidak ditemukan");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      setArtikel(data.data);
+    })
+  .catch((error) => {
+    setError(error.message);
+  });
+  }, [artikelId]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/getArtikel5')
+    .then((response) => {
+      if (!response.ok){
+        throw new Error("Data tidak ditemukan");
+      }
+      return response.json();
+    })
+    .then((data) =>{
+      setArtikel5(data);
+    })
+    .catch((error) => {
+      setError(error.message);
+    });
+  },[]);
+
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+    if (event.target.value.length > 2){
+    axios.get(`http://localhost:8000/api/searchArtikel?query=${event.target.value}`)
+    .then(response => {
+      const articles = response.data;
+      setFilteredarticles(articles);
+      
+      // if(articles.length === 0){
+      //   setError('artikel tidak ditemukan');
+
+      // }else{
+      //   setError(null);
+      // }
+    })
+    .catch(error => console.error(error));
+  } else {
+    setFilteredarticles([]);
+  
+  }
+};
+  
+
+  if (error) return <p>{error}</p>
+
+  if(!artikel) return <p>Data artikel tidek ditemukan</p>
+
+  console.log("id artikel :", artikelId)
+
     return (
       <>
         <header>
          <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-18">
       <div className="flex items-center">
-        <img src="logo.png" alt="Logo" className="h-12 mr-2" /> 
+        <img src="/logo.png" alt="Logo" className="h-12 mr-2" /> 
         <div className="text-white text-2xl font-bold"></div>
       </div>
       <ul className="flex space-x-6 text-[#22467d] text-xl font-semibold font-['Poppins']">
@@ -76,89 +147,50 @@ const Artikel1 = ()=> {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div className="md:col-span-2 bg-white p-6 rounded-lg shadow-lg">
                         <div className="text-[#3c3c3c] text-xl font-semibold font-['Poppins']">Artikel</div>
-                            <div className="text-[#3c3c3c] text-[32px] font-semibold font-['Poppins']">PENGERJAAN BOR INTI PLTA PADANG ARO</div>
+                            <div className="text-[#3c3c3c] text-[32px] font-semibold font-['Poppins']">{artikel.judul}</div>
                             <div className="flex items-center text-gray-600 mb-4">
                                 <i className="fas fa-user mr-2"></i> Admins
-                                <i className="fas fa-calendar-alt ml-4 mr-2"></i> 01 Januari 2024
+                                <i className="fas fa-calendar-alt ml-4 mr-2"></i>{artikel.waktu_kegiatan}
                                 <i className="fas fa-eye ml-4 mr-2"></i> Dibaca 1073 Kali
                             </div>
-                            <img src="kegiatan2.jpeg" alt="Construction workers at a drilling site" className="rounded mb-4"/>
+                            <img src={artikel.foto} alt="Construction workers at a drilling site" className="rounded mb-4"/>
                             <p className="text-gray-700 mb-4">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante ante, malesuada vel felis in, dapibus dictum est. Donec scelerisque egestas mauris, sit amet aliquet nibh blandit fringilla. Sed eget enim turpis. Aenean eu eleifend est, in feugiat tellus. Donec dapibus, lorem vel rutrum eleifend, nisl lorem dapibus ex, in auctor odio nulla non lorem. Nullam vel pulvinar magna, at rhoncus elit. Integer rutrum nec. Nulla eu augue purus sollicitudin pharetra non sit amet.
-                            </p>
-                            <p className="text-gray-700 mb-4">
-                                Sed vestibulum viverra ullamcorper. Donec nec tellus dui. Suspendisse dapibus ullamcorper. Nunc est metus, egestas a eros convallis, suscipit ultricies urna. Maecenas sollicitudin nisi nec luctus ultricies. Sed interdum, odio a finibus euismod, enim nibh pulvinar velit, et eleifend metus nulla non nulla. Nullam non nisi urna. Nullam quis venenatis elit commodo rutrum. Duis vel viverra odio, at tempus lorem. In consequat eros nec cursus. Sed semper faucibus augue, non ultricies diam bibendum ullamcorper. Aliquam quis metus, quis ullamcorper massa. Fusce blandit sapien odio, non luctus justo laoreet sed.
-                            </p>
+                               {artikel.deskripsi.toLowerCase()} </p>
+                           
                         </div>
                      
                         <div className="w-30 ml-4">
                         <div className="bg-white rounded-lg shadow-lg p-6">
                             <h3 className="text-lg font-bold mb-4">Artikel Lain</h3>
                             <div className="mb-4">
-                                <input type="text" placeholder="Cari" className="w-full p-2 border border-gray-300 rounded"/>
+                                <input type="text" placeholder="Cari" value={searchQuery} onChange={handleSearch} className="w-full p-2 border border-gray-300 rounded"/>
                             </div>
-                            <ul className="list-disc list-inside text-gray-600">
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                                <li>Gunung Sari Street Color</li>
-                            </ul>
+                           
                         </div>
                          <div className="bg-white p-6 rounded-lg shadow-lg">
                             <ul className="space-y-4">
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="flex items-center">
-                                    <img src="https://placehold.co/100x60" alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
-                                    <div>
-                                        <h3 className="text-sm font-bold">PENGERJAAN BOR INTI PLTA PADANG ARO</h3>
-                                        <div className="text-gray-600 text-xs">
-                                            <i className="fas fa-user mr-1"></i> Admins
-                                            <i className="fas fa-calendar-alt ml-2 mr-1"></i> 01 Januari 2024
-                                        </div>
-                                    </div>
-                                </li>
+
+                            
+                               
+                              
+                            {(filteredArticles.length > 0 ? filteredArticles : artikel5).map((atk5, index)=>(
+                               <li key={index} className="flex items-center">
+                               <img src={atk5.foto} alt="Thumbnail of another article" className="w-20 h-auto rounded-lg mr-4"/>
+                               <div>
+                                   <h3 className="text-sm font-bold">{atk5.judul}</h3>
+                                   <div className="text-gray-600 text-xs">
+                                       <i className="fas fa-user mr-1"></i> Admins
+                                       <i className="fas fa-calendar-alt ml-2 mr-1"></i>{atk5.waktu_kegiatan}
+                                   </div>
+                               </div>
+                           </li>
+                                 
+
+                                ))}
+                                {filteredArticles.length === 0 && searchQuery.length > 2 && (
+                                  <p className='text-red-500 text-sm mt-2'>Artikel Tidak Ditemukan</p>
+                                )}
+                               
                             </ul>
                         </div>
                     </div>
@@ -206,11 +238,9 @@ const Artikel1 = ()=> {
                        
                     </div>
                     <div className="flex items-right justify-end right-50 ">
-                            <input type="text" placeholder=" " className="p-2 rounded relative top-[-3rem]">
-                            </input>
-                            <button className="bg-blue-700 p-2 rounded relative top-[-3rem] ">Cari
-                           
-                            </button>
+                            <input type="text" placeholder=" " className="p-2 rounded relative top-[-3rem]" />
+                            
+                            <button className="bg-blue-700 p-2 rounded relative top-[-3rem] ">Cari</button>
                         </div>
                     <div className="flex justify-end mt-4 space-x-4">
                         <p>Follow Us</p>
@@ -234,6 +264,7 @@ const Artikel1 = ()=> {
   
     );
   }
+  
   
   export default Artikel1;
   
