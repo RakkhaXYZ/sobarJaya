@@ -31,6 +31,7 @@ const Sejarah = ({ id = 4 }) => {
 
   return (
     <>
+    <BackToTop/>
       <header>
         <nav className="bg-blue-900 shadow-md fixed w-800 top-[3%] left-3 right-3 z-10 flex justify-between items-center p-4 rounded-full h-18">
           <div className="flex items-center">
