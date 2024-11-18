@@ -1,7 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import background from '../img/bg.png';
 
 const Login = ()=> {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = async (e) =>{
+        e.preventDefault();
+
+        try {
+            const response = await fetch('http://localhost:8000/api/admin/login', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'aplication/json',
+                },
+            
+            body: JSON.stringify({email, password}),
+            });
+
+            const data  = await response.json();
+
+            if(response.ok){
+                setMessage('Login Successfull');
+                localStorage.setItem('token', data.token);
+
+                setTimeout(() => {
+                    navigate('/dashboard');
+                }, 2000);
+            }else{
+                setMessage(data.message || 'Invalid Credencial');
+            }
+
+
+
+    }catch(error){
+        setMessage('Error Loggin in, Please try Again');
+
+    }
+};
     return (
       <>
      <div
@@ -18,12 +57,12 @@ const Login = ()=> {
                             <h2 className="text-blue-900 text-lg font-bold">CONTENT MANAGEMENT SYSTEM</h2>
                             <h2 className="text-blue-900 text-lg font-bold">CV. SOBARIJAYA</h2>
                         </div>
-                        <form>
+                        <form onSubmit={handleLogin}>
                             <div className="mb-4">
-                                <input type="text" placeholder="Username" className="w-full p-2 border border-gray-300 rounded"/>
+                                <input type="email" placeholder="Email" value={email} onChange={(e)=> setEmail(e.target.value)} className="w-full p-2 border border-gray-300 rounded"/>
                             </div>
                             <div className="mb-4">
-                                <input type="password" placeholder="Password" className="w-full p-2 border border-gray-300 rounded"/>
+                                <input type="password" placeholder="Password" value={password} onChange={(e)=> setPassword(e.target.value)} className="w-full p-2 border border-gray-300 rounded"/>
                             </div>
                             <div className="flex items-center justify-between mb-4">
                                 <label className="flex items-center">
@@ -34,6 +73,11 @@ const Login = ()=> {
                             </div>
                             <button type="submit" className="w-full bg-blue-900 text-white p-2 rounded">LOGIN</button>
                         </form>
+                        {message && (
+                            <div className="text-center mt-4">
+                                <span className="text-red-500">{message}</span>
+                            </div>
+                        )}
                     </div>
       </div>
    
@@ -41,7 +85,9 @@ const Login = ()=> {
             
   
     );
-  }
+};
+   
+
   
   export default Login;
   

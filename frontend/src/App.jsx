@@ -8,6 +8,7 @@ import HubungiKami from "./component/hubungikami";
 import TentangKami from "./component/tentang";
 import Kegiatan1 from "./component/kegiatan1";
 import Artikel1 from "./component/artikel1";
+import Dashboard from "./component/dashboardAdmin";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Login from "./component/login";
@@ -16,6 +17,7 @@ const AppContent = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/sejarah" element={<Sejarah />} />
       <Route path="/artikel" element={<Artikel />} />
       <Route path="/kegiatan" element={<Kegiatan />} />
