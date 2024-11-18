@@ -20,7 +20,7 @@ const Home = () => {
   const [loadingOurTeam, setLoadingOurTeam] = useState(true);
   const [error, setError] = useState(null);
 
->>>>>>> abb1cce8c61f5f8c06687a48195176a7e6b936d1
+
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
@@ -36,7 +36,7 @@ const Home = () => {
         setLoading(false);
       } catch (error) {
         setError('Terjadi kesalahan saat mengambil data profil');
->>>>>>> abb1cce8c61f5f8c06687a48195176a7e6b936d1
+
         setLoading(false);
       }
     };
@@ -56,7 +56,7 @@ const Home = () => {
       try {
         const articlesResponse = await axios.get('http://localhost:8000/api/NewArtikel');
         setArticles(articlesResponse.data.data);
->>>>>>> abb1cce8c61f5f8c06687a48195176a7e6b936d1
+
         setLoadingArticles(false);
       } catch (error) {
         setError('Terjadi kesalahan saat mengambil data artikel');
@@ -100,56 +100,56 @@ const Home = () => {
   }
 
   
->>>>>>> abb1cce8c61f5f8c06687a48195176a7e6b936d1
+
 
   return (
     <>
       <Navigator />
       <BackToTop />
 
-<<<<<<< HEAD
+
       {/* Background Image Section */}
       <div
         className="h-screen bg-cover bg-center relative"
         style={{ backgroundImage: `url(${background})` }}
       >
-=======
+
       {/* Background and Intro Section */}
       <div className="h-screen bg-cover bg-center relative" style={{ backgroundImage: `url(${background})` }}>
->>>>>>> abb1cce8c61f5f8c06687a48195176a7e6b936d1
+
         <div className="absolute top-64 left-28 text-white">
           <h1 className="text-8xl font-bold">CV. SOBAR JAYA</h1>
           <p className="w-[508px] text-2xl font-bold mt-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ullamcorper.
           </p>
-<<<<<<< HEAD
+
           <a href="/hubungikami" className="mt-6 inline-block px-6 py-3 bg-blue-900 text-white rounded-full">
             <span className="font-bold">CONTACT US</span>
-=======
+
           <a href="/hubungikami" className="mt-6 inline-block px-6 py-3 bg-blue-900 text-white rounded-full font-bold">
             CONTACT US
->>>>>>> abb1cce8c61f5f8c06687a48195176a7e6b936d1
+
           </a>
         </div>
       </div>
 
-<<<<<<< HEAD
+
       {/* Vision & Mission Section */}
-=======
+
       {/* Profile Section */}
->>>>>>> abb1cce8c61f5f8c06687a48195176a7e6b936d1
+
       <section className="bg-blue-900 text-white py-12 px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-4xl font-bold">VISI</h2>
-<<<<<<< HEAD
+
             <p className="mt-4 text-2xl">{profileData.visi}</p>
             <h2 className="mt-8 text-4xl font-bold">MISI</h2>
             <p className="mt-4">{profileData.misi}</p>
           </div>
           <div>
             <img className="w-[661px] h-[391px] shadow" src={profileData.foto_team} alt="Team" />
-=======
+
             <p className="mt-4 text-2xl font-bold">{profileData.visi}</p>
             <h2 className="text-4xl font-bold mt-6">MISI</h2>
             <p className="mt-4 text-lg font-bold">{profileData.misi}</p>
@@ -225,7 +225,7 @@ const Home = () => {
               <h3 className="text-xl font-bold">Content</h3>
               <p>Artikel</p>
             </div>
->>>>>>> abb1cce8c61f5f8c06687a48195176a7e6b936d1
+
           </div>
         </div>
       </section>
