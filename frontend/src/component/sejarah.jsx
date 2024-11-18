@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-const Sejarah = ({ id = 4 }) => {
+const Sejarah = ({ id = 2 }) => {
   const [sejarahDta, setSejarahDta] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ const Sejarah = ({ id = 4 }) => {
   useEffect(() => {
     const fetchSejarah = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/showSejarah/4`);
+        const response = await axios.get(`http://localhost:8000/api/showSejarah/2`);
         setSejarahDta(response.data);
       } catch (err) {
         setError('Data tidak ditemukan atau terjadi kesalahan');
