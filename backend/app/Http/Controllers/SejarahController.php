@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Sejarah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class SejarahController extends Controller
@@ -45,5 +47,37 @@ class SejarahController extends Controller
 
         $sejarah->foto = asset('storage/sejarah/' . $sejarah->foto);
         return response()->json($sejarah);
+    }
+
+    public function updateSejarah(Request $request, $id)
+    {
+        $request->validate([
+            'sejarah' => 'required|string',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png|max:5000',
+        ]);
+
+        $sejarah = Sejarah::findOrFail($id);
+
+        $oldFotoPath = $sejarah->foto;
+
+        // jika ada file foto baru 
+        if ($request->hasFile('foto')) {
+            // Hapus foto Lama jika ada
+            if ($oldFotoPath && Storage::exists('public/sejarah/' . $oldFotoPath)) {
+                Storage::delete('public/sejarah/' . $oldFotoPath);
+            }
+
+            // simpan foto baru 
+
+            $newFotoPath = $request->file('foto')->storeAs('public/sejarah', $request->file('foto')->hashName());
+            $sejarah->foto = basename($newFotoPath);
+        }
+        $sejarah->sejarah = $request->sejarah;
+        $sejarah->save();
+
+        return response()->json([
+            'message' => 'Data sejarah telah diperbarui',
+            'data' => $sejarah
+        ]);
     }
 }

@@ -26,7 +26,9 @@ Route::put('/updateProfile/{id}', [ProfileController::class, 'update']);
 
 // sejarah 
 Route::post('/storeSejarah', [SejarahController::class, 'storeSejarah']);
+Route::put('/updateSejarah/{id}', [SejarahController::class, 'updateSejarah'])->name('updateSejarah');
 Route::get('/showSejarah/{id}', [SejarahController::class, 'sejarahShow']);
+
 
 
 // artikel 
