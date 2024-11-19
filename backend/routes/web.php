@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Models\Sejarah;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +18,23 @@ Route::get('/admin', function () {
 });
 Route::get('/LoginAdmin', function () {
     return view('LoginAdmin');
+});
+
+
+Route::get('/updateSejarah/{id}', function ($id) {
+
+    $sejarah = Sejarah::findOrFail($id);
+    return view('updateSejarah', compact('sejarah'));
+});
+Route::get('/getSejarah/{$id}', function ($id) {
+
+    $sejarah = Sejarah::findOrFail($id);
+    return view('sejarah', compact('sejarah'));
+});
+Route::get('/sejarah', function () {
+
+    $sejarah = Sejarah::all();
+    return view('getSejarah', compact('sejarah'));
 });
 
 
