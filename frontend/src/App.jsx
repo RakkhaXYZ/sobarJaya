@@ -12,7 +12,12 @@ import Dashboard from "./component/dashboardAdmin";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Login from "./component/login";
-
+import Dartikel from "./component/dartikel.jsx";
+import Dgaleri from "./component/dgaleri.jsx";
+import Dkegiatan from "./component/dkegiatan.jsx";
+import Dtentangkami from "./component/dtentangkami.jsx";
+import Dsosmed from "./component/dsosmed.jsx";
+import Dkomentar from "./component/dkomentar.jsx";
 const AppContent = () => {
   return (
     <Routes>
@@ -26,6 +31,13 @@ const AppContent = () => {
       <Route path="/kegiatan1" element={<Kegiatan1/>} />
       <Route path="/artikel1/:artikelId" element={<Artikel1/>} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/dartikel" element={<Dartikel/>} />
+      <Route path="/dgaleri" element={<Dgaleri/>} />
+      <Route path="/dkegiatan" element={<Dkegiatan/>} />
+      <Route path="/dtentangkami" element={<Dtentangkami/>} />
+      <Route path="/dtentangkami" element={<Dtentangkami/>} />
+      <Route path="/dsosmed" element={<Dsosmed/>} />
+      <Route path="/dkomentar" element={<Dkomentar/>} />
     </Routes>
   );
 };

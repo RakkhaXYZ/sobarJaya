@@ -49,18 +49,16 @@ const Login = ()=> {
 >
   <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-96">
     <div className="text-center mb-8">
-      <div className="bg-blue-900 p-4 rounded-full inline-block mb-4">
-        <img
-          src="https://placehold.co/100x100?text=Logo"
+    <img
+          src="logo.png"
           alt="Company Logo"
           className="w-24 h-24 mx-auto"
         />
-      </div>
       <h2 className="text-blue-900 text-lg font-bold">SELAMAT DATANG DI</h2>
       <h2 className="text-blue-900 text-lg font-bold">
         CONTENT MANAGEMENT SYSTEM
       </h2>
-      <h2 className="text-blue-900 text-lg font-bold">CV. SOBARIJAYA</h2>
+      <h2 className="text-blue-900 text-lg font-bold">CV. SOBAR JAYA</h2>
     </div>
     <form onSubmit={handleLogin}>
       <div className="mb-4">

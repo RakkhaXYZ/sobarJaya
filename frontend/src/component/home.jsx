@@ -246,6 +246,7 @@ const Home = () => {
                     <a href="#" className="text-white"><i class="fab fa-youtube"></i></a>
           </div>
           <br></br>
+    
           <div className="w-[1192.02px] h-[0px] border border-white"></div>
           <div className="mt-8 text-center">
             <p>Copyright 2024 © CV. Sobar Jaya Kota Bandung</p>
