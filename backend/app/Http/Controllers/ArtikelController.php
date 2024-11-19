@@ -118,4 +118,35 @@ class ArtikelController extends Controller
 
         return response()->json($artikels);
     }
+
+    public function updateArtikel(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required|string',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png|max:50000',
+            'deskripsi' => 'required|string',
+            'waktu_kegiatan' => 'required|string',
+        ]);
+
+        $artikel = Artikel::findOrFail($id);
+
+        if ($request->hasFile('foto')){
+            if ($artikel->foto && \Storage::exists('public/artikel/'. $artikel->foto)) {
+                \Storage::delete('public/artikel/'. $artikel->foto);
+            }
+
+            $fotoPath = $request->file('foto')->storeAs('public/artikel', $request->file('foto')->hashName());
+            $artikel->foto = basename($fotoPath);
+        }
+
+        $artikel->judul = $request->judul;
+        $artikel->deskripsi = $request->deskripsi;
+        $artikel->waktu_kegiatan = $request->waktu_kegiatan;
+        $artikel->save();
+
+        return response()->json([
+            'message' => 'Data Artikel Berhasil diperbarui',
+            'data' => $artikel,
+        ], 200);
+    }
 }

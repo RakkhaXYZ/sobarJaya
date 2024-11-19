@@ -3,13 +3,26 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Models\Sejarah;
+use App\Models\Artikel;
 
 Route::get('/', function () {
     return view('welcome');
 });
+// artikel
+
 Route::get('/artikel', function () {
     return view('artikel');
 });
+Route::get('/getArtikel', function () {
+    $artikel = Artikel::all();
+    return view('getArtikel', compact('artikel'));
+});
+Route::get('/formUpdateArtikel/{id}', function ($id) {
+    $artikel = Artikel::findOrFail($id);
+    return view('updateArtikel', compact('artikel'));
+})->name('artikel.edit');
+
+
 Route::get('/ourteam', function () {
     return view('ourteam');
 });
