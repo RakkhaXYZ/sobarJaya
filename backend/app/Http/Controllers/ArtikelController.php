@@ -6,6 +6,7 @@ use App\Models\Artikel;
 use Illuminate\Http\Request;
 
 use function PHPSTORM_META\map;
+use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
@@ -130,9 +131,9 @@ class ArtikelController extends Controller
 
         $artikel = Artikel::findOrFail($id);
 
-        if ($request->hasFile('foto')){
-            if ($artikel->foto && \Storage::exists('public/artikel/'. $artikel->foto)) {
-                \Storage::delete('public/artikel/'. $artikel->foto);
+        if ($request->hasFile('foto')) {
+            if ($artikel->foto && Storage::exists('public/artikel/' . $artikel->foto)) {
+                Storage::delete('public/artikel/' . $artikel->foto);
             }
 
             $fotoPath = $request->file('foto')->storeAs('public/artikel', $request->file('foto')->hashName());

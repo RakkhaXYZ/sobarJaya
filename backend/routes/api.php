@@ -44,6 +44,7 @@ Route::get('/searchArtikel', [ArtikelController::class, 'searchArtikel']);
 // kegiatan 
 Route::post('/storeKegiatan', [KegiatanController::class, 'storeKegiatan']);
 Route::get('/kegiatan', [KegiatanController::class, 'IndexKegiatan']);
+Route::put('/updateKegiatan/{id}', [KegiatanController::class, 'updateKegiatan']);
 
 
 // Our Team 
