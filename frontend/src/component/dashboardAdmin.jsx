@@ -3,7 +3,7 @@ import React from 'react';
 const Dashboard = () => {
   return (
     <div className="flex bg-[#f4f6f9]">
-    <aside className="w-1/5 bg-[#22467d] text-white w-[294px] h-[1024px] p-2">
+    <aside className="w-1/5 bg-[#22467d] text-white h-screen p-2">
     <a href="/dashboardadmin"><div className="flex items-center text-white text-xl font-semibold font-['Poppins']">
         <div className="w-[310px] h-[102px] bg-[#22467d] shadow"><div className="mt-6 text-white text-3xl text-center font-semibold font-['Poppins']">DASHBOARD
         </div>
@@ -55,19 +55,21 @@ const Dashboard = () => {
             </ul>
         </nav>
     </aside>
-    <main className="w-4/5 p-2">
-        <header className="flex justify-between items-center ">
-        <div className="w-[1045px] h-[102px] bg-white shadow" > 
-          <div className="flex items-center">
+    <main className="w-[1090px] h-[107px] bg-white shadow p-2">
+       <header className="flex justify-between items-center mb-6">
+            <div className="flex items-center">
                 <img src="logo.png" alt="Company Logo" className="mr-2 w-[87px] h-[72px]"/>
                 <h1 className="text-[#22467d] text-3xl font-semibold font-['Poppins']">CV. SOBAR JAYA</h1>
             </div>
-            </div>
-       
-           
+            <div className="w-[58px] h-[58px] relative">
+    <div className="w-[58px] h-[58px] left-0 top-0 absolute bg-[#22467d] rounded-full" />
+    <div className="w-[23.75px] h-[23.75px] left-[17.12px] top-[5.52px] absolute bg-white rounded-full" />
+    <div className="w-[33.70px] h-[23.75px] left-[12.15px] top-[31.49px] absolute bg-white rounded-full" />
+</div>
         </header>
         
         <div className="text-blue-900 text-3xl font-semibold font-['Poppins'] text-center"> Welcome to Dashboard </div>
+        <br />
         <br />
         <br />
         <br />

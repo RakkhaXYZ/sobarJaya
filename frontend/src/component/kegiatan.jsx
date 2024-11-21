@@ -36,12 +36,7 @@ const Kegiatan = () => {
               </a>
             </li>
             <li>
-              <a
-                href=""
-                className="text-white font-semibold hover:text-blue-500"
-              >
-                |
-              </a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
@@ -52,12 +47,7 @@ const Kegiatan = () => {
               </a>
             </li>
             <li>
-              <a
-                href=""
-                className="text-white font-semibold hover:text-blue-500"
-              >
-                |
-              </a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
@@ -68,12 +58,7 @@ const Kegiatan = () => {
               </a>
             </li>
             <li>
-              <a
-                href=""
-                className="text-white font-semibold hover:text-blue-500"
-              >
-                |
-              </a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
@@ -84,12 +69,7 @@ const Kegiatan = () => {
               </a>
             </li>
             <li>
-              <a
-                href=""
-                className="text-white font-semibold hover:text-blue-500"
-              >
-                |
-              </a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
@@ -100,12 +80,7 @@ const Kegiatan = () => {
               </a>
             </li>
             <li>
-              <a
-                href=""
-                className="text-white font-semibold hover:text-blue-500"
-              >
-                |
-              </a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
@@ -262,20 +237,13 @@ const Kegiatan = () => {
           </div>
           <div className="flex justify-end mt-4 space-x-4">
             <p>Follow Us</p>
-            <a href="#" className="text-white">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="text-white">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" className="text-white">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" className="text-white">
-              <i class="fab fa-youtube"></i>
-            </a>
+            <a href="#" className="text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-youtube"></i></a>
           </div>
           <br></br>
+    
           <div className="w-[1192.02px] h-[0px] border border-white"></div>
           <div className="mt-8 text-center">
             <p>Copyright 2024 © CV. Sobar Jaya Kota Bandung</p>

@@ -21,7 +21,7 @@ const hubungikami = () => {
               </a>
             </li>
             <li>
-          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
             <li>
               <a
@@ -32,7 +32,7 @@ const hubungikami = () => {
               </a>
             </li>
             <li>
-          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
             <li>
               <a
@@ -43,7 +43,7 @@ const hubungikami = () => {
               </a>
             </li>
             <li>
-          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
             <li>
               <a
@@ -54,7 +54,7 @@ const hubungikami = () => {
               </a>
             </li>
             <li>
-          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
             <li>
               <a
@@ -65,7 +65,7 @@ const hubungikami = () => {
               </a>
             </li>
             <li>
-          <a href="" className="text-white font-semibold hover:text-blue-500">|</a>
+            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
             <li>
               <a

@@ -25,31 +25,31 @@ const Navbar = () => {
           <Link to="/" className="text-blue-600 font-semibold hover:text-blue-500">Profile</Link>
         </li>
         <li>
-          <a href="#" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
+          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
           <a href="/sejarah" className="text-blue-900 font-semibold hover:text-blue-500">Sejarah</a>
         </li>
         <li>
-          <a href="#" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
+          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
           <a href="/kegiatan" className="text-blue-900 font-semibold hover:text-blue-500">Kegiatan</a>
         </li>
         <li>
-          <a href="#" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
+          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
           <a href="/artikel" className="text-blue-900 font-semibold hover:text-blue-500">Artikel</a>
         </li>
         <li>
-          <a href="#" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
+          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
           <a href="/hubungikami" className="text-blue-900 font-semibold hover:text-blue-500">Hubungi Kami</a>
         </li>
         <li>
-          <a href="#" className="text-blue-900 font-semibold hover:text-blue-500">|</a>
+          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
           <a href="/tentang" className="text-blue-900 font-semibold hover:text-blue-500">Tentang Kami</a>
