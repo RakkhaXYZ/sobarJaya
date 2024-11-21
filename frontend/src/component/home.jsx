@@ -63,7 +63,7 @@ const Home = () => {
 
 
       {/* Vision & Mission Section */}
-<<<<<<< HEAD
+
       <section className="bg-blue-900 text-white py-12 px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
@@ -232,7 +232,7 @@ const Home = () => {
   </div>
 </section>
 
->>>>>>> 14456e0c52817a5fdfe4b37ad2af111691331edb
+
 
       {/* Footer */}
       <footer>
