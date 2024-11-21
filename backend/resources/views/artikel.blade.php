@@ -2,6 +2,16 @@
 
 @section('content')
 <div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                
+                    <a class="nav-link" href="{{ url('/getArtikel') }}">Data Artikel</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <h2>Tambah Artikel Baru</h2>
     <form action="{{ url('api/storeArtikel') }}" method="POST" enctype="multipart/form-data">
         @csrf
