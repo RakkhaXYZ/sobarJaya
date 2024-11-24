@@ -67,26 +67,41 @@ const Dartikel = () => {
     <div className="w-[33.70px] h-[23.75px] left-[12.15px] top-[31.49px] absolute bg-white rounded-full" />
 </div>
         </header>
+<br />
 
         <div className="p-4">
                     <div className="flex justify-between mb-4">
                         <div className="flex space-x-2">
-                            <button className="bg-green-500 text-white px-4 py-2 rounded flex items-center">
+                            <a href="/dtambahartikel"><button className="bg-green-500 text-white px-4 py-2 rounded flex items-center">
                                 <i className="fas fa-plus mr-2"></i> Tambah Artikel
-                            </button>
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded flex items-center">
+                            </button></a>
+                            <a href="/dtambahkategori"><button className="bg-blue-500 text-white px-4 py-2 rounded flex items-center">
                                 <i className="fas fa-folder-plus mr-2"></i> Tambah Kategori
-                            </button>
-                            <button className="bg-red-500 text-white px-4 py-2 rounded flex items-center">
+                            </button></a>
+                            <a href="/dhapusartikel"><button className="bg-red-500 text-white px-4 py-2 rounded flex items-center">
                                 <i className="fas fa-trash-alt mr-2"></i> Hapus data terpilih
-                            </button>
+                            </button></a>
                         </div>
+        
+                       
+                      
+                    </div>
+                    <div className="flex justify-start  space-x-20 ">
+                                <div className="w-[1300px] h-[1px] bg-black"></div>
+                            </div> 
+                            <br />
+ <div className="flex justify-between mb-4">
+                        <select className="border p-2 rounded">
+                            <option>Semua</option>
+                            {/* Add other options as needed */}
+                        </select>
                         <div className="flex items-center border rounded px-2">
                             <input type="text" placeholder="Cari" className="p-2 outline-none" />
                             <i className="fas fa-search"></i>
                         </div>
                     </div>
-                    <table className="min-w-full border-collapse border">
+                        <div>
+                            <table className="min-w-full border-collapse border">
                         <thead>
                             <tr className="bg-gray-200">
                                 <th className="border p-2"><input type="checkbox" /></th>
@@ -104,11 +119,13 @@ const Dartikel = () => {
                                     <td className="border p-2">{index + 1}</td>
                                     <td className="border p-2">
                                         <div className="flex justify-center space-x-1">
-                                            <button className="bg-red-500 text-white p-1 rounded"><i className="fas fa-trash-alt"></i></button>
-                                            <button className="bg-yellow-500 text-white p-1 rounded"><i className="fas fa-edit"></i></button>
-                                            <button className="bg-blue-500 text-white p-1 rounded"><i className="fas fa-eye"></i></button>
-                                            <button className="bg-green-500 text-white p-1 rounded"><i className="fas fa-check"></i></button>
-                                            <button className="bg-purple-500 text-white p-1 rounded"><i className="fas fa-times"></i></button>
+                                            <a href=""><img src="edit.png" alt="" /></a>
+                                            <a href=""><img src="hapus.png" alt="" /></a>
+                                            <a href=""><img src="komentar.png" alt="" /></a>
+                                            <a href=""><img src="tutup komentar.png" alt="" /></a>
+                                            <a href=""><img src="favorit.png" alt="" /></a>
+                                            <a href=""><img src="ubah kategori.png" alt="" /></a>
+                                            <a href=""><img src="pratinjau.png" alt="" /></a>
                                         </div>
                                     </td>
                                     <td className="border p-2">Pengembangan Bisnis PTA Padang Aro</td>
@@ -118,6 +135,8 @@ const Dartikel = () => {
                             ))}
                         </tbody>
                     </table>
+                    </div>
+                    
                     <div className="flex justify-between items-center mt-4">
                         <div>
                             Tampilkan 
@@ -137,9 +156,6 @@ const Dartikel = () => {
                         </div>
                     </div>
                 </div>        
-        <br />
-        <br />
-        <br />
         <br />
         <footer className="mt-6 text-center text-gray-600">
         <div className="flex justify-start  space-x-20 ">

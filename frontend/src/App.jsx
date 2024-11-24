@@ -18,6 +18,10 @@ import Dkegiatan from "./component/dkegiatan.jsx";
 import Dtentangkami from "./component/dtentangkami.jsx";
 import Dsosmed from "./component/dsosmed.jsx";
 import Dkomentar from "./component/dkomentar.jsx";
+import Dtambahartikel from "./component/dtambahartikel.jsx";
+import Dtambahkategori from "./component/dtambahkategori.jsx";
+import Dhapusartikel from "./component/dhapusartikel.jsx";
+
 const AppContent = () => {
   return (
     <Routes>
@@ -38,6 +42,9 @@ const AppContent = () => {
       <Route path="/dtentangkami" element={<Dtentangkami/>} />
       <Route path="/dsosmed" element={<Dsosmed/>} />
       <Route path="/dkomentar" element={<Dkomentar/>} />
+      <Route path="/dtambahartikel" element={<Dtambahartikel/>} />
+      <Route path="/dtambahkategori" element={<Dtambahkategori/>} />
+      <Route path="/dhapusartikel" element={<Dhapusartikel/>} />
     </Routes>
   );
 };
