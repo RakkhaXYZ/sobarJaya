@@ -11,7 +11,7 @@ const Sejarah = ({ id = 2 }) => {
     const fetchSejarah = async () => {
       try {
 
-        const response = await axios.get(`http://localhost:8000/api/showSejarah/1`);
+        const response = await axios.get(`http://localhost:8000/api/showSejarah/4`);
 
         setSejarahDta(response.data);
       } catch (err) {
