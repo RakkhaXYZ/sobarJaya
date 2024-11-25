@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Models\Sejarah;
 use App\Models\Artikel;
 use App\Models\Kegiatan;
+use App\Models\Ourteam;
 
 Route::get('/', function () {
     return view('welcome');
@@ -59,9 +60,21 @@ Route::get('/formUpdateArtikel/{id}', function ($id) {
 })->name('artikel.edit');
 
 
+// ourteam
 Route::get('/ourteam', function () {
     return view('ourteam');
 });
+Route::get('/getOurteam', function () {
+    $ourteam = Ourteam::all();
+    return view('getOurteam', compact('ourteam'));
+});
+Route::get('/formUpdate/{id}', function ($id) {
+    $ourteam = OurTeam::with('ourTeam2')->findOrFail($id);
+    return view('updateOurteam', compact('ourteam'));
+});
+
+
+
 Route::get('/admin', function () {
     return view('createAdmin');
 });
@@ -69,6 +82,9 @@ Route::get('/LoginAdmin', function () {
     return view('LoginAdmin');
 });
 
+
+
+// sejarah
 
 Route::get('/updateSejarah/{id}', function ($id) {
 

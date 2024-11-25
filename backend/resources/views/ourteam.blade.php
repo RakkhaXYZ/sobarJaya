@@ -9,6 +9,16 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center">Tambah Anggota Tim</h2>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    
+                        <a class="nav-link" href="{{ url('/getOurteam') }}">Data Ourteam</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <form action="{{ url('api/storeOurTeam') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">

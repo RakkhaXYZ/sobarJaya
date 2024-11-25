@@ -52,6 +52,7 @@ Route::put('/updateKegiatan/{id}', [KegiatanController::class, 'updateKegiatan']
 Route::post('/storeOurTeam', [OurTeamControllers::class, 'storeOurTeam']);
 Route::get('/ourteam', [OurTeamControllers::class, 'IndexTeam']);
 Route::get('/newOurteam', [OurTeamControllers::class, 'ourteamTerbaru']);
+Route::put('/updateOurteam/{id}', [OurTeamControllers::class, 'updateOurteam']);
 
 
 // Admin
