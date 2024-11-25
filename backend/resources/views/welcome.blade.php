@@ -4,6 +4,16 @@
 @section('content')
 <div class="container">
     <h2>Tambah Kegiatan</h2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                
+                    <a class="nav-link" href="{{ url('/kegiatan') }}">Data Kegiatan</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Tampilkan pesan sukses jika ada -->
     @if (session('success'))
