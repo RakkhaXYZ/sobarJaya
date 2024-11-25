@@ -35,6 +35,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/sejarah') }}">Sejarah</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/getProfile') }}">Profile Perusahaan</a>
+                </li>
             </ul>
         </div>
     </nav>

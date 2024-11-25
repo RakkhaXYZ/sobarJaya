@@ -6,6 +6,8 @@ use App\Models\Sejarah;
 use App\Models\Artikel;
 use App\Models\Kegiatan;
 use App\Models\Ourteam;
+use App\Models\ProfilePerusahaan;
+use App\Models\Team;
 
 Route::get('/', function () {
     return view('welcome');
@@ -102,6 +104,21 @@ Route::get('/sejarah', function () {
     return view('getSejarah', compact('sejarah'));
 });
 
+
+// ProfilenPerusahaan
+Route::get('/updateProfile/{id}', function($id){
+    $profilePerusahaan = ProfilePerusahaan::findOrFail($id);
+    $team = Team::findOrFail($profilePerusahaan->team_id);
+
+    return view('updateProfile', compact('profilePerusahaan', 'team'));
+});
+
+Route::get('/getProfile', function(){
+     // Ambil semua data Profile Perusahaan beserta relasi Team
+     $profilePerusahaan = ProfilePerusahaan::with('team')->get();
+
+     return view('profile', compact('profilePerusahaan'));
+});
 
 // LOGIN ADMIN
 Route::post('/admin/login', [AdminController::class, 'login']);
