@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Dgaleri = () => {
+const Dtambahgaleri = () => {
   return (
     <div className="flex bg-[#f4f6f9]">
     <aside className="w-1/5 bg-[#22467d] h-screen p-2 fixed">
@@ -58,92 +58,36 @@ const Dgaleri = () => {
           <div className=" w-[33.70px] h-[23.75px] left-[12.15px] top-[31.49px] absolute bg-white rounded-full" />
         </div>
       </header>
-      <br />
-
+      
       <div className="p-4">
         <div className="flex justify-between mb-4">
           <div className="flex space-x-2">
-            <a href="/dtambahgaleri">
-              <button className="bg-green-500 text-white px-4 py-2 rounded flex items-center">
-                <i className="fas fa-plus mr-2"></i> Tambah Galeri
-              </button>
-            </a>
-            
-            <a href="/dhapusartikel">
-              <button className="bg-red-500 text-white px-4 py-2 rounded flex items-center">
-                <i className="fas fa-trash-alt mr-2"></i> Hapus data terpilih
-              </button>
-            </a>
+          <a href="/dgaleri"><button className="bg-blue-500 text-white px-4 py-2 rounded">
+                                <i className="fas fa-arrow-left"></i> Kembali
+                            </button></a>
           </div>
         </div>
         <div className="flex justify-start space-x-10 ">
-          <div className="w-[1300px] h-[1px] bg-black"></div>
-        </div>
-        <br />
-        <div className="flex justify-between mb-4">
-          <select className="border p-2 rounded">
-            <option>Semua</option>
-            {/* Add other options as needed */}
-          </select>
-          <div className="flex items-center border rounded px-2">
-            <input type="text" placeholder="Cari" className="p-2 outline-none" />
-            <i className="fas fa-search"></i>
+            <div className="w-[1300px] h-[1px] bg-black"></div>
           </div>
-        </div>
-        <div>
-          <table className="min-w-full border-collapse border">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border p-2"><input type="checkbox" /></th>
-                <th className="border p-2">No</th>
-                <th className="border p-2">Aksi</th>
-                <th className="border p-2">Nama Galeri</th>
-                <th className="border p-2">Aktif</th>
-                <th className="border p-2">Tanggal posting</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[...Array(2)].map((_, index) => (
-                <tr key={index} className="text-center">
-                  <td className="border p-2"><input type="checkbox" /></td>
-                  <td className="border p-2">{index + 1}</td>
-                  <td className="border p-2">
-                    <div className="flex justify-center space-x-5">
-                      <a href=""><img src="edit.png" alt="" /></a>
-                      <a href=""><img src="hapus.png" alt="" /></a>
-                      <a href=""><img src="tutup komentar.png" alt="" /></a>
-                      <a href=""><img src="favorit.png" alt="" /></a>
-                      <a href=""><img src="pratinjau.png" alt="" /></a>
+          <div className="flex justify-start items-center bg-[#f4f6f9]">
+                    <div className="bg-[#f4f6f9] p-8  w-[800px]">
+                        <div className="mb-4">
+                            <label className="block text-black font-bold mb-2">Nama Album</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded" />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-black font-bold mb-2">Unggah Album</label>
+                            <div className="w-32 h-32 border border-gray-300 flex justify-center items-center">
+                                <span className="text-gray-400 text-4xl">+</span>
+                            </div>
+                        </div>
+                        <div className="flex justify-end">
+                            <button className="bg-green-500 text-white px-4 py-2 rounded">Simpan</button>
+                        </div>
                     </div>
-                  </td>
-                  <td className="border p-2">Galeri Tentang Kami</td>
-                  <td className="border p-2">1029 Kali Dilihat</td>
-                  <td className="border p-2">01 Januari 2024 12:03:12</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                </div>
         </div>
-
-        <div className="flex justify-between items-center mt-4">
-          <div>
-            Tampilkan 
-            <select className="border ml-2 p-1">
-              <option>10</option>
-              <option>25</option>
-              <option>50</option>
-            </select>
-            Dari 25 total data
-          </div>
-          <div className="flex space-x-1">
-            <button className="border px-2 py-1">Awal</button>
-            <button className="border px-2 py-1">1</button>
-            <button className="border px-2 py- 1">2</button>
-            <button className="border px-2 py-1">3</button>
-            <button className="border px-2 py-1">Akhir</button>
-          </div>
-        </div>
-      </div>
       <br />
       <footer className="mt-6 text-center text-gray-600">
         <div className="flex justify-start space-x-20 ">
@@ -156,4 +100,4 @@ const Dgaleri = () => {
   );
 };
 
-export default Dgaleri;
+export default Dtambahgaleri;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Dtambahartikel = () => {
+const Dtambahkegiatan = () => {
   return (
     <div className="flex bg-[#f4f6f9]">
      <aside className="w-1/5 bg-[#22467d] h-screen p-2 fixed">
@@ -13,16 +13,16 @@ const Dtambahartikel = () => {
         <br />
         <nav>
           <ul>
-          <li className="mb-6 flex items-center justify-start  text-[#22467d] font-bold text-xl font-['Poppins'] bg-white w-[261px] h-[72px]">
-             <a href="/dartikel"><img src="Artikel biru.png" className="mr-4"/></a>
+          <li className="mb-6 flex items-center justify-start  text-white text-xl font-['Poppins'] ">
+             <a href="/dartikel"><img src="Artikel.png" className="mr-4"/></a>
              <a href="/dartikel"><span>Artikel</span></a>
            </li>
        <li className="mb-6 flex items-center justify-start  text-white text-xl font-['Poppins']  ">
              <a href="/dgaleri"><img src="Gambar.png" className="mr-4" /></a>
              <a href="/dgaleri"><span>Galeri</span></a>
            </li>
-           <li className="mb-6 flex items-center justify-start  text-white text-xl  font-['Poppins']">
-             <a href="/dkegiatan"><img src="SKegiatan.png" className="mr-3" /></a>
+           <li className="mb-6 flex items-center justify-start  text-[#22467d] font-bold  text-xl  font-['Poppins'] bg-white w-[261px] h-[72px]">
+             <a href="/dkegiatan"><img src="Kegiatan biru.png" className="mr-3" /></a>
              <a href="/dkegiatan"><span>Kegiatan</span></a>
            </li>
            <li className="mb-6 flex items-center justify-start  text-white text-xl  font-['Poppins']">
@@ -59,7 +59,7 @@ const Dtambahartikel = () => {
         <div className="flex flex-col md:flex-row p-4">
                     <div className="w-full md:w-2/3 p-4">
                         <div className="flex justify-between mb-4">
-                            <a href="/dartikel"><button className="bg-blue-500 text-white px-4 py-2 rounded">
+                            <a href="/dkegiatan"><button className="bg-blue-500 text-white px-4 py-2 rounded">
                                 <i className="fas fa-arrow-left"></i> Kembali
                             </button></a>
                             <button className="bg-green-500 text-white px-4 py-2 rounded">
@@ -67,11 +67,11 @@ const Dtambahartikel = () => {
                             </button>
                         </div>
                         <div className="mb-4">
-                            <label className="block text-gray-700">Judul Artikel</label>
+                            <label className="block text-gray-700">Judul Kegiatan</label>
                             <input type="text" className="w-full border border-gray-300 p-2 rounded" />
                         </div>
                         <div>
-                            <label className="block text-gray-700">Isi Artikel</label>
+                            <label className="block text-gray-700">Isi Kegiatan</label>
                             <div className="border border-gray-300 rounded">
                                 <div className="flex items-center bg-gray-100 p-2 border-b border-gray-300">
                                     <button className="p-2"><i className="fas fa-undo"></i></button>
@@ -145,4 +145,4 @@ const Dtambahartikel = () => {
   );
 };
 
-export default Dtambahartikel;
+export default Dtambahkegiatan;

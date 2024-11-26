@@ -48,29 +48,29 @@ const Sejarah = ({ id = 2 }) => {
               </a>
             </li>
             <li>
-            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+            <div className="text-white font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
                 href="/sejarah"
-                className="text-white font-semibold hover:text-blue-500"
+                className="text-blue-500 font-semibold hover:text-blue-500"
               >
                 Sejarah
               </a>
             </li>
             <li>
-            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+            <div className="text-white font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
                 href="/kegiatan"
-                className="text-blue-600 font-semibold hover:text-blue-500"
+                className="text-white font-semibold hover:text-blue-500"
               >
                 Kegiatan
               </a>
             </li>
             <li>
-            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+            <div className="text-white font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
@@ -81,7 +81,7 @@ const Sejarah = ({ id = 2 }) => {
               </a>
             </li>
             <li>
-            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+            <div className="text-white font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
@@ -92,7 +92,7 @@ const Sejarah = ({ id = 2 }) => {
               </a>
             </li>
             <li>
-            <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+            <div className="text-white font-semibold hover:text-blue-500">|</div>
             </li>
             <li>
               <a
