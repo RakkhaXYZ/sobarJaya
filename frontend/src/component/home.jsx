@@ -64,7 +64,7 @@ const Home = () => {
 
       {/* Vision & Mission Section */}
 
-      <section className="bg-blue-900 text-white py-12 px-10">
+      <section className="bg-blue-900 text-white py-12 px-10 mt-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-white text-[40px] font-bold font-['Poppins']">VISI</h2>
@@ -84,35 +84,36 @@ const Home = () => {
 
       {/* Articles Section */}
       <section className="bg-gray-100 py-12">
-        <div className="container mx-auto px-4">
-        <div className="flex justify-end items-center space-x-2">
-                    <div className="w-[58px] h-[9px] bg-[#22467d]"></div>
-                    <span className="text-[#22467d] text-[32px] font-bold font-['Poppins'] ">ARTIKEL</span>
-                </div>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {articles.length > 0 ? (
-              articles.map((article, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <img
-                    src={article.foto}
-                    alt={article.judul}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4">
-                    <h3 className="text-xl font-bold">{article.judul}</h3>
-                    <p className="mt-2 text-gray-600">{article.deskripsi}</p>
-                    <a href="#" className="mt-4 inline-block text-blue-500 hover:underline">
-                      Selengkapnya
-                    </a>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p>Tidak ada artikel.</p>
-            )}
+  <div className="container mx-auto px-4">
+    <div className="flex justify-start items-center space-x-2">
+      <div className="w-[58px] h-[9px] bg-[#22467d]"></div>
+      <span className="text-[#22467d] text-[32px] font-bold font-['Poppins']">ARTIKEL</span>
+    </div>
+    <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      {articles.length > 0 ? (
+        articles.map((article, index) => (
+          <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src={article.foto}
+              alt={article.judul}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-xl font-bold">{article.judul}</h3>
+              <p className="mt-2 text-gray-600">{article.deskripsi}</p>
+              <a href="#" className="mt-4 inline-block text-blue-500 hover:underline">
+                Selengkapnya
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        ))
+      ) : (
+        <p>Tidak ada artikel.</p>
+      )}
+    </div>
+  </div>
+</section>
+
       <br />
       <br />
       <div className="flex justify-start items-center space-x-2 ml-14">
@@ -150,21 +151,41 @@ const Home = () => {
 
       {/* Team Section */}
       <section className="bg-white py-6 md:py-9 px-4">
-  <h2 className="text-[#22467d] text-2xl md:text-3xl font-bold text-center">TENTANG KAMI</h2>
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 mt-8">
-    {ourTeam.map((member, index) => (
-      <div key={index} className="text-center">
+  <h2 className="text-[#22467d] text-2xl md:text-3xl font-bold text-center mb-8">OUR TEAM</h2>
+  <div className="flex justify-center">
+  <div className="flex justify-center items-center flex-wrap mt-8">
+  {ourTeam.map((member, index) => (
+    <div key={index} className="text-center mx-4 mb-8">
+      <div className="w-[200px] h-[200px] mx-auto mb-4">
         <img
           src={member.foto}
-          alt={member.nama_anggota}
-          className="w-20 md:w-48 h-20 md:h-48 rounded-full object-cover mx-auto mb-4"
+          alt={member.alt}
+          className="rounded-full w-full h-full object-cover"
         />
-        <h3 className="text-[#3c3c3c] text-lg md:text-2xl font-bold">{member.nama_anggota}</h3>
-        <p className="text-[#3c3c3c] text-sm md:text-xl">{member.divisi_anggota}</p>
       </div>
-    ))}
+      <div className="text-[#3c3c3c] text-[32px] font-bold font-['Poppins']">
+        {member.nama_anggota}
+      </div>
+      <div className="w-[374px] h-[0px] border-2 border-[#3c3c3c] mx-auto my-4"></div>
+      <div className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins']">
+        {member.divisi_anggota}
+      </div>
+    </div>
+  ))}
+</div>
+
   </div>
 </section>
+
+
+     
+    
+  
+
+
+
+
+
 
 
 
