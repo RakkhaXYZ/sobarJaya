@@ -10,7 +10,9 @@ const Sejarah = ({ id = 2 }) => {
   useEffect(() => {
     const fetchSejarah = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/showSejarah/2`);
+
+        const response = await axios.get(`http://localhost:8000/api/showSejarah/4`);
+
         setSejarahDta(response.data);
       } catch (err) {
         setError('Data tidak ditemukan atau terjadi kesalahan');

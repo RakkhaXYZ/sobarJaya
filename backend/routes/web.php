@@ -4,10 +4,49 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Models\Sejarah;
 use App\Models\Artikel;
+use App\Models\Kegiatan;
+use App\Models\Ourteam;
+use App\Models\ProfilePerusahaan;
+use App\Models\Team;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/kegiatan', function () {
+    $kegiatan = Kegiatan::with('fotoKegiatan')->get()->map(function ($kegiatan) {
+        $kegiatan->FotoKegiatan = $kegiatan->fotoKegiatan->map(function ($foto) {
+            return [
+                'id' => $foto->id,
+                'url' => asset('storage/kegiatan/' . $foto->foto),
+            ];
+        });
+        return $kegiatan;
+    });
+
+
+    $kegiatan = Kegiatan::with('fotoKegiatan')->get()->map(function ($item) {
+        $item->fotoUrls = $item->fotoKegiatan->map(function ($foto) {
+            return asset('storage/kegiatan/' . $foto->foto);
+        });
+
+        return $item;
+    });
+    return view('getKegiatan', compact('kegiatan'));
+});
+Route::get('/updateKegiatan/{id}', function ($id) {
+    $kegiatan = Kegiatan::with('fotoKegiatan')->findOrFail($id);
+
+
+    $kegiatan->fotoUrls = $kegiatan->fotoKegiatan->map(function ($foto) {
+        return [
+            "id" => $foto->id,
+            "url" => asset('storage/kegiatan/' . $foto->foto)
+        ];
+    });
+    return view('updateKegiatan', compact('kegiatan'));
+});
+
+
 // artikel
 
 Route::get('/artikel', function () {
@@ -23,9 +62,21 @@ Route::get('/formUpdateArtikel/{id}', function ($id) {
 })->name('artikel.edit');
 
 
+// ourteam
 Route::get('/ourteam', function () {
     return view('ourteam');
 });
+Route::get('/getOurteam', function () {
+    $ourteam = Ourteam::all();
+    return view('getOurteam', compact('ourteam'));
+});
+Route::get('/formUpdate/{id}', function ($id) {
+    $ourteam = OurTeam::with('ourTeam2')->findOrFail($id);
+    return view('updateOurteam', compact('ourteam'));
+});
+
+
+
 Route::get('/admin', function () {
     return view('createAdmin');
 });
@@ -33,6 +84,9 @@ Route::get('/LoginAdmin', function () {
     return view('LoginAdmin');
 });
 
+
+
+// sejarah
 
 Route::get('/updateSejarah/{id}', function ($id) {
 
@@ -50,6 +104,21 @@ Route::get('/sejarah', function () {
     return view('getSejarah', compact('sejarah'));
 });
 
+
+// ProfilenPerusahaan
+Route::get('/updateProfile/{id}', function($id){
+    $profilePerusahaan = ProfilePerusahaan::findOrFail($id);
+    $team = Team::findOrFail($profilePerusahaan->team_id);
+
+    return view('updateProfile', compact('profilePerusahaan', 'team'));
+});
+
+Route::get('/getProfile', function(){
+     // Ambil semua data Profile Perusahaan beserta relasi Team
+     $profilePerusahaan = ProfilePerusahaan::with('team')->get();
+
+     return view('profile', compact('profilePerusahaan'));
+});
 
 // LOGIN ADMIN
 Route::post('/admin/login', [AdminController::class, 'login']);

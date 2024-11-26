@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FotoKegiatan;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class KegiatanController extends Controller
 {
@@ -51,15 +52,15 @@ class KegiatanController extends Controller
     {
 
         $kegiatan = Kegiatan::with('fotoKegiatan')->get()->map(function ($kegiatan) {
-            $kegiatan->FotoKegiatan = $kegiatan->fotoKegiatan->map(function ($foto){
+            $kegiatan->FotoKegiatan = $kegiatan->fotoKegiatan->map(function ($foto) {
                 return [
-                    'id'=> $foto->id,
-                    'url'=> asset('storage/kegiatan/'.$foto->foto),
+                    'id' => $foto->id,
+                    'url' => asset('storage/kegiatan/' . $foto->foto),
                 ];
             });
             return $kegiatan;
         });
-    
+
 
         $kegiatan = Kegiatan::with('fotoKegiatan')->get()->map(function ($item) {
             $item->fotoUrls = $item->fotoKegiatan->map(function ($foto) {
@@ -75,5 +76,67 @@ class KegiatanController extends Controller
             'data' => $kegiatan,
         ]);
     }
-    
+
+    public function updateKegiatan(Request $request, $id)
+    {
+        // validasi input 
+
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'foto' => 'nullable|array', // Foto opsional untuk pembaruan
+            'foto.*' => 'image|mimes:jpeg,jpg,png|max:5000',
+            'deleted_foto' => 'nullable|array',
+            'deleted_foto.*' => 'integer' // untuk id foto yang akan di hapus
+
+        ]);
+
+        $kegiatan = Kegiatan::findOrFail($id);
+
+        $kegiatan->update([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        if ($request->has('deleted_foto')) {
+            $deletedFotos = FotoKegiatan::whereIn('id', $request->deleted_foto)
+                ->where('kegiatan_id', $kegiatan->id)
+                ->get();
+
+            // Hapus file dari storage
+
+            foreach ($deletedFotos as $foto) {
+                if (Storage::exists('public/kegiatan/' . $foto->foto)) {
+                    Storage::delete('public/kegiatan/' . $foto->foto);
+                }
+
+                // Hapus foto dari database
+                $foto->delete();
+            }
+        }
+
+
+        // tambahkan foto baru jika ada 
+        $fotoPaths = [];
+        if ($request->hasFile('foto')) {
+            foreach ($request->file('foto') as $foto) {
+                // Hash Foto Untuk Menghasilkan nafile yang unik
+
+                $fotoPath = $foto->storeAs('public/kegiatan', $foto->hashName());
+                $fotoPaths[] = FotoKegiatan::create([
+                    'kegiatan_id' => $kegiatan->id,
+                    'foto' => basename($fotoPath)
+                ]);
+            }
+        }
+
+
+        return response()->json([
+            'message' => "data Kegiatan dan foto foto berhasil diperbarui",
+            'data' => [
+                'kegiatan' => $kegiatan,
+                'foto' => FotoKegiatan::where('kegiatan_id', $kegiatan->id)->get(),
+            ]
+        ], 200);
+    }
 }

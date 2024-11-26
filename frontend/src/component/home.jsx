@@ -116,33 +116,12 @@ const Home = () => {
       <br />
       <br />
       <div className="flex justify-start items-center space-x-2 ml-14">
-                    <div className="w-[58px] h-[9px] bg-[#22467d]"></div>
-                    <span className="text-[#22467d] text-[32px] font-bold font-['Poppins'] ">GALERI</span>
+                    
+                   
                 </div>
                 <br />
                 <br />
-      {/* Team Section */}
-      <section className="bg-white py-9 px-4">
-      <div className="flex justify-end items-center space-x-2 mr-2" >
-                    <div className="w-[58px] h-[9px] bg-[#22467d]"></div>
-                    <span className="text-[#22467d] text-[32px] font-bold font-['Poppins'] ">TIM KAMI</span>
-                </div>
-        <div className="flex justify-center items-center space-x-16 mt-8">
-          {ourTeam.map((member, index) => (
-            <div key={index} className="text-center">
-              <img
-                src={member.foto}
-                alt={member.nama_anggota}
-                className="w-48 h-48 rounded-full object-cover mx-auto mb-4"
-              />
-             
-              <h3 className="text-[#3c3c3c] text-[32px] font-bold font-['Poppins']">{member.nama_anggota}</h3>
-              <hr className="w-[370px] h-[0px] border-8 border-[#3c3c3c]" />
-              <p className="text-[#3c3c3c] text-[40px] font-bold font-['Poppins']">{member.divisi_anggota}</p>
-            </div>
-          ))}
-        </div>        
-      </section>
+    
       <br />
       <br />
       <section>
@@ -164,6 +143,34 @@ const Home = () => {
                     </div>
                 </div>
       </section>
+<<<<<<< HEAD
+=======
+
+   
+
+     
+
+      {/* Team Section */}
+      <section className="bg-white py-6 md:py-9 px-4">
+  <h2 className="text-[#22467d] text-2xl md:text-3xl font-bold text-center">TENTANG KAMI</h2>
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 mt-8">
+    {ourTeam.map((member, index) => (
+      <div key={index} className="text-center">
+        <img
+          src={member.foto}
+          alt={member.nama_anggota}
+          className="w-20 md:w-48 h-20 md:h-48 rounded-full object-cover mx-auto mb-4"
+        />
+        <h3 className="text-[#3c3c3c] text-lg md:text-2xl font-bold">{member.nama_anggota}</h3>
+        <p className="text-[#3c3c3c] text-sm md:text-xl">{member.divisi_anggota}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+
+>>>>>>> fe489fbbe31521cee979145e0d1162d9bbeac7ba
       {/* Footer */}
       <footer>
         <div className="bg-blue-900 text-white p-9">
@@ -257,5 +264,6 @@ const Home = () => {
     </>
   );
 };
+
 
 export default Home;

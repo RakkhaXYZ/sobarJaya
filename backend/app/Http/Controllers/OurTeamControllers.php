@@ -87,4 +87,62 @@ class OurTeamControllers extends Controller
             "data" => $newourteam,
         ]);
     }
+
+    public function updateOurteam(Request $request, $id)
+    {
+        $request->validate([
+            "nama_anggota" => "string|max:255",
+            "divisi_anggota" => "string|max:255",
+            "quetes" => "string",
+            "foto" => "nullable|image",
+            "foto_anggota" => "nullable|image"
+        ]);
+
+        // cari data ourteam berdasarkan id
+        $ourteam = OurTeam::findOrFail($id);
+
+        // Proses file foto jika ada dalam request
+        if ($request->hasFile('foto')) {
+            // hapus file lama jika ada 
+
+            $oldFotoPath = public_path('storage/ourteam/' . $ourteam->foto);
+            if ($ourteam->foto && file_exists($oldFotoPath)) {
+                unlink($oldFotoPath);
+            }
+
+            // simpan file baru
+            $fotoPath = $request->file('foto')->move(public_path('storage/ourteam'), $request->file('foto')->hashName());
+
+            $ourteam->foto = basename($fotoPath);
+        }
+
+        $ourteam->update([
+            "nama_anggota" => $request->nama_anggota,
+            "divisi_anggota" => $request->divisi_anggota,
+            "quetes" => $request->quetes,
+        ]);
+
+
+
+        if ($ourteam->ourTeam2) {
+            foreach ($ourteam->ourTeam2 as $item) {
+                if ($request->hasFile('foto_anggota')) {
+                    $oldFotoAnggota = public_path('storage/ourteam/' . $item->foto_anggota);
+
+                    if ($item->foto_anggota && file_exists($oldFotoAnggota)) {
+                        unlink($oldFotoAnggota);
+                    }
+
+                    $fotoAnggotaPath = $request->file('foto_anggota')->move(public_path('storage/ourteam'), $request->file('foto_anggota')->hashName());
+                    $item->foto_anggota = basename($fotoAnggotaPath);
+                    $item->save();
+                }
+            }
+        }
+
+        return response()->json([
+            "message" => "Data Ourteam Berhasil diperbarui",
+            "data" => $ourteam->load('ourTeam2')
+        ]);
+    }
 }
