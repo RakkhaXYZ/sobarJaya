@@ -30,7 +30,7 @@
                     <td>{{ $artikel->waktu_kegiatan }}</td>
                     <td>
                         <a href="{{ route('artikel.edit', $artikel->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                        <form action="#" method="POST" style="display: inline-block;">
+                        <form action="{{ url('api/destroyArtikel/'. $artikel->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus artikel ini?')">Hapus</button>
