@@ -144,8 +144,7 @@ const Home = () => {
                     </div>
                 </div>
       </section>
-<<<<<<< HEAD
-=======
+
 
    
 
@@ -191,7 +190,7 @@ const Home = () => {
 
 
 
->>>>>>> fe489fbbe31521cee979145e0d1162d9bbeac7ba
+
       {/* Footer */}
       <footer>
         <div className="bg-blue-900 text-white p-9">
