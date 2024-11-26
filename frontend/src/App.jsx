@@ -18,11 +18,16 @@ import Dkegiatan from "./component/dkegiatan.jsx";
 import Dtentangkami from "./component/dtentangkami.jsx";
 import Dsosmed from "./component/dsosmed.jsx";
 import Dkomentar from "./component/dkomentar.jsx";
+import Dtambahartikel from "./component/dtambahartikel.jsx";
+import Dtambahkategori from "./component/dtambahkategori.jsx";
+import Dhapusartikel from "./component/dhapusartikel.jsx";
+import Dtambahgaleri from "./component/dtambahgaleri.jsx";
+import Dtambahkegiatan from "./component/dtambahkegiatan.jsx";
 const AppContent = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboardAdmin" element={<Dashboard />} />
       <Route path="/sejarah" element={<Sejarah />} />
       <Route path="/artikel" element={<Artikel />} />
       <Route path="/kegiatan" element={<Kegiatan />} />
@@ -35,9 +40,13 @@ const AppContent = () => {
       <Route path="/dgaleri" element={<Dgaleri/>} />
       <Route path="/dkegiatan" element={<Dkegiatan/>} />
       <Route path="/dtentangkami" element={<Dtentangkami/>} />
-      <Route path="/dtentangkami" element={<Dtentangkami/>} />
       <Route path="/dsosmed" element={<Dsosmed/>} />
       <Route path="/dkomentar" element={<Dkomentar/>} />
+      <Route path="/dtambahartikel" element={<Dtambahartikel/>} />
+      <Route path="/dtambahkategori" element={<Dtambahkategori/>} />
+      <Route path="/dhapusartikel" element={<Dhapusartikel/>} />
+      <Route path="/dtambahgaleri" element={<Dtambahgaleri/>} />
+      <Route path="/dtambahkegiatan" element={<Dtambahkegiatan/>} />
     </Routes>
   );
 };
