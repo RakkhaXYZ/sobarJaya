@@ -149,5 +149,29 @@ class ArtikelController extends Controller
             'message' => 'Data Artikel Berhasil diperbarui',
             'data' => $artikel,
         ], 200);
+    
     }
+
+public function destroyArtikel($id){
+    $artikel = Artikel::find($id);
+
+    if (!$artikel){
+        return response()->json([
+            'message' => 'Data Artikel tidak ditemukan',
+        ], 404);
+    }
+
+    if ($artikel->foto){
+        $fotoPath = storage_path('app/public/artikel' . $artikel->foto);
+        unlink($fotoPath);
+    }
+    $artikel->delete();
+
+return response()->json([
+    'message' => 'Data Artikel berhasil dihapus',
+], 200);
+
+
+}
+
 }
