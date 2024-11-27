@@ -121,7 +121,22 @@ const Home = () => {
                 </div>
                 <br />
                 <br />
-    
+                <section className="bg-white py-6 md:py-9 px-4">
+  <h2 className="text-[#22467d] text-2xl md:text-3xl font-bold text-center">TENTANG KAMI</h2>
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 mt-8">
+    {ourTeam.map((member, index) => (
+      <div key={index} className="text-center">
+        <img
+          src={member.foto}
+          alt={member.nama_anggota}
+          className="w-20 md:w-48 h-20 md:h-48 rounded-full object-cover mx-auto mb-4"
+        />
+        <h3 className="text-[#3c3c3c] text-lg md:text-2xl font-bold">{member.nama_anggota}</h3>
+        <p className="text-[#3c3c3c] text-sm md:text-xl">{member.divisi_anggota}</p>
+      </div>
+    ))}
+  </div>
+</section>
       <br />
       <br />
       <section>
@@ -143,34 +158,10 @@ const Home = () => {
                     </div>
                 </div>
       </section>
-<<<<<<< HEAD
-=======
-
-   
-
-     
 
       {/* Team Section */}
-      <section className="bg-white py-6 md:py-9 px-4">
-  <h2 className="text-[#22467d] text-2xl md:text-3xl font-bold text-center">TENTANG KAMI</h2>
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 mt-8">
-    {ourTeam.map((member, index) => (
-      <div key={index} className="text-center">
-        <img
-          src={member.foto}
-          alt={member.nama_anggota}
-          className="w-20 md:w-48 h-20 md:h-48 rounded-full object-cover mx-auto mb-4"
-        />
-        <h3 className="text-[#3c3c3c] text-lg md:text-2xl font-bold">{member.nama_anggota}</h3>
-        <p className="text-[#3c3c3c] text-sm md:text-xl">{member.divisi_anggota}</p>
-      </div>
-    ))}
-  </div>
-</section>
+   
 
-
-
->>>>>>> fe489fbbe31521cee979145e0d1162d9bbeac7ba
       {/* Footer */}
       <footer>
         <div className="bg-blue-900 text-white p-9">
