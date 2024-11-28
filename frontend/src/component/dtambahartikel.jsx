@@ -50,11 +50,11 @@ const Dtambahartikel = () => {
             <img src="logo.png" alt="Company Logo" className="mr-2 w-[87px] h-[72px]" />
             <h1 className="text-[#22467d] text-3xl font-semibold font-['Poppins']">CV. SOBAR JAYA</h1>
           </div>
-          <div className="w-[58px] h-[58px] relative">
+          <a href="/profilMasterAdmin"><div className="w-[58px] h-[58px] relative">
             <div className="w-[58px] h-[58px] left-0 top-0 absolute bg-[#22467d] rounded-full" />
             <div className="w-[23.75px] h-[23.75px] left-[17.12px] top-[5.52px] absolute bg-white rounded-full" />
             <div className=" w-[33.70px] h-[23.75px] left-[12.15px] top-[31.49px] absolute bg-white rounded-full" />
-          </div>
+          </div></a>
         </header>
         <div className="flex flex-col md:flex-row p-4">
                     <div className="w-full md:w-2/3 p-4">
@@ -73,6 +73,17 @@ const Dtambahartikel = () => {
                         <div>
                             <label className="block text-gray-700">Isi Artikel</label>
                             <div className="border border-gray-300 rounded">
+                            <div className="flex items-center bg-gray-100 p-2 border-b">
+                                <div className="flex space-x-4">
+                                    <button className="p-1">File</button>
+                                    <button className="p-1">Edit</button>
+                                    <button className="p-1">View</button>
+                                    <button className="p-1">Insert</button>
+                                    <button className="p-1">Format</button>
+                                    <button className="p-1">Tools</button>
+                                    <button className="p-1">Table</button>
+                                </div>
+                            </div>
                                 <div className="flex items-center bg-gray-100 p-2 border-b border-gray-300">
                                     <button className="p-2"><i className="fas fa-undo"></i></button>
                                     <button className="p-2"><i className="fas fa-redo"></i></button>
@@ -98,7 +109,7 @@ const Dtambahartikel = () => {
                         <h2 className="text-white bg-blue-800 p-2 rounded">Unggah Gambar</h2>
                         <div className="mt-4">
                             <div className="flex items-center mb-4">
-                            <img src="https://placehold.co/100x100" alt="Placeholder for Gambar Utama" className="-center w-16 h-16 mr-4" />
+                            <img src="https://placehold.co/100x100" alt=" Gambar Utama" className="-center w-16 h-16 mr-4" />
 
                                 <div>
                                     <label className="block text-gray-700">Gambar Utama</label>
@@ -106,21 +117,21 @@ const Dtambahartikel = () => {
                                 </div>
                             </div>
                             <div className="flex items-center mb-4">
-                                <img src="https://placehold.co/100x100" alt="Placeholder for Gambar Tambahan" className="w-16 h-16 mr-4" />
+                                <img src="https://placehold.co/100x100" alt=" Gambar Tambahan" className="w-16 h-16 mr-4" />
                                 <div>
                                     <label className="block text-gray-700">Gambar Tambahan</label>
                                     <input type="file" className="border border-gray-300 p-2 rounded" />
                                 </div>
                             </div>
                             <div className="flex items-center mb-4">
-                                <img src="https://placehold.co/100x100" alt="Placeholder for Gambar Tambahan" className="w-16 h-16 mr-4" />
+                                <img src="https://placehold.co/100x100" alt=" Gambar Tambahan" className="w-16 h-16 mr-4" />
                                 <div>
                                     <label className="block text-gray-700">Gambar Tambahan</label>
                                     <input type="file" className="border border-gray-300 p-2 rounded" />
                                 </div>
                             </div>
                             <div className="flex items-center mb-4">
-                                <img src="https://placehold.co/100x100" alt="Placeholder for Gambar Tambahan" className="w-16 h-16 mr-4" />
+                                <img src="https://placehold.co/100x100" alt=" Gambar Tambahan" className="w-16 h-16 mr-4" />
                                 <div>
                                     <label className="block text-gray-700">Gambar Tambahan</label>
                                     <input type="file" className="border border-gray-300 p-2 rounded" />

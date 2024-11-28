@@ -15,43 +15,34 @@ const Dkomentar = () => {
         <br />
         <nav>
             <ul>
-                <li className="mb-4 flex items-center mr-2">
-                    <a href="/dartikel"><i className="fas fa-file-alt mr-2"></i></a>
-                    <a href="/dartikel"><span>Artikel</span></a>
-                </li>
-                <br />
-  
-                <li className="mb-4 flex items-center">
-                    <a href="/dgaleri"><i className="fas fa-images mr-2"></i></a>
-                    <a href="/dgaleri"><span>Galeri</span></a>
-                </li>
-                <br />
-                <li className="mb-4 flex items-center">
-                    <a href="/dkegiatan"><i className="fas fa-calendar-alt mr-2"></i></a>
-                    <a href="/dkegiatan"><span>Kegiatan</span></a>
-                </li>
-                <br />
-                <li className="mb-4 flex items-center">
-                    <a href="/dtentangkami"><i className="fas fa-info-circle mr-2"></i></a>
-                    <a href="/dtentangkami"><span>Tentang Kami</span></a>
-                </li>
-                <br />
-                <li className="mb-4 flex items-center">
-                    <a href="/dsosmed"><i className="fas fa-share-alt mr-2"></i></a>
-                    <a href="/dsosmed"><span>Sosial Media</span></a>
-                </li>
-                <br />
-                <li className="mb-4 flex items-center">
-                    <a href="/dkomentar"><i className="fas fa-comments mr-2"></i></a>
-                    <a href="/dkomentar"><span>Komentar</span></a>
-                </li>
-                <br />
-                <br />
-    
-                <li className="mt-6 flex items-center">
-                    <i className="fas fa-sign-out-alt mr-2"></i>
-                    <a href=""><span>Keluar</span></a>
-                </li>
+            <li className="mb-6 flex items-center justify-start  text-white text-xl  font-['Poppins']">
+             <a href="/dartikel"><img src="Artikel.png" className="mr-4"/></a>
+             <a href="/dartikel"><span>Artikel</span></a>
+           </li>
+       <li className="mb-6 flex items-center justify-start  text-white text-xl font-['Poppins']  ">
+             <a href="/dgaleri"><img src="Gambar.png" className="mr-4" /></a>
+             <a href="/dgaleri"><span>Galeri</span></a>
+           </li>
+           <li className="mb-6 flex items-center justify-start  text-white text-xl  font-['Poppins']">
+             <a href="/dkegiatan"><img src="SKegiatan.png" className="mr-3" /></a>
+             <a href="/dkegiatan"><span>Kegiatan</span></a>
+           </li>
+           <li className="mb-6 flex items-center justify-start text-white text-xl  font-['Poppins']">
+             <a href="/dtentangkami"><img src="Tentang Kami.png" className="mr-4" /></a>
+             <a href="/dtentangkami"><span>Tentang Kami</span></a>
+           </li>
+           <li className="mb-6 flex items-center justify-start text-white text-xl  font-['Poppins']">
+             <a href="/dsosmed"><img src="Sosial Media.png" className="mr-7" /></a>
+             <a href="/dsosmed"><span>Sosial Media</span></a>
+           </li>
+           <li className="mb-6 flex items-center justify-start text-[#22467d] font-bold text-xl font-['Poppins'] bg-white w-[261px] h-[72px]">
+             <a href="/dkomentar"><img src="Komentar biru.png" className="mr-5" /></a>
+             <a href="/dkomentar"><span>Komentar</span></a>
+           </li>
+           <li className="mt-24 flex items-center justify-start text-white text-xl  font-['Poppins']">
+             <img src="Keluar.png" className="mr-6" />
+             <a href=""><span>Keluar</span></a>
+           </li>
             </ul>
         </nav>
     </aside>
@@ -61,11 +52,11 @@ const Dkomentar = () => {
                 <img src="logo.png" alt="Company Logo" className="mr-2 w-[87px] h-[72px]"/>
                 <h1 className="text-[#22467d] text-3xl font-semibold font-['Poppins']">CV. SOBAR JAYA</h1>
             </div>
-            <div className="w-[58px] h-[58px] relative">
+            <a href="/profilAdminMaster"><div className="w-[58px] h-[58px] relative">
     <div className="w-[58px] h-[58px] left-0 top-0 absolute bg-[#22467d] rounded-full" />
     <div className="w-[23.75px] h-[23.75px] left-[17.12px] top-[5.52px] absolute bg-white rounded-full" />
     <div className="w-[33.70px] h-[23.75px] left-[12.15px] top-[31.49px] absolute bg-white rounded-full" />
-</div>
+</div></a>
         </header>
         
         <div className="text-blue-900 text-3xl font-semibold font-['Poppins'] text-center"> Welcome to Dashboard </div>

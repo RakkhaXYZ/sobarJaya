@@ -52,11 +52,11 @@ const Dgaleri = () => {
           <img src="logo.png" alt="Company Logo" className="mr-2 w-[87px] h-[72px]" />
           <h1 className="text-[#22467d] text-3xl font-semibold font-['Poppins']">CV. SOBAR JAYA</h1>
         </div>
-        <div className="w-[58px] h-[58px] relative">
+        <a href="/profilMasterAdmin"><div className="w-[58px] h-[58px] relative">
           <div className="w-[58px] h-[58px] left-0 top-0 absolute bg-[#22467d] rounded-full" />
           <div className="w-[23.75px] h-[23.75px] left-[17.12px] top-[5.52px] absolute bg-white rounded-full" />
           <div className=" w-[33.70px] h-[23.75px] left-[12.15px] top-[31.49px] absolute bg-white rounded-full" />
-        </div>
+        </div></a>
       </header>
       <br />
 

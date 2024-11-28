@@ -23,11 +23,14 @@ import Dtambahkategori from "./component/dtambahkategori.jsx";
 import Dhapusartikel from "./component/dhapusartikel.jsx";
 import Dtambahgaleri from "./component/dtambahgaleri.jsx";
 import Dtambahkegiatan from "./component/dtambahkegiatan.jsx";
+import Profilmasteradmin from "./component/profilMasterAdmin.jsx";
+
+
 const AppContent = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/dashboardAdmin" element={<Dashboard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/sejarah" element={<Sejarah />} />
       <Route path="/artikel" element={<Artikel />} />
       <Route path="/kegiatan" element={<Kegiatan />} />
@@ -47,6 +50,7 @@ const AppContent = () => {
       <Route path="/dhapusartikel" element={<Dhapusartikel/>} />
       <Route path="/dtambahgaleri" element={<Dtambahgaleri/>} />
       <Route path="/dtambahkegiatan" element={<Dtambahkegiatan/>} />
+      <Route path="/profilmasteradmin" element={<Profilmasteradmin/>} />
     </Routes>
   );
 };
