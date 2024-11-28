@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
               
-                  <a class="nav-link" href="{{ url('/kegiatan') }}">Data Kegiatan</a>
+                  <a class="nav-link" href="{{ url('/getOurteam') }}">Data Kegiatan</a>
               </li>
           </ul>
       </div>
@@ -48,7 +48,7 @@
                         <a href="{{ url('/updateKegiatan', $item->id) }}" class="btn btn-warning btn-sm mb-2">Update</a>
                         
                         <!-- Tombol Hapus -->
-                        <form action="#" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus kegiatan ini?')">
+                        <form action="{{ url('/api/destroyKegiatan', $item->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus kegiatan ini?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>

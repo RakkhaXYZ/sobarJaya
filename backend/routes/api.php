@@ -46,6 +46,7 @@ Route::delete('/destroyArtikel/{id}', [ArtikelController::class, 'destroyArtikel
 Route::post('/storeKegiatan', [KegiatanController::class, 'storeKegiatan']);
 Route::get('/kegiatan', [KegiatanController::class, 'IndexKegiatan']);
 Route::put('/updateKegiatan/{id}', [KegiatanController::class, 'updateKegiatan']);
+Route::delete('/destroyKegiatan/{id}', [KegiatanController::class, 'destroyKegiatan']);
 
 
 // Our Team 
@@ -54,6 +55,7 @@ Route::post('/storeOurTeam', [OurTeamControllers::class, 'storeOurTeam']);
 Route::get('/ourteam', [OurTeamControllers::class, 'IndexTeam']);
 Route::get('/newOurteam', [OurTeamControllers::class, 'ourteamTerbaru']);
 Route::put('/updateOurteam/{id}', [OurTeamControllers::class, 'updateOurteam']);
+Route::delete('/destroyOurteam/{id}', [OurTeamControllers::class, 'destroyOurteam']);
 
 
 // Admin

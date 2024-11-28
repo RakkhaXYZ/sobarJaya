@@ -145,4 +145,37 @@ class OurTeamControllers extends Controller
             "data" => $ourteam->load('ourTeam2')
         ]);
     }
+
+
+    public function destroyOurteam($id)
+    {
+        $ourteam = OurTeam::findOrFail($id);
+
+        if ($ourteam->foto) {
+            $oldFotoPath = public_path('storage/ourteam/' . $ourteam->foto);
+            if (file_exists($oldFotoPath)) {
+                unlink($oldFotoPath);
+            }
+        }
+
+        // hapus semua file foto anggota terkait jika ada 
+        if ($ourteam->ourTeam2) {
+            foreach ($ourteam->ourTeam2 as $item) {
+                if ($item->foto_anggota) {
+                    $oldFotoPath = public_path('storage/ourteam/' . $item->foto_anggota);
+
+                    if (file_exists($oldFotoPath)) {
+                        unlink($oldFotoPath);
+                    }
+                }
+                $item->delete();
+            }
+
+            $ourteam->delete();
+
+            return response()->json([
+                "message" => "Data Ourteam dan foto - foto terkait berhasil dihapus",
+            ]);
+        }
+    }
 }
