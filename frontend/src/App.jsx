@@ -17,6 +17,9 @@ import Dgaleri from "./component/dgaleri.jsx";
 import Dkegiatan from "./component/dkegiatan.jsx";
 import Dtentangkami from "./component/dtentangkami.jsx";
 import Dsosmed from "./component/dsosmed.jsx";
+import Dsosmed1 from "./component/dsosmed1.jsx";
+import Dsosmed2 from "./component/dsosmed2.jsx";
+import Dsosmed3 from "./component/dsosmed3.jsx";
 import Dkomentar from "./component/dkomentar.jsx";
 import Dtambahartikel from "./component/dtambahartikel.jsx";
 import Dtambahkategori from "./component/dtambahkategori.jsx";
@@ -44,6 +47,9 @@ const AppContent = () => {
       <Route path="/dkegiatan" element={<Dkegiatan/>} />
       <Route path="/dtentangkami" element={<Dtentangkami/>} />
       <Route path="/dsosmed" element={<Dsosmed/>} />
+      <Route path="/dsosmed1" element={<Dsosmed1/>} />
+      <Route path="/dsosmed2" element={<Dsosmed2/>} />
+      <Route path="/dsosmed3" element={<Dsosmed3/>} />
       <Route path="/dkomentar" element={<Dkomentar/>} />
       <Route path="/dtambahartikel" element={<Dtambahartikel/>} />
       <Route path="/dtambahkategori" element={<Dtambahkategori/>} />

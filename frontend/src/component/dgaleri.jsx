@@ -145,6 +145,8 @@ const Dgaleri = () => {
         </div>
       </div>
       <br />
+      <br />
+      <br />
       <footer className="mt-6 text-center text-gray-600">
         <div className="flex justify-start space-x-20 ">
           <div className="w-[1300px] h-[2px] bg-gray-300"></div>

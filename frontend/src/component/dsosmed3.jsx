@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Dsosmed= () => {
+const Dsosmed3= () => {
   return (
     <div className="flex bg-[#f4f6f9]">
     <aside className="w-1/5 bg-[#22467d] h-screen p-2 fixed">
@@ -62,13 +62,13 @@ const Dsosmed= () => {
               <div className="w-1/3">
                   <div className="bg-[#22467d] text-white text-2xl font-semibold font-['Poppins'] p-2 mb-4 w-[304px] h-[43px]">Media Sosial</div>
                   <ul>
-                      <a href="/dsosmed"><li className="bg-[#22467d] text-[#ffffff] text-xl font-semibold font-['Poppins'] p-2 mb-2 w-[304px] h-[43px]"><i className="fab fa-facebook mr-2"></i>Facebook</li></a>
+                      <a href="/dsosmed"><li className=" text-[#3c3c3c] text-xl font-semibold font-['Poppins'] p-2 mb-2 w-[304px] h-[43px]"><i className="fab fa-facebook mr-2"></i>Facebook</li></a>
                       <li> <div className="w-[300px] h-[2px] bg-gray-300"></div></li>
                       <a href="/dsosmed1"><li className="text-[#3c3c3c] text-xl font-semibold font-['Poppins'] p-2 mb-2"><i className="fab fa-twitter mr-2"></i>Twitter X</li></a>
                       <li> <div className="w-[300px] h-[2px] bg-gray-300"></div></li>
-                      <a href="/dsosmed2"><li className="text-[#3c3c3c] text-xl font-semibold font-['Poppins'] p-2 mb-2 p-2 mb-2"><i className="fab fa-youtube mr-2"></i>Youtube</li></a>
+                      <a href="/dsosmed2"><li className="text-[#3c3c3c] text-xl font-semibold font-['Poppins'] p-2 mb-2 "><i className="fab fa-youtube mr-2"></i>Youtube</li></a>
                       <li> <div className="w-[300px] h-[2px] bg-gray-300"></div></li>
-                      <a href="/dsosmed3"><li className="text-[#3c3c3c] text-xl font-semibold font-['Poppins'] p-2 mb-2 p-2 mb-2"><i className="fab fa-instagram mr-2"></i>Instagram</li></a>
+                      <a href="/dsosmed3"><li className="bg-[#22467d] text-[#ffffff] text-[#3c3c3c] text-xl font-semibold font-['Poppins'] p-2 mb-2 w-[304px] h-[43px]"><i className="fab fa-instagram mr-2"></i>Instagram</li></a>
                       <li> <div className="w-[300px] h-[2px] bg-gray-300"></div></li>
 
                   </ul>
@@ -78,7 +78,7 @@ const Dsosmed= () => {
                   <input type="text" className="mt-1 p-2 border border-gray-300 rounded w-[516px] h-[37px]"/>
                   <br />
                   <br />
-                  <button className=" justify-end bg-[#22467d] text-white p-2 rounded  text-[20px] font-semibold font-['Poppins']">Simpan</button>
+                  <button className=" justify-end bg-[#22467d] text-white p-2 rounded  text-xl font-semibold font-['Poppins']">Simpan</button>
               </div>
           </div>
         </section>
@@ -100,6 +100,6 @@ const Dsosmed= () => {
   );
 };
 
-export default Dsosmed;
+export default Dsosmed3;
 
 
