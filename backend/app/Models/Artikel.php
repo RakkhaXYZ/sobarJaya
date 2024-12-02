@@ -11,5 +11,5 @@ class Artikel extends Model
 
     protected $table = 'table_artikel';
 
-    protected $fillable = ['id', 'judul', 'foto', 'deskripsi', 'waktu_kegiatan'];
+    protected $fillable = ['id', 'judul', 'foto', 'deskripsi', 'dibaca', 'waktu_kegiatan'];
 }

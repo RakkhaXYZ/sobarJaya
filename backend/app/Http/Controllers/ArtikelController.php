@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use function PHPSTORM_META\map;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
+
 
 class ArtikelController extends Controller
 {
@@ -81,6 +83,14 @@ class ArtikelController extends Controller
             return response()->json([
                 'message' => "Data tidak ditemukan"
             ], 404);
+        }
+
+        // tambah logika untuk menambahkan jumlah dibaca
+
+        $key = "artikel_dibaca_{$id}_" . request()->ip();
+        if (!Cache::has($key)) {
+            $artikel->increment('dibaca');
+            Cache::put($key, true, now()->addMinutes(1));
         }
 
         $artikel->foto = asset('storage/artikel/' . $artikel->foto);
