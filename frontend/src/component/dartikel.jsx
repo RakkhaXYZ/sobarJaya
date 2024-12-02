@@ -168,7 +168,7 @@ const Dartikel = () => {
           <span>{item.judul}</span>
         </div>
       </td>
-      <td className="border p-2">{item.dilihat || '0'} Kali Dilihat</td>
+      <td className="border p-2">{item.dibaca || '0'} Kali Dilihat</td>
       <td className="border p-2">{new Date(item.created_at).toLocaleString()}</td>
     </tr>
   ))}
