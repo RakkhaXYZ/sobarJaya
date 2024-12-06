@@ -28,7 +28,7 @@ const Login = ()=> {
                 localStorage.setItem('token', data.token);
 
                 setTimeout(() => {
-                    navigate('/dashboard');
+                    navigate('/dashboardAdmin');
                 }, 2000);
             }else{
                 setMessage(data.message || 'Invalid Credencial');

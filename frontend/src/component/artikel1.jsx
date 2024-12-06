@@ -8,23 +8,33 @@ const Artikel1 = ()=> {
   const [filteredArticles, setFilteredarticles] = useState([]);
   const [artikel, setArtikel]= useState(null);
   const [artikel5, setArtikel5]= useState([]);
+  const [isLoaded, setIsLoaded]= useState(false);
   const [error, setError]= useState(null);
 
   useEffect (() => {
-    fetch(`http://localhost:8000/api/artikel/${artikelId}`)
-    .then((response)=> {
-      if (!response.ok) {
-        throw new Error("Data tidak ditemukan");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      setArtikel(data.data);
-    })
-  .catch((error) => {
-    setError(error.message);
-  });
-  }, [artikelId]);
+    if(!isLoaded){
+      fetch(`http://localhost:8000/api/artikel/${artikelId}`)
+      .then((response)=> {
+        if (!response.ok) {
+          throw new Error("Data tidak ditemukan");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setArtikel(data.data);
+        setIsLoaded(true);
+       
+      })
+    .catch((error) => {
+      setError(error.message);
+      
+    });
+
+    }
+  
+
+ 
+  }, [artikelId, isLoaded]);
 
   useEffect(() => {
     fetch('http://localhost:8000/api/getArtikel5')
@@ -69,7 +79,7 @@ const Artikel1 = ()=> {
 
   if(!artikel) return <p>Data artikel tidek ditemukan</p>
 
-  console.log("id artikel :", artikelId)
+ 
 
     return (
       <>
@@ -151,7 +161,7 @@ const Artikel1 = ()=> {
                             <div className="flex items-center text-gray-600 mb-4">
                                 <i className="fas fa-user mr-2"></i> Admins
                                 <i className="fas fa-calendar-alt ml-4 mr-2"></i>{artikel.waktu_kegiatan}
-                                <i className="fas fa-eye ml-4 mr-2"></i> Dibaca 1073 Kali
+                                <i className="fas fa-eye ml-4 mr-2"></i> Dibaca {artikel.dibaca} Kali
                             </div>
                             <img src={artikel.foto} alt="Construction workers at a drilling site" className="rounded mb-4"/>
                             <p className="text-gray-700 mb-4">

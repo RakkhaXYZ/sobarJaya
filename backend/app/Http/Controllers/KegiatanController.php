@@ -139,4 +139,29 @@ class KegiatanController extends Controller
             ]
         ], 200);
     }
+
+    public function destroyKegiatan($id)
+    {
+        // Temukan data kegiatan berdasarkan ID 
+        $kegiatan = Kegiatan::findOrFail($id);
+
+        $fotos = FotoKegiatan::where('kegiatan_id', $kegiatan->id)->get();
+
+        foreach ($fotos as $foto) {
+            if (Storage::exists('public/kegiatan/' . $foto->foto)) {
+                Storage::delete('public/kegiatan/' . $foto->foto);
+            }
+
+            // Hapus Foto dari database 
+            $foto->delete();
+        }
+
+        // Hapus Data Kegiatan 
+        $kegiatan->delete();
+
+        return response()->json([
+            'message' => "Data kegiatan dan foto terkait berhasil dihapus",
+
+        ], 200);
+    }
 }

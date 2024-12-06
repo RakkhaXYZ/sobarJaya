@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+
 
 const Dartikel = () => {
+  const [artikel, setArtikel] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:8000/api/Artikel')
+      .then((response) => {
+        console.log(response.data); // Debug
+        setArtikel(response.data); // Pastikan nilai default
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setError('Gagal memuat data artikel.');
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="flex bg-[#f4f6f9]">
       <aside className="w-1/5 bg-[#22467d] h-screen p-2 fixed">
@@ -60,6 +82,7 @@ const Dartikel = () => {
         </header>
         
         <div className="p-4">
+       
           <div className="flex justify-between mb-4">
             <div className="flex space-x-2">
               <a href="/dtambahartikel">
@@ -106,27 +129,51 @@ const Dartikel = () => {
                 </tr>
               </thead>
               <tbody>
-                {[...Array(10)].map((_, index) => (
-                  <tr key={index} className="text-center">
-                    <td className="border p-2"><input type="checkbox" /></td>
-                    <td className="border p-2">{index + 1}</td>
-                    <td className="border p-2">
-                      <div className="flex justify-center space-x-1">
-                        <a href=""><img src="edit.png" alt="" /></a>
-                        <a href=""><img src="hapus.png" alt="" /></a>
-                        <a href=""><img src="komentar.png" alt="" /></a>
-                        <a href=""><img src="tutup komentar.png" alt="" /></a>
-                        <a href=""><img src="favorit.png" alt="" /></a>
-                        <a href=""><img src="ubah kategori.png" alt="" /></a>
-                        <a href=""><img src="pratinjau.png" alt="" /></a>
-                      </div>
-                    </td>
-                    <td className="border p-2">Pengembangan Bisnis PTA Padang Aro</td>
-                    <td className="border p-2">1029 Kali Dilihat</td>
-                    <td className="border p-2">01 Januari 2024 12:03:12</td>
-                  </tr>
-                ))}
+              {artikel.map((item, index) => (
+    <tr key={item.id} className="text-center">
+      <td className="border p-2">
+        <input type="checkbox" />
+      </td>
+      <td className="border p-2">{index + 1}</td>
+      <td className="border p-2">
+        <div className="flex justify-center space-x-1">
+          <a href={`/editArtikel/${item.id}`}>
+            <img src="edit.png" alt="Edit" title="Edit Artikel" />
+          </a>
+          <a href={`/hapusArtikel/${item.id}`}>
+            <img src="hapus.png" alt="Hapus" title="Hapus Artikel" />
+          </a>
+          
+          <a href={`/tutupKomentar/${item.id}`}>
+            <img src="tutup komentar.png" alt="Tutup Komentar" title="Tutup Komentar" />
+          </a>
+          <a href={`/favoritkanArtikel/${item.id}`}>
+            <img src="favorit.png" alt="Favoritkan" title="Favoritkan Artikel" />
+          </a>
+          <a href={`/ubahKategori/${item.id}`}>
+            <img src="ubah kategori.png" alt="Ubah Kategori" title="Ubah Kategori" />
+          </a>
+          <a href={`/pratinjau/${item.id}`}>
+            <img src="pratinjau.png" alt="Pratinjau" title="Pratinjau Artikel" />
+          </a>
+        </div>
+      </td>
+      <td className="border p-2">
+        <div className="flex flex-col items-center">
+          <img
+            src={item.foto || 'placeholder.png'} // Gunakan placeholder jika tidak ada foto
+            alt={item.judul}
+            className="w-20 h-20 object-cover mb-2"
+          />
+          <span>{item.judul}</span>
+        </div>
+      </td>
+      <td className="border p-2">{item.dibaca || '0'} Kali Dilihat</td>
+      <td className="border p-2">{new Date(item.created_at).toLocaleString()}</td>
+    </tr>
+  ))}
               </tbody>
+
             </table>
           </div>
 
@@ -159,6 +206,8 @@ const Dartikel = () => {
       </main>
     </div>
   );
-};
+}
+ 
+
 
 export default Dartikel;

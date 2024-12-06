@@ -1,6 +1,92 @@
-import React from 'react';
-
+import React, {useState, useRef} from 'react';
+import {useNavigate} from "react-router-dom";
 const Dtambahartikel = () => {
+  const [judul, setJudul] = useState('');
+  const [deskripsi, setDeskripsi] = useState('');
+  const [waktuKegiatan, setWaktuKegiatan] = useState('');
+  const [foto, setFoto] = useState(null);
+
+  const navigate = useNavigate();
+  const [alertMessage, setAlertMessage] = useState(null);
+  const [alertType, setAlertType] = useState("success");
+
+  
+
+  const textareaRef = useRef(null);
+
+  const formatText = (tag) => {
+    if (textareaRef.current) {
+      const textarea = textareaRef.current;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const selectedText = textarea.value.substring(start, end);
+  
+      let formattedText = "";
+  
+      // Menentukan format berdasarkan tag
+      if (tag === "bold") {
+        formattedText = `**${selectedText}**`;
+      } else if (tag === "italic") {
+        formattedText = `*${selectedText}*`;
+      } else if (tag === "underline") {
+        formattedText = `<u>${selectedText}</u>`;
+      }
+  
+      // Gabungkan teks yang baru diformat
+      const newText =
+        textarea.value.substring(0, start) +
+        formattedText +
+        textarea.value.substring(end);
+  
+      // Update nilai dalam textarea dan state
+      textarea.value = newText;
+      setDeskripsi(newText);
+    }
+  };
+  
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('judul', judul);
+    formData.append('deskripsi', deskripsi);
+    formData.append('waktu_kegiatan', waktuKegiatan);
+    formData.append('foto', foto);
+
+    try{
+      const response = await fetch('http://localhost:8000/api/storeArtikel', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok){
+        const result = await response.json();
+        setAlertMessage(result.message);
+        setAlertType("success")
+
+        // reset form
+        setJudul("");
+        setDeskripsi("");
+        setWaktuKegiatan("");
+        setFoto(null);
+
+        setTimeout(()=> {
+          navigate("/dartikel");
+        }, 2000)
+      } else {
+        const errorData = await response.json();
+        setAlertMessage(`Error: ${errorData.message}`);
+        setAlertType("error");
+      }
+    } catch (error) {
+      console.error('error submitting artikel:', error);
+      setAlertMessage("Terjadi Kesalahan saat mengirim data");
+      setAlertType("error");
+    }
+
+  };
   return (
     <div className="flex bg-[#f4f6f9]">
      <aside className="w-1/5 bg-[#22467d] h-screen p-2 fixed">
@@ -58,7 +144,7 @@ const Dtambahartikel = () => {
         </header>
         <div className="flex flex-col md:flex-row p-4">
                     <div className="w-full md:w-2/3 p-4">
-                        <div className="flex justify-between mb-4">
+                     <div className="flex justify-between mb-4">
                             <a href="/dartikel"><button className="bg-blue-500 text-white px-4 py-2 rounded">
                                 <i className="fas fa-arrow-left"></i> Kembali
                             </button></a>
@@ -66,11 +152,18 @@ const Dtambahartikel = () => {
                                 <i className="fas fa-eye"></i> Pratinjau
                             </button>
                         </div>
-                        <div className="mb-4">
+
+                    <form onSubmit={handleSubmit}>
+                      {alertMessage && (
+                        <div className={`p-4 mb-4 text-white rounded ${
+                          alertType === "success" ? "bg-green-500" : "bg-red-500"
+                        }`}>{alertMessage}</div>
+                      )}
+                     <div className="mb-4">
                             <label className="block text-gray-700">Judul Artikel</label>
-                            <input type="text" className="w-full border border-gray-300 p-2 rounded" />
+                            <input type="text" value={judul} onChange={(e)=> setJudul(e.target.value)} className="w-full border border-gray-300 p-2 rounded" />
                         </div>
-                        <div>
+                          <div>
                             <label className="block text-gray-700">Isi Artikel</label>
                             <div className="border border-gray-300 rounded">
                             <div className="flex items-center bg-gray-100 p-2 border-b">
@@ -87,9 +180,9 @@ const Dtambahartikel = () => {
                                 <div className="flex items-center bg-gray-100 p-2 border-b border-gray-300">
                                     <button className="p-2"><i className="fas fa-undo"></i></button>
                                     <button className="p-2"><i className="fas fa-redo"></i></button>
-                                    <button className="p-2"><i className="fas fa-bold"></i></button>
-                                    <button className="p-2"><i className="fas fa-italic"></i></button>
-                                    <button className="p-2"><i className="fas fa-underline"></i></button>
+                                    <button className="p-2" onClick={()=> formatText("bold")}><i className="fas fa-bold"></i></button>
+                                    <button className="p-2" onClick={()=> formatText("italic")}><i className="fas fa-italic"></i></button>
+                                    <button className="p-2" onClick={()=> formatText("underline")}><i className="fas fa-underline"></i></button>
                                     <button className="p-2"><i className="fas fa-strikethrough"></i></button>
                                     <button className="p-2"><i className="fas fa-align-left"></i></button>
                                     <button className="p-2"><i className="fas fa-align-center"></i></button>
@@ -101,9 +194,10 @@ const Dtambahartikel = () => {
                                     <button className="p-2"><i className="fas fa-outdent"></i></button>
                                 
                                 </div>
-                                <textarea className="w-full h-64 p-2"></textarea>
+                                <textarea ref={textareaRef} value={deskripsi} onChange={(e)=> setDeskripsi(e.target.value)} className="w-full h-64 p-2"></textarea>
                             </div>
                         </div>
+<<<<<<< HEAD
                     </div>
                     <div className="w-full md:w-1/3 p-4 bg-gray-100">
                         <h2 className="text-white bg-blue-800 p-2 rounded">Unggah Gambar</h2>
@@ -137,12 +231,35 @@ const Dtambahartikel = () => {
                                     <input type="file" className="border border-gray-300 p-2 rounded" />
                                 </div>
                             </div>
+=======
+
+                        <div className="mb-4">
+                          <lable className="block text-gray-700">Waktu Kegiatan</lable>
+                          <input type="date" value={waktuKegiatan} onChange={(e)=> setWaktuKegiatan(e.target.value)} className="w-full border border-gray-300 p-2 rounded"/>
+>>>>>>> 74d8793f62623a0703b9e41c476e89b73e1692fd
                         </div>
-                        <div className="flex justify-between mt-4">
-                            <button className="bg-red-500 text-white px-4 py-2 rounded">Batal</button>
-                            <button className="bg-green-500 text-white px-4 py-2 rounded">Simpan</button>
+
+                        <div className="mb-4">
+                        <label className='block text-gray-700'>Unggah Gambar</label>
+                        <input type="file" onChange={(e) => setFoto(e.target.files[0])}
+                        className="w-full border border-gray-300 p-2 rounded"
+                        accept="image/*"
+                        required
+                        />
+                        <p className='text-red'>Unggah Beberapa Gambar</p>
+                        
                         </div>
+                        <div className='flex justify-between mt-4'>
+                          <button type='button' className='bg-red-500 text-white px-4 py-2 rounded'>Batal</button>
+                          <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">Simpan</button>
+                        </div>
+                    
+                    </form>
+                       
+                       
+                      
                     </div>
+                    
                     </div>
         <br />
         <footer className="mt-6 text-center text-gray-600">

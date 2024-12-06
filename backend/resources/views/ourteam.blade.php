@@ -14,6 +14,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     
+                        <a class="nav-link" href="{{ url('/getOurteam') }}">Data Ourteam </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    
                         <a class="nav-link" href="{{ url('/getOurteam') }}">Data Ourteam</a>
                     </li>
                 </ul>

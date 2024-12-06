@@ -66,7 +66,7 @@
                         </td>
                         <td>
                             <a href="{{ url('/formUpdate/'. $member->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                            <form action="#" method="POST" style="display: inline-block;">
+                            <form action="{{ url('/api/destroyOurteam', $member->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>

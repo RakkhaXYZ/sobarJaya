@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md fixed w-[95%] top-[5%] left-1/2 transform -translate-x-1/2 z-10 flex justify-between items-center p-4 rounded-full h-18 md:flex-row md:p-6">
+    <nav className="bg-blue-900 shadow-md fixed w-[95%] top-[5%] left-1/2 transform -translate-x-1/2 z-10 flex justify-between items-center p-4 rounded-full h-18 md:flex-row md:p-6">
       <div className="flex items-center">
         <img src="logo.png" alt="Logo" className="h-12 mr-2" />
         <div className="text-blue-600 text-2xl font-bold"></div>
@@ -17,42 +17,41 @@ const Navbar = () => {
 
       {/* Menu List */}
       <ul
-        className={`${
+         className={`${
           isMenuOpen ? "block" : "hidden"
-        } absolute md:relative md:flex md:space-x-6 text-[#22467d] text-xl font-semibold font-['Poppins'] top-16 left-0 md:top-0 md:left-0 bg-white w-full md:w-auto md:bg-transparent p-4 md:p-0 shadow-md md:shadow-none rounded-md md:rounded-none`}
-      >
+        } md:flex md:space-x-6 text-white text-xl font-semibold font-['Poppins'] absolute md:relative top-16 left-0 md:top-0 md:left-0 bg-blue-900 w-full md:w-auto p-4 md:p-0 shadow-md md:shadow-none rounded-md md:rounded-none`}>
         <li>
-          <Link to="/" className="text-blue-600 font-semibold hover:text-blue-500">Profile</Link>
+          <Link to="/" className="text-white font-semibold hover:text-blue-500">Profile</Link>
         </li>
         <li>
-          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+          <div className="text-white font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
-          <a href="/sejarah" className="text-blue-900 font-semibold hover:text-blue-500">Sejarah</a>
+          <a href="/sejarah" className="text-white font-semibold hover:text-blue-500">Sejarah</a>
         </li>
         <li>
-          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+          <div className="text-white font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
-          <a href="/kegiatan" className="text-blue-900 font-semibold hover:text-blue-500">Kegiatan</a>
+          <a href="/kegiatan" className="text-white font-semibold hover:text-blue-500">Kegiatan</a>
         </li>
         <li>
-          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+          <div className="text-white font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
-          <a href="/artikel" className="text-blue-900 font-semibold hover:text-blue-500">Artikel</a>
+          <a href="/artikel" className="text-white font-semibold hover:text-blue-500">Artikel</a>
         </li>
         <li>
-          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+          <div className="text-white font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
-          <a href="/hubungikami" className="text-blue-900 font-semibold hover:text-blue-500">Hubungi Kami</a>
+          <a href="/hubungikami" className="text-white font-semibold hover:text-blue-500">Hubungi Kami</a>
         </li>
         <li>
-          <div className="text-blue-900 font-semibold hover:text-blue-500">|</div>
+          <div className="text-white font-semibold hover:text-blue-500">|</div>
         </li>
         <li>
-          <a href="/tentang" className="text-blue-900 font-semibold hover:text-blue-500">Tentang Kami</a>
+          <a href="/tentang" className="text-white font-semibold hover:text-blue-500">Tentang Kami</a>
         </li>
       </ul>
 

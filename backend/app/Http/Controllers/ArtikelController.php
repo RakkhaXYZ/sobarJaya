@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use function PHPSTORM_META\map;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
+
 
 class ArtikelController extends Controller
 {
@@ -83,6 +85,14 @@ class ArtikelController extends Controller
             ], 404);
         }
 
+        // tambah logika untuk menambahkan jumlah dibaca
+
+        $key = "artikel_dibaca_{$id}_" . request()->ip();
+        if (!Cache::has($key)) {
+            $artikel->increment('dibaca');
+            Cache::put($key, true, now()->addMinutes(1));
+        }
+
         $artikel->foto = asset('storage/artikel/' . $artikel->foto);
 
 
@@ -148,6 +158,29 @@ class ArtikelController extends Controller
         return response()->json([
             'message' => 'Data Artikel Berhasil diperbarui',
             'data' => $artikel,
+        ], 200);
+    }
+
+    public function destroyArtikel($id)
+    {
+        $artikel = Artikel::find($id);
+
+        if (!$artikel) {
+            return response()->json([
+                'message' => 'Data Artikel tidak ditemukan',
+            ], 404);
+        }
+
+        if ($artikel->foto) {
+            $fotoPath = storage_path('app/public/artikel/' . $artikel->foto);
+            if ($artikel->foto) {
+                unlink($fotoPath);
+            }
+        }
+        $artikel->delete();
+
+        return response()->json([
+            'message' => 'Data Artikel berhasil dihapus',
         ], 200);
     }
 }
