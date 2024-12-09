@@ -23,6 +23,7 @@ import Dtambahkategori from "./component/dtambahkategori.jsx";
 import Dhapusartikel from "./component/dhapusartikel.jsx";
 import Dtambahgaleri from "./component/dtambahgaleri.jsx";
 import Dtambahkegiatan from "./component/dtambahkegiatan.jsx";
+import EditArtikel from "./component/editArtikel.jsx";
 const AppContent = () => {
   return (
     <Routes>
@@ -47,6 +48,7 @@ const AppContent = () => {
       <Route path="/dhapusartikel" element={<Dhapusartikel/>} />
       <Route path="/dtambahgaleri" element={<Dtambahgaleri/>} />
       <Route path="/dtambahkegiatan" element={<Dtambahkegiatan/>} />
+      <Route path="/editartikel/:id" element={<EditArtikel/>} />
     </Routes>
   );
 };

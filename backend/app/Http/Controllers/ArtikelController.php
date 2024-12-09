@@ -101,6 +101,28 @@ class ArtikelController extends Controller
             'data' => $artikel,
         ], 200);
     }
+    public function getArtikelId2($id)
+    {
+
+        $artikel = Artikel::find($id);
+
+        if (!$artikel) {
+            return response()->json([
+                'message' => "Data tidak ditemukan"
+            ], 404);
+        }
+
+        // tambah logika untuk menambahkan jumlah dibaca
+
+
+        $artikel->foto = asset('storage/artikel/' . $artikel->foto);
+
+
+        return response()->json([
+            'message' => "artikel dengan id ditemukan",
+            'data' => $artikel,
+        ], 200);
+    }
 
     public function getArtikel5()
     {
@@ -133,10 +155,10 @@ class ArtikelController extends Controller
     public function updateArtikel(Request $request, $id)
     {
         $request->validate([
-            'judul' => 'required|string',
-            'foto' => 'nullable|image|mimes:jpeg,jpg,png|max:50000',
-            'deskripsi' => 'required|string',
-            'waktu_kegiatan' => 'required|string',
+            'judul' => 'string',
+            'foto' => 'image|mimes:jpeg,jpg,png|max:50000',
+            'deskripsi' => 'string',
+            'waktu_kegiatan' => 'string',
         ]);
 
         $artikel = Artikel::findOrFail($id);

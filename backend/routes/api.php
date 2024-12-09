@@ -37,6 +37,7 @@ Route::put('/updateArtikel/{id}', [ArtikelController::class, 'updateArtikel'])->
 Route::get('/Artikel', [ArtikelController::class, 'IndexArtikel']);
 Route::get('/NewArtikel', [ArtikelController::class, 'getArtikelTerbaru']);
 Route::get('/artikel/{id}', [ArtikelController::class, 'getArtikelId']);
+Route::get('/getArtikel/{id}', [ArtikelController::class, 'getArtikelId2']);
 Route::get('/getArtikel5', [ArtikelController::class, 'getArtikel5']);
 Route::get('/searchArtikel', [ArtikelController::class, 'searchArtikel']);
 Route::delete('/destroyArtikel/{id}', [ArtikelController::class, 'destroyArtikel'])->name('artikel.destroy');

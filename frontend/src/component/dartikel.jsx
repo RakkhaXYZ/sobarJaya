@@ -137,7 +137,7 @@ const Dartikel = () => {
       <td className="border p-2">{index + 1}</td>
       <td className="border p-2">
         <div className="flex justify-center space-x-1">
-          <a href={`/editArtikel/${item.id}`}>
+          <a href={`/editartikel/${item.id}`}>
             <img src="edit.png" alt="Edit" title="Edit Artikel" />
           </a>
           <a href={`/hapusArtikel/${item.id}`}>
