@@ -152,112 +152,69 @@ const Dtambahartikel = () => {
                                 <i className="fas fa-eye"></i> Pratinjau
                             </button>
                         </div>
-
+      
                     <form onSubmit={handleSubmit}>
-                      {alertMessage && (
-                        <div className={`p-4 mb-4 text-white rounded ${
-                          alertType === "success" ? "bg-green-500" : "bg-red-500"
-                        }`}>{alertMessage}</div>
-                      )}
-                     <div className="mb-4">
-                            <label className="block text-gray-700">Judul Artikel</label>
-                            <input type="text" value={judul} onChange={(e)=> setJudul(e.target.value)} className="w-full border border-gray-300 p-2 rounded" />
-                        </div>
-                          <div>
-                            <label className="block text-gray-700">Isi Artikel</label>
-                            <div className="border border-gray-300 rounded">
-                            <div className="flex items-center bg-gray-100 p-2 border-b">
-                                <div className="flex space-x-4">
-                                    <button className="p-1">File</button>
-                                    <button className="p-1">Edit</button>
-                                    <button className="p-1">View</button>
-                                    <button className="p-1">Insert</button>
-                                    <button className="p-1">Format</button>
-                                    <button className="p-1">Tools</button>
-                                    <button className="p-1">Table</button>
-                                </div>
-                            </div>
-                                <div className="flex items-center bg-gray-100 p-2 border-b border-gray-300">
-                                    <button className="p-2"><i className="fas fa-undo"></i></button>
-                                    <button className="p-2"><i className="fas fa-redo"></i></button>
-                                    <button className="p-2" onClick={()=> formatText("bold")}><i className="fas fa-bold"></i></button>
-                                    <button className="p-2" onClick={()=> formatText("italic")}><i className="fas fa-italic"></i></button>
-                                    <button className="p-2" onClick={()=> formatText("underline")}><i className="fas fa-underline"></i></button>
-                                    <button className="p-2"><i className="fas fa-strikethrough"></i></button>
-                                    <button className="p-2"><i className="fas fa-align-left"></i></button>
-                                    <button className="p-2"><i className="fas fa-align-center"></i></button>
-                                    <button className="p-2"><i className="fas fa-align-right"></i></button>
-                                    <button className="p-2"><i className="fas fa-align-justify"></i></button>
-                                    <button className="p-2"><i className="fas fa-list-ul"></i></button>
-                                    <button className="p-2"><i className="fas fa-list-ol"></i></button>
-                                    <button className="p-2"><i className="fas fa-indent"></i></button>
-                                    <button className="p-2"><i className="fas fa-outdent"></i></button>
-                                
-                                </div>
-                                <textarea ref={textareaRef} value={deskripsi} onChange={(e)=> setDeskripsi(e.target.value)} className="w-full h-64 p-2"></textarea>
-                            </div>
-                        </div>
-<<<<<<< HEAD
-                    </div>
-                    <div className="w-full md:w-1/3 p-4 bg-gray-100">
-                        <h2 className="text-white bg-blue-800 p-2 rounded">Unggah Gambar</h2>
-                        <div className="mt-4">
-                            <div className="flex items-center mb-4">
-                            <img src="https://placehold.co/100x100" alt=" Gambar Utama" className="-center w-16 h-16 mr-4" />
+  {alertMessage && (
+    <div
+      className={`p-4 mb-4 text-white rounded ${
+        alertType === "success" ? "bg-green-500" : "bg-red-500"
+      }`}
+    >
+      {alertMessage}
+    </div>
+  )}
 
-                                <div>
-                                    <label className="block text-gray-700">Gambar Utama</label>
-                                    <input type="file" className="border border-gray-300 p-2 rounded" />
-                                </div>
-                            </div>
-                            <div className="flex items-center mb-4">
-                                <img src="https://placehold.co/100x100" alt=" Gambar Tambahan" className="w-16 h-16 mr-4" />
-                                <div>
-                                    <label className="block text-gray-700">Gambar Tambahan</label>
-                                    <input type="file" className="border border-gray-300 p-2 rounded" />
-                                </div>
-                            </div>
-                            <div className="flex items-center mb-4">
-                                <img src="https://placehold.co/100x100" alt=" Gambar Tambahan" className="w-16 h-16 mr-4" />
-                                <div>
-                                    <label className="block text-gray-700">Gambar Tambahan</label>
-                                    <input type="file" className="border border-gray-300 p-2 rounded" />
-                                </div>
-                            </div>
-                            <div className="flex items-center mb-4">
-                                <img src="https://placehold.co/100x100" alt=" Gambar Tambahan" className="w-16 h-16 mr-4" />
-                                <div>
-                                    <label className="block text-gray-700">Gambar Tambahan</label>
-                                    <input type="file" className="border border-gray-300 p-2 rounded" />
-                                </div>
-                            </div>
-=======
+  <div className="mb-4">
+    <label className="block text-gray-700">Judul Artikel</label>
+    <input
+      type="text"
+      value={judul}
+      onChange={(e) => setJudul(e.target.value)}
+      className="w-full border border-gray-300 p-2 rounded"
+    />
+  </div>
 
-                        <div className="mb-4">
-                          <lable className="block text-gray-700">Waktu Kegiatan</lable>
-                          <input type="date" value={waktuKegiatan} onChange={(e)=> setWaktuKegiatan(e.target.value)} className="w-full border border-gray-300 p-2 rounded"/>
->>>>>>> 74d8793f62623a0703b9e41c476e89b73e1692fd
-                        </div>
+  <div className="mb-4">
+    <label className="block text-gray-700">Isi Artikel</label>
+    <textarea
+      ref={textareaRef}
+      value={deskripsi}
+      onChange={(e) => setDeskripsi(e.target.value)}
+      className="w-full h-64 p-2 border border-gray-300 rounded"
+    />
+  </div>
 
-                        <div className="mb-4">
-                        <label className='block text-gray-700'>Unggah Gambar</label>
-                        <input type="file" onChange={(e) => setFoto(e.target.files[0])}
-                        className="w-full border border-gray-300 p-2 rounded"
-                        accept="image/*"
-                        required
-                        />
-                        <p className='text-red'>Unggah Beberapa Gambar</p>
-                        
-                        </div>
-                        <div className='flex justify-between mt-4'>
-                          <button type='button' className='bg-red-500 text-white px-4 py-2 rounded'>Batal</button>
-                          <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">Simpan</button>
-                        </div>
-                    
-                    </form>
-                       
-                       
-                      
+  <div className="mb-4">
+    <label className="block text-gray-700">Waktu Kegiatan</label>
+    <input
+      type="date"
+      value={waktuKegiatan}
+      onChange={(e) => setWaktuKegiatan(e.target.value)}
+      className="w-full border border-gray-300 p-2 rounded"
+    />
+  </div>
+
+  <div className="mb-4">
+    <label className="block text-gray-700">Unggah Gambar</label>
+    <input
+      type="file"
+      onChange={(e) => setFoto(e.target.files[0])}
+      className="w-full border border-gray-300 p-2 rounded"
+      accept="image/*"
+      required
+    />
+  </div>
+
+  <div className="flex justify-between mt-4">
+    <button type="button" className="bg-red-500 text-white px-4 py-2 rounded">
+      Batal
+    </button>
+    <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
+      Simpan
+    </button>
+  </div>
+</form>
+
                     </div>
                     
                     </div>

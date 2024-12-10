@@ -66,55 +66,92 @@ const Sejarah = ({ id = 2 }) => {
         </div>
       </main>
 
-      <footer className="bg-blue-900 text-white p-6 md:p-9">
-        <div className="flex flex-col md:flex-row justify-between items-start">
-          <div className="flex items-start">
-            <img className="w-12 md:w-[77px] h-10 md:h-16" src="logo.png" alt="logo" />
-            <div className="ml-4">
-              <div className="text-lg md:text-[42px] font-bold">CV. SOBAR JAYA</div>
-              <div className="text-sm md:text-xl font-semibold">
-                ALAMAT: JLN. CIBEUNYING PERMAI V NO. 7 CIGADUNG, BANDUNG 40191 INDONESIA
+      <footer>
+        <div className="bg-blue-900 text-white p-9">
+          <div className="flex justify-between items-start">
+            <div className="flex items-start">
+              <img className="w-[77px] h-16" src="logo.png" alt="logo" />
+              <div>
+                <div className="text-white text-[42px] font-bold font-['Poppins'] ">
+                  CV. SOBAR JAYA
+                </div>
+                <br />
+                <div className="text-white text-xl font-semibold font-['Poppins']">
+                  ALAMAT :JLN. CIBEUNYING PERMAI V NO. 7 CIGADUNG
+                  <br />
+                  BANDUNG 40191 INDONESIA
+                </div>
+                <div className="text-white text-xl font-semibold font-['Poppins']">
+                  PHONE :<br />+ 0123-4567-8910
+                </div>
+                <div className="text-white text-xl font-semibold font-['Poppins']">
+                  EMAIL :<br />
+                  E.MAILKAMI@EMAIL.COM
+                </div>
               </div>
-              <div className="text-sm md:text-xl font-semibold">PHONE: +0123-4567-8910</div>
-              <div className="text-sm md:text-xl font-semibold">EMAIL: E.MAILKAMI@EMAIL.COM</div>
             </div>
+            <div className="flex-grow border-l border-white mx-8"></div>
+            <div className="flex space-x-16">
+              <div>
+                <div className="text-white text-2xl font-bold font-['Poppins']">
+                  Company
+                </div>
+                <br />
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Kegiatan
+                </div>
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Tentang Kami
+                </div>
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Sejarah
+                </div>
+              </div>
+              <div>
+                <div className="text-white text-2xl font-bold font-['Poppins']">
+                  Costumer Service
+                </div>
+                <br />
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Hubungi Kami
+                </div>
+              </div>
+              <div>
+                <div className="text-white text-2xl font-bold font-['Poppins']">
+                  Content
+                </div>
+                <br />
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Artikel
+                </div>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
           </div>
-          <div className="flex-grow border-t md:border-l border-white mx-4 my-4 md:my-0"></div>
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-16">
-            <div>
-              <div className="text-white text-lg md:text-2xl font-bold">Company</div>
-              <div className="text-sm md:text-xl font-normal">Kegiatan</div>
-              <div className="text-sm md:text-xl font-normal">Tentang Kami</div>
-              <div className="text-sm md:text-xl font-normal">Sejarah</div>
-            </div>
-            <div>
-              <div className="text-white text-lg md:text-2xl font-bold">Customer Service</div>
-              <div className="text-sm md:text-xl font-normal">Hubungi Kami</div>
-            </div>
-            <div>
-              <div className="text-white text-lg md:text-2xl font-bold">Content</div>
-              <div className="text-sm md:text-xl font-normal">Artikel</div>
-            </div>
+          <div className="flex items-right justify-end right-50 ">
+            <input
+              type="text"
+              placeholder=" "
+              className="p-2 rounded relative top-[-3rem]"
+            ></input>
+            <button className="bg-blue-700 p-2 rounded relative top-[-3rem] ">
+              Cari
+            </button>
           </div>
-        </div>
-        <div className="flex justify-center md:justify-end mt-4 space-x-4">
-          <p>Follow Us</p>
-          <a href="#" className="text-white">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" className="text-white">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#" className="text-white">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="#" className="text-white">
-            <i className="fab fa-youtube"></i>
-          </a>
-        </div>
-        <div className="w-full border-t border-white mt-4"></div>
-        <div className="mt-4 text-center text-sm md:text-base">
-          <p>Copyright 2024 © CV. Sobar Jaya Kota Bandung</p>
+          <div className="flex justify-end mt-4 space-x-4">
+            <p>Follow Us</p>
+            <a href="#" className="text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-youtube"></i></a>
+          </div>
+          <br></br>
+          <div className="w-[1192.02px] h-[0px] border border-white"></div>
+          <div className="mt-8 text-center">
+            <p>Copyright 2024 © CV. Sobar Jaya Kota Bandung</p>
+          </div>
         </div>
       </footer>
     </>

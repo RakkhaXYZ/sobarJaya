@@ -46,6 +46,7 @@ const Home = () => {
         className="h-screen bg-cover bg-center relative flex items-center justify-center"
         style={{ backgroundImage: `url(${background})` }}
       >
+        <br />
         <div className="text-white text-center md:text-left md:pl-10 lg:pl-28">
           <h1 className="text-3xl md:text-6xl lg:text-8xl font-bold">
             CV. SOBAR JAYA
@@ -129,7 +130,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-<<<<<<< HEAD
+
       <br />
       <br />
       <div className="flex justify-start items-center space-x-2 ml-14">
@@ -156,9 +157,6 @@ const Home = () => {
 </section>
       <br />
       <br />
-=======
-
->>>>>>> 74d8793f62623a0703b9e41c476e89b73e1692fd
       <section>
       <div className="flex justify-start items-center space-x-2 ml-14">
                     <div className="w-[58px] h-[9px] bg-[#22467d]"></div>
@@ -179,55 +177,92 @@ const Home = () => {
                 </div>
       </section>
 
-      {/* Team Section */}
-<<<<<<< HEAD
-   
-=======
-      <section className="bg-white py-6 md:py-9 px-4">
-        <h2 className="text-[#22467d] text-2xl md:text-3xl font-bold text-center mb-8">
-          OUR TEAM
-        </h2>
-        <div className="flex justify-center flex-wrap gap-8">
-          {ourTeam.map((member, index) => (
-            <div
-              key={index}
-              className="text-center mx-auto w-[180px] sm:w-[200px] md:w-[220px] lg:w-[260px]"
-            >
-              <img
-                src={member.foto}
-                alt={member.alt}
-                className="rounded-full w-full h-auto object-cover"
-              />
-              <h3 className="text-[#3c3c3c] text-lg md:text-xl font-bold">
-                {member.nama_anggota}
-              </h3>
-              <p className="text-[#3c3c3c] text-sm md:text-base font-medium">
-                {member.divisi_anggota}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
->>>>>>> 74d8793f62623a0703b9e41c476e89b73e1692fd
-
       {/* Footer */}
-      <footer className="bg-blue-900 text-white p-4 md:p-9 text-sm md:text-base">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-          <div className="flex items-start">
-            <img
-              className="w-[60px] h-12 md:w-[77px] md:h-16"
-              src="logo.png"
-              alt="logo"
-            />
-            <div>
-              <h3 className="text-xl md:text-2xl lg:text-[42px] font-bold">
-                CV. SOBAR JAYA
-              </h3>
-              <p>ALAMAT: JLN. CIBEUNYING PERMAI V NO. 7 CIGADUNG</p>
-              <p>BANDUNG 40191 INDONESIA</p>
-              <p>PHONE: + 0123-4567-8910</p>
-              <p>EMAIL: E.MAILKAMI@EMAIL.COM</p>
+      <footer>
+        <div className="bg-blue-900 text-white p-9">
+          <div className="flex justify-between items-start">
+            <div className="flex items-start">
+              <img className="w-[77px] h-16" src="logo.png" alt="logo" />
+              <div>
+                <div className="text-white text-[42px] font-bold font-['Poppins'] ">
+                  CV. SOBAR JAYA
+                </div>
+                <br />
+                <div className="text-white text-xl font-semibold font-['Poppins']">
+                  ALAMAT :JLN. CIBEUNYING PERMAI V NO. 7 CIGADUNG
+                  <br />
+                  BANDUNG 40191 INDONESIA
+                </div>
+                <div className="text-white text-xl font-semibold font-['Poppins']">
+                  PHONE :<br />+ 0123-4567-8910
+                </div>
+                <div className="text-white text-xl font-semibold font-['Poppins']">
+                  EMAIL :<br />
+                  E.MAILKAMI@EMAIL.COM
+                </div>
+              </div>
             </div>
+            <div className="flex-grow border-l border-white mx-8"></div>
+            <div className="flex space-x-16">
+              <div>
+                <div className="text-white text-2xl font-bold font-['Poppins']">
+                  Company
+                </div>
+                <br />
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Kegiatan
+                </div>
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Tentang Kami
+                </div>
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Sejarah
+                </div>
+              </div>
+              <div>
+                <div className="text-white text-2xl font-bold font-['Poppins']">
+                  Costumer Service
+                </div>
+                <br />
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Hubungi Kami
+                </div>
+              </div>
+              <div>
+                <div className="text-white text-2xl font-bold font-['Poppins']">
+                  Content
+                </div>
+                <br />
+                <div className="text-white text-xl font-normal font-['Poppins']">
+                  Artikel
+                </div>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+          </div>
+          <div className="flex items-right justify-end right-50 ">
+            <input
+              type="text"
+              placeholder=" "
+              className="p-2 rounded relative top-[-3rem]"
+            ></input>
+            <button className="bg-blue-700 p-2 rounded relative top-[-3rem] ">
+              Cari
+            </button>
+          </div>
+          <div className="flex justify-end mt-4 space-x-4">
+            <p>Follow Us</p>
+            <a href="#" className="text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-youtube"></i></a>
+          </div>
+          <br></br>
+          <div className="w-[1192.02px] h-[0px] border border-white"></div>
+          <div className="mt-8 text-center">
+            <p>Copyright 2024 © CV. Sobar Jaya Kota Bandung</p>
           </div>
         </div>
       </footer>

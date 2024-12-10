@@ -87,8 +87,8 @@ const Navbar = () => {
       </div>
 
       <a href="/login">
-        <div className="hidden md:flex items-center justify-center w-[84px] h-[35px] bg-[#22467d] rounded-[10px]">
-          <span className="text-white text-base font-semibold font-['Poppins']">Login</span>
+        <div className="hidden md:flex items-center justify-center w-[84px] h-[35px] bg-white rounded-[10px]">
+          <span className="text-blue-900 text-base font-semibold font-['Poppins']">Login</span>
         </div>
       </a>
     </nav>

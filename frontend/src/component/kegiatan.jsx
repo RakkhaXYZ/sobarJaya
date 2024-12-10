@@ -24,7 +24,7 @@ const Kegiatan = () => {
 
   return (
     <>
-    <Navigator/>
+      <Navigator />
       <BackToTop />
       
 
@@ -67,11 +67,11 @@ const Kegiatan = () => {
 
       <footer>
         <div className="bg-blue-900 text-white p-9">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div className="flex justify-between items-start">
             <div className="flex items-start">
               <img className="w-[77px] h-16" src="logo.png" alt="logo" />
               <div>
-                <div className="text-white text-[42px] font-bold font-['Poppins']">
+                <div className="text-white text-[42px] font-bold font-['Poppins'] ">
                   CV. SOBAR JAYA
                 </div>
                 <br />
@@ -89,8 +89,8 @@ const Kegiatan = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-grow border-t md:border-l border-white mt-8 md:mt-0"></div>
-            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-16 mt-8 md:mt-0">
+            <div className="flex-grow border-l border-white mx-8"></div>
+            <div className="flex space-x-16">
               <div>
                 <div className="text-white text-2xl font-bold font-['Poppins']">
                   Company
@@ -125,10 +125,31 @@ const Kegiatan = () => {
                 </div>
               </div>
             </div>
+            <br />
+            <br />
+            <br />
+          </div>
+          <div className="flex items-right justify-end right-50 ">
+            <input
+              type="text"
+              placeholder=" "
+              className="p-2 rounded relative top-[-3rem]"
+            ></input>
+            <button className="bg-blue-700 p-2 rounded relative top-[-3rem] ">
+              Cari
+            </button>
           </div>
           <div className="flex justify-end mt-4 space-x-4">
-            <p>
-            </p>
+            <p>Follow Us</p>
+            <a href="#" className="text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" className="text-white"><i class="fab fa-youtube"></i></a>
+          </div>
+          <br></br>
+          <div className="w-[1192.02px] h-[0px] border border-white"></div>
+          <div className="mt-8 text-center">
+            <p>Copyright 2024 © CV. Sobar Jaya Kota Bandung</p>
           </div>
         </div>
       </footer>
