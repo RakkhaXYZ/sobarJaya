@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-5">
     <h2>Update Artikel</h2>
-    <form action="{{ route('artikel.update', $artikel->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/api/updateArtikel', $artikel->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

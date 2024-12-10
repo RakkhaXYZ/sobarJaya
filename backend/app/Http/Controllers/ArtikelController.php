@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Artikel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
-use function PHPSTORM_META\map;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
 
@@ -152,36 +152,45 @@ class ArtikelController extends Controller
         return response()->json($artikels);
     }
 
-    public function updateArtikel(Request $request, $id)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'judul' => 'string',
-            'foto' => 'image|mimes:jpeg,jpg,png|max:50000',
-            'deskripsi' => 'string',
-            'waktu_kegiatan' => 'string',
+        // Validasi data, hanya foto yang opsional
+        $validated = $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'waktu_kegiatan' => 'required|string',
+            'foto' => 'nullable|image|max:2048', // Foto boleh kosong
         ]);
 
+        // Temukan artikel berdasarkan ID
         $artikel = Artikel::findOrFail($id);
 
+        // Jika ada foto baru, hapus foto lama dan simpan foto baru
         if ($request->hasFile('foto')) {
-            if ($artikel->foto && Storage::exists('public/artikel/' . $artikel->foto)) {
-                Storage::delete('public/artikel/' . $artikel->foto);
+            // Hapus foto lama jika ada
+            if ($artikel->foto && file_exists(public_path('storage/' . $artikel->foto))) {
+                unlink(public_path('storage/' . $artikel->foto));
             }
 
-            $fotoPath = $request->file('foto')->storeAs('public/artikel', $request->file('foto')->hashName());
-            $artikel->foto = basename($fotoPath);
+            // Simpan foto baru
+            $fotoPath = $request->file('foto')->store('artikel', 'public');
+            $fileName = basename($fotoPath);  // Mengambil hanya nama file tanpa folder
+            $validated['foto'] = $fileName;
+        } else {
+            // Jika tidak ada foto baru, biarkan foto lama tetap digunakan
+            $validated['foto'] = $artikel->foto;
         }
 
-        $artikel->judul = $request->judul;
-        $artikel->deskripsi = $request->deskripsi;
-        $artikel->waktu_kegiatan = $request->waktu_kegiatan;
-        $artikel->save();
+        // Update artikel dengan data yang sudah divalidasi
+        $artikel->update($validated);
 
-        return response()->json([
-            'message' => 'Data Artikel Berhasil diperbarui',
-            'data' => $artikel,
-        ], 200);
+        return response()->json(['message' => 'Artikel berhasil diperbarui'], 200);
     }
+
+
+
+
+
 
     public function destroyArtikel($id)
     {
