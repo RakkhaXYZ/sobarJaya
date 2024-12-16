@@ -10,8 +10,6 @@ const Dtambahartikel = () => {
   const [alertMessage, setAlertMessage] = useState(null);
   const [alertType, setAlertType] = useState("success");
 
-  
-
   const textareaRef = useRef(null);
 
   const formatText = (tag) => {

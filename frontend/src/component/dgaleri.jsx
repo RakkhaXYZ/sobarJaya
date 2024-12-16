@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Dgaleri = () => {
+  const [artikel, setGaleri] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/Galeri")
+      .then((response) => {
+        console.log(response.data); // Debug
+        setGaleri(response.data); // Pastikan nilai default
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setError("Gagal memuat data galeri.");
+        setLoading(false);
+      });
+  }, []);
   return (
     <div className="flex bg-[#f4f6f9]">
     <aside className="w-1/5 bg-[#22467d] h-screen p-2 fixed">
