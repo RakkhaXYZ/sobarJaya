@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Sidebar from './NavbarDashborad.jsx';
 
 const Dartikel = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -29,40 +30,8 @@ const Dartikel = () => {
   return (
     <div className="flex bg-[#f4f6f9] min-h-screen">
       {/* Sidebar dengan responsivitas */}
-     <aside
-        className={`${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } lg:translate-x-0 fixed lg:relative w-4/5 lg:w-1/5 bg-[#22467d] h-screen p-4 transition-transform duration-300 z-50`}
-      >
-        {/* Header untuk Sidebar */}
-        <div className="flex items-center justify-center text-white text-3xl font-semibold font-['Poppins'] mt-4 mb-6">
-          DASHBOARD
-        </div>
-
-        <nav>
-          <ul>
-            {[
-              { href: '/dartikel', imgSrc: 'Artikel.png', label: 'Artikel' },
-              { href: '/dgaleri', imgSrc: 'Gambar.png', label: 'Galeri' },
-              { href: '/dkegiatan', imgSrc: 'SKegiatan.png', label: 'Kegiatan' },
-              { href: '/dtentangkami', imgSrc: 'Tentang Kami.png', label: 'Tentang Kami' },
-              { href: '/dsosmed', imgSrc: 'Sosial Media.png', label: 'Sosial Media' },
-              { href: '/dkomentar', imgSrc: 'Skomentar.png', label: 'Komentar' },
-            ].map((item, index) => (
-              <li key={index} className="mb-4 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer">
-                <a href={item.href} className="flex items-center">
-                  <img src={item.imgSrc} alt={item.label} className="w-6 h-6 mr-3" />
-                  <span>{item.label}</span>
-                </a>
-              </li>
-            ))}
-            <li className="mt-12 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer">
-              <img src="Keluar.png" alt="Keluar" className="w-6 h-6 mr-3" />
-              <a href="#">Keluar</a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      
+      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
       {/* Konten Utama */}
       <main
