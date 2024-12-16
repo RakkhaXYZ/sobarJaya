@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Dkomentar = () => {
+    
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className="flex bg-[#f4f6f9]">
+<<<<<<< HEAD
     <aside className="w-1/5 bg-[#22467d] h-screen p-2 fixed">
       <a href="/dashboardadmin">
         <div className="flex items-center text-white text-xl font-semibold font-['Poppins'] ">
@@ -56,6 +64,56 @@ const Dkomentar = () => {
             <div className="w-[23.75px] h-[23.75px] left-[17.12px] top-[5.52px] absolute bg-white rounded-full" />
             <div className=" w-[33.70px] h-[23.75px] left-[12.15px] top-[31.49px] absolute bg-white rounded-full" />
           </div></a>
+=======
+    <aside
+        className={`${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } lg:translate-x-0 fixed lg:relative w-4/5 lg:w-1/5 bg-[#22467d] h-screen p-4 transition-transform duration-300 z-50`}
+      >
+        {/* Header untuk Sidebar */}
+        <div className="flex items-center justify-center text-white text-3xl font-semibold font-['Poppins'] mt-4 mb-6">
+          DASHBOARD
+        </div>
+
+        <nav>
+          <ul>
+            {[
+              { href: '/dartikel', imgSrc: 'Artikel.png', label: 'Artikel' },
+              { href: '/dgaleri', imgSrc: 'Gambar.png', label: 'Galeri' },
+              { href: '/dkegiatan', imgSrc: 'SKegiatan.png', label: 'Kegiatan' },
+              { href: '/dtentangkami', imgSrc: 'Tentang Kami.png', label: 'Tentang Kami' },
+              { href: '/dsosmed', imgSrc: 'Sosial Media.png', label: 'Sosial Media' },
+              { href: '/dkomentar', imgSrc: 'Skomentar.png', label: 'Komentar' },
+            ].map((item, index) => (
+              <li key={index} className="mb-4 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer">
+                <a href={item.href} className="flex items-center">
+                  <img src={item.imgSrc} alt={item.label} className="w-6 h-6 mr-3" />
+                  <span>{item.label}</span>
+                </a>
+              </li>
+            ))}
+            <li className="mt-12 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer">
+              <img src="Keluar.png" alt="Keluar" className="w-6 h-6 mr-3" />
+              <a href="#">Keluar</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    <main className="w-[1090px] h-[107px] bg-white shadow p-2">
+    <header className="flex justify-between items-center mb-4 bg-white shadow w-full lg:w-[1350px] h-[100px] px-6 py-2">
+          <div className="flex items-center">
+            <img src="logo.png" className="w-[87px] h-[72px] mr-3" alt="Logo" />
+            <h1 className="text-[#22467d] text-2xl lg:text-3xl font-semibold font-['Poppins']">CV. SOBAR JAYA</h1>
+          </div>
+
+          {/* Tombol Toggle untuk Sidebar pada layar kecil */}
+          <button
+            onClick={toggleSidebar}
+            className="lg:hidden bg-[#22467d] text-white p-2 rounded focus:outline-none"
+          >
+            {isSidebarOpen ? 'Close' : 'Menu'}
+          </button>
+>>>>>>> 3d209bac89e70b89eed63619fc1b4bc621519689
         </header>
         
         <div className="p-4">

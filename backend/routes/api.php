@@ -33,10 +33,11 @@ Route::get('/showSejarah/{id}', [SejarahController::class, 'sejarahShow']);
 
 // artikel 
 Route::post('/storeArtikel', [ArtikelController::class, 'storeArtikel']);
-Route::put('/updateArtikel/{id}', [ArtikelController::class, 'updateArtikel'])->name('artikel.update');
+Route::post('/updateArtikel/{id}', [ArtikelController::class, 'update']);
 Route::get('/Artikel', [ArtikelController::class, 'IndexArtikel']);
 Route::get('/NewArtikel', [ArtikelController::class, 'getArtikelTerbaru']);
 Route::get('/artikel/{id}', [ArtikelController::class, 'getArtikelId']);
+Route::get('/getArtikel/{id}', [ArtikelController::class, 'getArtikelId2']);
 Route::get('/getArtikel5', [ArtikelController::class, 'getArtikel5']);
 Route::get('/searchArtikel', [ArtikelController::class, 'searchArtikel']);
 Route::delete('/destroyArtikel/{id}', [ArtikelController::class, 'destroyArtikel'])->name('artikel.destroy');

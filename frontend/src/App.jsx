@@ -23,11 +23,14 @@ import Dsosmed3 from "./component/dsosmed3.jsx";
 import Dkomentar from "./component/dkomentar.jsx";
 import Dtambahartikel from "./component/dtambahartikel.jsx";
 import Dtambahkategori from "./component/dtambahkategori.jsx";
-import Dhapusartikel from "./component/dhapusartikel.jsx";
 import Dtambahgaleri from "./component/dtambahgaleri.jsx";
 import Dtambahkegiatan from "./component/dtambahkegiatan.jsx";
+
 import Profilmasteradmin from "./component/profilMasterAdmin.jsx";
 
+
+
+import EditArtikel from "./component/editArtikel.jsx";
 
 const AppContent = () => {
   return (
@@ -53,10 +56,14 @@ const AppContent = () => {
       <Route path="/dkomentar" element={<Dkomentar/>} />
       <Route path="/dtambahartikel" element={<Dtambahartikel/>} />
       <Route path="/dtambahkategori" element={<Dtambahkategori/>} />
-      <Route path="/dhapusartikel" element={<Dhapusartikel/>} />
+      
       <Route path="/dtambahgaleri" element={<Dtambahgaleri/>} />
       <Route path="/dtambahkegiatan" element={<Dtambahkegiatan/>} />
+
       <Route path="/profilmasteradmin" element={<Profilmasteradmin/>} />
+
+      <Route path="/editartikel/:id" element={<EditArtikel/>} />
+
     </Routes>
   );
 };
