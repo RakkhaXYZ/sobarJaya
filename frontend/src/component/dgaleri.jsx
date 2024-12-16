@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -6,6 +5,11 @@ const Dgaleri = () => {
   const [artikel, setGaleri] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   useEffect(() => {
     axios
@@ -21,17 +25,7 @@ const Dgaleri = () => {
         setLoading(false);
       });
   }, []);
-=======
-import React, { useState } from 'react';
 
-const Dgaleri = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
->>>>>>> 3d209bac89e70b89eed63619fc1b4bc621519689
   return (
     <div className="flex bg-[#f4f6f9] min-h-screen">
       {/* Sidebar */}
@@ -71,36 +65,6 @@ const Dgaleri = () => {
         </nav>
       </aside>
 
-<<<<<<< HEAD
-    <main className="flex-grow ml-[20%] h-screen w-screen p-2"> 
-      <header className="flex justify-between items-center mb-6 bg-white shadow w-[1350px] h-[102px]">
-        <div className="flex items-center ">
-          <img src="logo.png" alt="Company Logo" className="mr-2 w-[87px] h-[72px]" />
-          <h1 className="text-[#22467d] text-3xl font-semibold font-['Poppins']">CV. SOBAR JAYA</h1>
-        </div>
-        <a href="/profilMasterAdmin"><div className="w-[58px] h-[58px] relative">
-          <div className="w-[58px] h-[58px] left-0 top-0 absolute bg-[#22467d] rounded-full" />
-          <div className="w-[23.75px] h-[23.75px] left-[17.12px] top-[5.52px] absolute bg-white rounded-full" />
-          <div className=" w-[33.70px] h-[23.75px] left-[12.15px] top-[31.49px] absolute bg-white rounded-full" />
-        </div></a>
-      </header>
-      <br />
-
-      <div className="p-4">
-        <div className="flex justify-between mb-4">
-          <div className="flex space-x-2">
-            <a href="/dtambahgaleri">
-              <button className="bg-green-500 text-white px-4 py-2 rounded flex items-center">
-                <i className="fas fa-plus mr-2"></i> Tambah Galeri
-              </button>
-            </a>
-            
-            <a href="/dhapusartikel">
-              <button className="bg-red-500 text-white px-4 py-2 rounded flex items-center">
-                <i className="fas fa-trash-alt mr-2"></i> Hapus data terpilih
-              </button>
-            </a>
-=======
       {/* Konten Utama */}
       <div className="flex-grow lg:ml-[20%] transition-all duration-300 h-screen bg-white p-6">
         {/* Header */}
@@ -108,7 +72,6 @@ const Dgaleri = () => {
           <div className="flex items-center">
             <img src="logo.png" className="w-[87px] h-[72px] mr-3" alt="Logo" />
             <h1 className="text-[#22467d] text-3xl lg:text-3xl font-semibold font-['Poppins']">CV. SOBAR JAYA</h1>
->>>>>>> 3d209bac89e70b89eed63619fc1b4bc621519689
           </div>
           {/* Tombol Toggle Sidebar untuk layar kecil */}
           <button
@@ -181,21 +144,7 @@ const Dgaleri = () => {
           Copyright &copy; 2023 CV. SOBAR JAYA Bandung
         </footer>
       </div>
-<<<<<<< HEAD
-      <br />
-      <br />
-      <br />
-      <footer className="mt-6 text-center text-gray-600">
-        <div className="flex justify-start space-x-20 ">
-          <div className="w-[1300px] h-[2px] bg-gray-300"></div>
-        </div>
-        <p>Copyright &copy; 2023 CV. Sobar Jaya Bandung</p>
-      </footer>
-    </main>
-  </div>
-=======
     </div>
->>>>>>> 3d209bac89e70b89eed63619fc1b4bc621519689
   );
 };
 

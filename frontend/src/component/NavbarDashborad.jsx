@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Gunakan jika Anda menggunakan React Router
+import { Link } from 'react-router-dom';
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   const navItems = [
@@ -15,7 +15,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     <aside
       className={`${
         isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } lg:translate-x-0 fixed lg:relative w-4/5 lg:w-1/5 bg-[#22467d] h-screen p-4 transition-transform duration-300 z-50`}
+      } lg:translate-x-0 fixed left-0 top-0 w-4/5 lg:w-1/5 bg-[#22467d] h-full p-4 transition-transform duration-300 z-50`}
     >
       <div className="flex items-center justify-center text-white text-3xl font-semibold font-['Poppins'] mt-4 mb-6">
         DASHBOARD
