@@ -7,6 +7,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\OurTeamControllers;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PesanController;
 use App\Models\Artikel;
 use Illuminate\Support\Facades\Route;
 
@@ -63,3 +64,7 @@ Route::delete('/destroyOurteam/{id}', [OurTeamControllers::class, 'destroyOurtea
 Route::post('/admin/login', [AdminController::class, 'login']);
 Route::middleware(['auth:sanctum'])->post('/admin/logout', [AdminController::class, 'logout']);
 Route::post('/adminCreate', [AdminController::class, 'store']);
+
+// Pesan
+Route::post('/addPesan', [PesanController::class, 'storePesan']);
+Route::get('/getPesan', [PesanController::class, 'getPesan']);

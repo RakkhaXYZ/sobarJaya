@@ -1,9 +1,50 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
 import Navigator from "./Navbar";
 import BackToTop from './BackToTop';
 
-const hubungikami = () => {
+const HubungiKami = () => {
+
+  const [formData, setFormData]= useState({
+    email: "",
+    subject: "",
+    description:"",
+  });
+
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e)=> {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e)=> {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:8000/api/addPesan", formData);
+      setMessage(response.data.message);
+      setError("");
+      setFormData({
+        email: "",
+        subject: "",
+        description: "",
+      });
+    } catch (err) {
+      setError(err.response?.data?.message || "Something went wrong");
+      setMessage("");
+      
+    }finally{
+      setIsLoading(false);
+    }
+  };
   return (
+
     <>
     <Navigator />
     <BackToTop/>
@@ -25,27 +66,40 @@ const hubungikami = () => {
       <div className="flex flex-wrap justify-center items-center gap-8 p-4">
         <div className="bg-blue-900 text-white p-8 rounded-lg w-full md:w-1/2">
           <h2 className="text-xl md:text-2xl font-bold mb-6">HUBUNGI KAMI</h2>
-          <form>
+          {message && <div style={{ color: "green", marginBottom: "10px" }}>{message}</div>}
+          {error && <div style={{ color: "red", merginBottom: "10px" }}>{error }</div>}
+          <form onSubmit={handleSubmit}>
             <input
               type="email"
+              name="email"
               placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
               className="w-full p-3 mb-4 rounded-lg text-black"
             />
             <input
               type="text"
+              name="subject"
               placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
               className="w-full p-3 mb-4 rounded-lg text-black"
             />
             <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
               placeholder="Description"
               className="w-full p-3 mb-4 rounded-lg text-black h-32"
             ></textarea>
-            <button
-              type="submit"
-              className="bg-white text-blue-900 px-6 py-3 rounded-lg font-bold"
-            >
-              SUBMIT
-            </button>
+           <button
+  type="submit"
+  disabled={isLoading}
+  className="bg-white text-blue-900 px-6 py-3 rounded-lg font-bold"
+>
+  SUBMIT
+</button>
+
           </form>
         </div>
         <div className="p-8 bg-white rounded-lg shadow-lg w-full md:w-1/3">
@@ -174,4 +228,4 @@ const hubungikami = () => {
   );
 };
 
-export default hubungikami;
+export default HubungiKami;
