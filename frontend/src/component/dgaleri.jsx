@@ -54,6 +54,20 @@ const Dgaleri = () => {
           </button>
         </header>
 
+        <div className="flex space-x-2">
+              <a href="/dtambahgaleri">
+                <button className="bg-green-500 text-white px-4 py-2 rounded flex items-center">
+                  <i className="fas fa-plus mr-2"></i> Tambah Galeri
+                </button>
+              </a>
+              <a href="/dhapusgaleri">
+                <button className="bg-red-500 text-white px-4 py-2 rounded flex items-center">
+                  <i className="fas fa-trash-alt mr-2"></i> Hapus data terpilih
+                </button>
+              </a>
+            </div>
+            <br />
+            <div className="border-t border-black-200"></div>
         {/* Table or other content */}
         <div className="p-4 overflow-x-auto">
           <table className="min-w-full border-collapse border">

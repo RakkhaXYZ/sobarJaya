@@ -53,7 +53,6 @@ const Dkomentar = () => {
             {isSidebarOpen ? "Close" : "Menu"}
           </button>
         </header>
-
         {/* Table or other content */}
         <div className="p-4 overflow-x-auto">
           <table className="min-w-full border-collapse border">
@@ -62,11 +61,9 @@ const Dkomentar = () => {
                 <th className="border p-2">box</th>
                 <th className="border p-2">NO</th>
                 <th className="border p-2">Aksi</th>
-                <th className="border p-2">Pengirim</th>
-                <th className="border p-2">Isi Komentar</th>
                 <th className="border p-2">Email Pengirim</th>
-                <th className="border p-2">Judul Artikel</th>
-                <th className="border p-2">Aktif</th>
+                <th className="border p-2">Judul </th>
+                <th className="border p-2">Deskripsi</th>
                 <th className="border p-2">Tanggal Posting</th>
               </tr>
             </thead>
@@ -95,11 +92,9 @@ const Dkomentar = () => {
                       </a>
                     </div>
                   </td>
-                  <td className="border p-2">{item.pengirim}</td>
-                  <td className="border p-2">{item.isi}</td>
                   <td className="border p-2">{item.email}</td>
-                  <td className="border p-2">{item.judul_artikel}</td>
-                  <td className="border p-2">{item.aktif ? "YA" : "TIDAK"}</td>
+                  <td className="border p-2">{item.judul}</td>
+                  <td className="border p-2">{item.deskripsi}</td>
                   <td className="border p-2">
                     {item.tanggal
                       ? new Date(item.tanggal).toLocaleString()

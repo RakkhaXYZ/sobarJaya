@@ -9,7 +9,6 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     { to: '/dtentangkami', imgSrc: '/Tentang%20Kami.png', label: 'Tentang Kami' },
     { to: '/dsosmed', imgSrc: '/Sosial%20Media.png', label: 'Sosial Media' },
     { to: '/dkomentar', imgSrc: '/Skomentar.png', label: 'Komentar' },
-    { to: '/dhubungikami', imgSrc: '/Skomentar.png', label: 'Hubungi Kami' },
   ];
 
   return (
@@ -29,24 +28,25 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         </a>
 <br />
 <br />
+<br />
       <nav>
         <ul>
           {navItems.map((item, index) => (
             <li
               key={index}
-              className="mb-5 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer"
+              className="mb-6 flex items-center px-4 text-white text-xl font-['Poppins'] hover:bg-blue-700 cursor-pointer"
             >
               <Link to={item.to} className="flex items-center">
-                <img src={item.imgSrc} alt={item.label} className="w-6 h-6 mr-3" />
+                <img src={item.imgSrc} alt={item.label} className="w-6 h-6 mr-5" />
                 <span>{item.label}</span>
               </Link>
             </li>
           
           ))}
-        <br />
-        <br />
+          <br />
+          <br />
           <li className="mt-12 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer">
-            <img src="/Keluar.png" alt="Keluar" className="w-6 h-6 mr-3" />
+            <img src="/Keluar.png" alt="Keluar" className="w-6 h-6 mr-5" />
             <a href="#">Keluar</a>
           </li>
         </ul>
