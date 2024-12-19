@@ -14,17 +14,22 @@ const Dkomentar = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/Komentar")
+      .get("http://localhost:8000/api/getPesan")
       .then((response) => {
-        setKomentar(response.data);
+        if (Array.isArray(response.data.data)) {
+          setKomentar(response.data.data);
+        } else {
+          throw new Error("Data yang diterima tidak valid.");
+        }
         setLoading(false);
       })
       .catch((error) => {
+        console.error(error);
         setError("Gagal memuat data komentar.");
         setLoading(false);
       });
   }, []);
-
+  
   return (
     <div className="flex bg-[#f4f6f9] min-h-screen">
       {/* Sidebar with responsiveness */}
@@ -62,47 +67,48 @@ const Dkomentar = () => {
                 <th className="border p-2">NO</th>
                 <th className="border p-2">Aksi</th>
                 <th className="border p-2">Email Pengirim</th>
-                <th className="border p-2">Judul </th>
+                <th className="border p-2">Subject </th>
                 <th className="border p-2">Deskripsi</th>
                 <th className="border p-2">Tanggal Posting</th>
               </tr>
             </thead>
             <tbody>
-              {komentar.map((item, index) => (
-                <tr key={item.id} className="text-center">
-                  <td className="border p-2">
-                    <input type="checkbox" />
-                  </td>
-                  <td className="border p-2">{index + 1}</td>
-                  <td className="border p-2">
-                    <div className="flex justify-center space-x-1">
-                      <a href={`/hapuskomentar/${item.id}`}>
-                        <img
-                          src="hapus.png"
-                          alt="Hapus"
-                          title="Hapus Komentar"
-                        />
-                      </a>
-                      <a href={`/tutupkomentar/${item.id}`}>
-                        <img
-                          src="tutup komentar.png"
-                          alt="Tutup Komentar"
-                          title="Tutup Komentar"
-                        />
-                      </a>
-                    </div>
-                  </td>
-                  <td className="border p-2">{item.email}</td>
-                  <td className="border p-2">{item.judul}</td>
-                  <td className="border p-2">{item.deskripsi}</td>
-                  <td className="border p-2">
-                    {item.tanggal
-                      ? new Date(item.tanggal).toLocaleString()
-                      : "Tidak tersedia"}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+                {komentar.map((item, index) => (
+                  <tr key={item.id} className="text-center">
+                    <td className="border p-2">
+                      <input type="checkbox" />
+                    </td>
+                    <td className="border p-2">{index + 1}</td>
+                    <td className="border p-2">
+                      <div className="flex justify-center space-x-1">
+                        <a href={`/hapuskomentar/${item.id}`}>
+                          <img
+                            src="hapus.png"
+                            alt="Hapus"
+                            title="Hapus Komentar"
+                          />
+                        </a>
+                        <a href={`/kirim pesan/${item.id}`}>
+                          <img
+                            src="kirim.png"
+                            alt="Kirim Pesan"
+                            title="Kirim Pesan"
+                            width={30} height={30}
+                          />
+                        </a>
+                      </div>
+                    </td>
+                    <td className="border p-2">{item.email}</td>
+                    <td className="border p-2">{item.subject}</td>
+                    <td className="border p-2">{item.description}</td>
+                    <td className="border p-2">
+                      {item.tanggal
+                        ? new Date(item.tanggal).toLocaleString()
+                        : "Tidak tersedia"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
           </table>
         </div>
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   const navItems = [
     { to: '/dartikel', imgSrc: '/Artikel.png', label: 'Artikel' },
-    { to: '/dgaleri', imgSrc: '/Gambar.png', label: 'Galeri' },
+    { to: '/dsejarah', imgSrc: '/Gambar.png', label: 'Sejarah' },
     { to: '/dkegiatan', imgSrc: '/SKegiatan.png', label: 'Kegiatan' },
     { to: '/dtentangkami', imgSrc: '/Tentang%20Kami.png', label: 'Tentang Kami' },
     { to: '/dsosmed', imgSrc: '/Sosial%20Media.png', label: 'Sosial Media' },

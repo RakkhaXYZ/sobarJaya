@@ -14,9 +14,9 @@ const Dtentangkami = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/TentangKami") // Ganti dengan endpoint Anda
+      .get("http://localhost:8000/api/ourteam") // Ganti dengan endpoint Anda
       .then((response) => {
-        setTentangkami(response.data);
+        setTentangkami(response.data.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -73,8 +73,10 @@ const Dtentangkami = () => {
               <tr className="bg-gray-200">
                 <th className="border p-2">No</th>
                 <th className="border p-2">Aksi</th>
-                <th className="border p-2">Judul</th>
-                <th className="border p-2">Deskripsi</th>
+                <th className="border p-2">Nama Anggota</th>
+                <th className="border p-2">Divisi</th>
+                <th className="border p-2">Quotes</th>
+                <th className="border p-2">Foto</th>
                 <th className="border p-2">Terakhir Diperbarui</th>
               </tr>
             </thead>
@@ -97,9 +99,6 @@ const Dtentangkami = () => {
                     <td className="border p-2">{index + 1}</td>
                     <td className="border p-2">
                       <div className="flex justify-center space-x-1">
-                        <a href={`/edittentangkami/${item.id}`}>
-                          <img src="edit.png" alt="Edit" title="Edit Tentang Kami" />
-                        </a>
                         <a href="#">
                           <img
                             src="hapus.png"
@@ -107,10 +106,21 @@ const Dtentangkami = () => {
                             title="Hapus Tentang Kami"
                           />
                         </a>
+                        <a href="#">
+                          <img
+                            src="edit.png"
+                            alt="Edit"
+                            title="Edit"
+                          />
+                        </a>
                       </div>
                     </td>
-                    <td className="border p-2">{item.judul}</td>
-                    <td className="border p-2">{item.deskripsi}</td>
+                    <td className="border p-2">{item.nama_anggota}</td>
+                    <td className="border p-2">{item.divisi_anggota}</td>
+                    <td className="border p-2">{item.quetes}</td>
+                    <td className="border p-2">
+                      <img src={item.foto} alt="foto " />
+                    </td>
                     <td className="border p-2">
                       {item.updated_at
                         ? new Date(item.updated_at).toLocaleString()

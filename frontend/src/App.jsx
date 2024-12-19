@@ -27,8 +27,8 @@ import Dtambahgaleri from "./component/dtambahgaleri.jsx";
 import Dtambahkegiatan from "./component/dtambahkegiatan.jsx";
 import Profilmasteradmin from "./component/profilMasterAdmin.jsx";
 import Dhubungikami from "./component/dhubungikami.jsx";
-
-
+import Dsejarah from "./component/dsejarah.jsx";
+import Dtambahsejarah from "./component/dtambahsejarah.jsx";
 
 import EditArtikel from "./component/editArtikel.jsx";
 
@@ -64,7 +64,8 @@ const AppContent = () => {
 
       <Route path="/editartikel/:id" element={<EditArtikel/>} />
       <Route path="/dhubungikami" element={<Dhubungikami/>} />
-
+      <Route path="/dsejarah" element={<Dsejarah/>} />
+      <Route path="/dtambahsejarah" element={<Dtambahsejarah/>} />
     </Routes>
   );
 };

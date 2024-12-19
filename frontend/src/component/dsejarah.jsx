@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Sidebar from "./NavbarDashborad.jsx";
 
-const Dgaleri = () => {
+const Dsejarah = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [galeri, setGaleri] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -50,12 +50,12 @@ const Dgaleri = () => {
           </button>
         </header>
         <div className="flex space-x-2">
-              <a href="/dtambahgaleri">
+              <a href="/dtambahsejarah">
                 <button className="bg-green-500 text-white px-4 py-2 rounded flex items-center">
-                  <i className="fas fa-plus mr-2"></i> Tambah Galeri
+                  <i className="fas fa-plus mr-2"></i> Tambah Sejarah
                 </button>
               </a>
-              <a href="/dhapusgaleri">
+              <a href="/dhapussejarah">
                 <button className="bg-red-500 text-white px-4 py-2 rounded flex items-center">
                   <i className="fas fa-trash-alt mr-2"></i> Hapus data terpilih
                 </button>
@@ -122,4 +122,4 @@ const Dgaleri = () => {
     </div>
   );
 };
-export default Dgaleri;
+export default Dsejarah;
