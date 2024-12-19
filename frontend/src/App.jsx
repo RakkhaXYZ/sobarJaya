@@ -25,8 +25,8 @@ import Dtambahartikel from "./component/dtambahartikel.jsx";
 import Dtambahkategori from "./component/dtambahkategori.jsx";
 import Dtambahgaleri from "./component/dtambahgaleri.jsx";
 import Dtambahkegiatan from "./component/dtambahkegiatan.jsx";
-
 import Profilmasteradmin from "./component/profilMasterAdmin.jsx";
+import Dhubungikami from "./component/dhubungikami.jsx";
 
 
 
@@ -63,6 +63,7 @@ const AppContent = () => {
       <Route path="/profilmasteradmin" element={<Profilmasteradmin/>} />
 
       <Route path="/editartikel/:id" element={<EditArtikel/>} />
+      <Route path="/dhubungikami" element={<Dhubungikami/>} />
 
     </Routes>
   );

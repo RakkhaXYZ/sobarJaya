@@ -9,6 +9,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     { to: '/dtentangkami', imgSrc: '/Tentang%20Kami.png', label: 'Tentang Kami' },
     { to: '/dsosmed', imgSrc: '/Sosial%20Media.png', label: 'Sosial Media' },
     { to: '/dkomentar', imgSrc: '/Skomentar.png', label: 'Komentar' },
+    { to: '/dhubungikami', imgSrc: '/Skomentar.png', label: 'Hubungi Kami' },
   ];
 
   return (
@@ -17,23 +18,33 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
       } lg:translate-x-0 fixed left-0 top-0 w-4/5 lg:w-1/5 bg-[#22467d] h-full p-4 transition-transform duration-300 z-50`}
     >
-      <div className="flex items-center justify-center text-white text-3xl font-semibold font-['Poppins'] mt-4 mb-6">
-        DASHBOARD
-      </div>
-
+     <a href="/dashboardadmin">
+          <div className="flex items-center text-white text-xl font-semibold font-['Poppins']">
+            <div className="w-[380px] h-[102px] bg-[#22467d] shadow">
+              <div className="mt-6 text-white text-3xl text-center font-semibold font-['Poppins']">
+                DASHBOARD
+              </div>
+            </div>
+          </div>
+        </a>
+<br />
+<br />
       <nav>
         <ul>
           {navItems.map((item, index) => (
             <li
               key={index}
-              className="mb-4 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer"
+              className="mb-5 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer"
             >
               <Link to={item.to} className="flex items-center">
                 <img src={item.imgSrc} alt={item.label} className="w-6 h-6 mr-3" />
                 <span>{item.label}</span>
               </Link>
             </li>
+          
           ))}
+        <br />
+        <br />
           <li className="mt-12 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer">
             <img src="/Keluar.png" alt="Keluar" className="w-6 h-6 mr-3" />
             <a href="#">Keluar</a>

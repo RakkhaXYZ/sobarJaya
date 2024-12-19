@@ -1,81 +1,117 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Sidebar from "./NavbarDashborad.jsx";
 
 const Dtentangkami = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [tentangkami, setTentangkami] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/TentangKami") // Ganti dengan endpoint Anda
+      .then((response) => {
+        setTentangkami(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError("Gagal memuat data 'Tentang Kami'.");
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="flex bg-[#f4f6f9]">
       {/* Sidebar */}
-      <aside className="w-1/5 bg-[#22467d] h-screen p-2 fixed">
-        <a href="/dashboardadmin">
-          <div className="flex items-center text-white text-xl font-semibold font-['Poppins']">
-            <div className="w-[380px] h-[102px] bg-[#22467d] shadow">
-              <div className="mt-6 text-white text-3xl text-center font-semibold font-['Poppins']">DASHBOARD</div>
-            </div>
-          </div>
-        </a>
-        <br />
-        <nav>
-          <ul>
-            <li className="mb-6 flex items-center justify-start  text-white text-xl  font-['Poppins']">
-              <a href="/dartikel"><img src="Artikel.png" className="mr-4" /></a>
-              <a href="/dartikel"><span>Artikel</span></a>
-            </li>
-            <li className="mb-6 flex items-center justify-start text-white text-xl  font-['Poppins']">
-              <a href="/dgaleri"><img src="Gambar.png" className="mr-4" /></a>
-              <a href="/dgaleri"><span>Galeri</span></a>
-            </li>
-            <li className="mb-6 flex items-center justify-start  text-white text-xl  font-['Poppins']">
-              <a href="/dkegiatan"><img src="SKegiatan.png" className="mr-3" /></a>
-              <a href="/dkegiatan"><span>Kegiatan</span></a>
-            </li>
-            <li className="mb-6 flex items-center justify-start text-[#22467d] font-bold text-xl font-['Poppins'] bg-white w-[261px] h-[72px]">
-              <a href="/dtentangkami"><img src="Tentang Kami biru.png" className="mr-4" /></a>
-              <a href="/dtentangkami"><span>Tentang Kami</span></a>
-            </li>
-            <li className="mb-6 flex items-center justify-start  text-white text-xl  font-['Poppins']">
-              <a href="/dsosmed"><img src="Sosial Media.png" className="mr-7" /></a>
-              <a href="/dsosmed"><span>Sosial Media</span></a>
-            </li>
-            <li className="mb-6 flex items-center justify-start  text-white text-xl  font-['Poppins']">
-              <a href="/dkomentar"><img src="Skomentar.png" className="mr-5" /></a>
-              <a href="/dkomentar"><span>Komentar</span></a>
-            </li>
-            <li className="mt-24 flex items-center justify-start text-white text-xl  font-['Poppins']">
-              <img src="Keluar.png" className="mr-6" />
-              <a href=""><span>Keluar</span></a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
       {/* Konten Utama */}
-      <main className="flex-grow ml-[20%] h-screen w-screen p-2">
-        <header className="flex justify-between items-center mb-6 bg-white shadow w-[1350px] h-[102px]">
-          <div className="flex items-center ">
-            <img src="logo.png" alt="Company Logo" className="mr-2 w-[87px] h-[72px]" />
-            <h1 className="text-[#22467d] text-3xl font-semibold font-['Poppins']">CV. SOBAR JAYA</h1>
+      <main
+        className={`flex-grow transition-all duration-300 h-screen bg-white p-6 lg:ml-[20%] ${
+          isSidebarOpen ? "ml-[20%]" : "ml-0"
+        }`}
+      >
+        {/* Header */}
+        <header className="flex justify-between items-center mb-6 bg-white shadow w-full h-[100px] px-6 py-2">
+          <div className="flex items-center">
+            <img src="logo.png" className="w-[87px] h-[72px] mr-3" alt="Logo" />
+            <h1 className="text-[#22467d] text-2xl lg:text-3xl font-semibold font-['Poppins']">
+              CV. SOBAR JAYA
+            </h1>
           </div>
-          <a href="/profilMasterAdmin">
-            <div className="w-[58px] h-[58px] relative">
-              <div className="w-[58px] h-[58px] left-0 top-0 absolute bg-[#22467d] rounded-full" />
-              <div className="w-[23.75px] h-[23.75px] left-[17.12px] top-[5.52px] absolute bg-white rounded-full" />
-              <div className=" w-[33.70px] h-[23.75px] left-[12.15px] top-[31.49px] absolute bg-white rounded-full" />
-            </div>
-          </a>
+          <button
+            onClick={toggleSidebar}
+            className="lg:hidden bg-[#22467d] text-white p-2 rounded focus:outline-none"
+          >
+            {isSidebarOpen ? "Close" : "Menu"}
+          </button>
         </header>
-        <br />
 
-        <br />
-        <footer className="mt-6 text-center text-gray-600">
-          <div className="flex justify-start space-x-20 ">
-            <div className="w-[1300px] h-[2px] bg-gray-300"></div>
-          </div>
-          <p>Copyright &copy; 2023 CV. Sobar Jaya Bandung</p>
+        {/* Konten Data */}
+        <div className="p-4 overflow-x-auto">
+          <table className="min-w-full border-collapse border">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="border p-2">No</th>
+                <th className="border p-2">Aksi</th>
+                <th className="border p-2">Judul</th>
+                <th className="border p-2">Deskripsi</th>
+                <th className="border p-2">Terakhir Diperbarui</th>
+              </tr>
+            </thead>
+            <tbody>
+              {loading ? (
+                <tr>
+                  <td colSpan="5" className="text-center p-4">
+                    Memuat data...
+                  </td>
+                </tr>
+              ) : error ? (
+                <tr>
+                  <td colSpan="5" className="text-center text-red-500 p-4">
+                    {error}
+                  </td>
+                </tr>
+              ) : (
+                tentangkami.map((item, index) => (
+                  <tr key={item.id} className="text-center">
+                    <td className="border p-2">{index + 1}</td>
+                    <td className="border p-2">
+                      <div className="flex justify-center space-x-1">
+                        <a href={`/edittentangkami/${item.id}`}>
+                          <img src="edit.png" alt="Edit" title="Edit Tentang Kami" />
+                        </a>
+                        <a href="#">
+                          <img
+                            src="hapus.png"
+                            alt="Hapus"
+                            title="Hapus Tentang Kami"
+                          />
+                        </a>
+                      </div>
+                    </td>
+                    <td className="border p-2">{item.judul}</td>
+                    <td className="border p-2">{item.deskripsi}</td>
+                    <td className="border p-2">
+                      {item.updated_at
+                        ? new Date(item.updated_at).toLocaleString()
+                        : "Tidak tersedia"}
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Footer */}
+        <footer className="mt-6 text-center text-gray-600 text-sm py-4 border-t border-gray-200">
+          Copyright &copy; 2023 CV. Sobar Jaya Bandung
         </footer>
       </main>
     </div>

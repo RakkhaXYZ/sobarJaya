@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Sidebar from "./NavbarDashborad.jsx";
 
-const Dartikel = () => {
+const Dhubungikami = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [artikel, setArtikel] = useState([]);
+  const [komentar, setHubungikami] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -14,13 +14,13 @@ const Dartikel = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/Artikel")
+      .get("http://localhost:8000/api/Hubungikami")
       .then((response) => {
-        setArtikel(response.data);
+        setHubungikami(response.data);
         setLoading(false);
       })
       .catch((error) => {
-        setError("Gagal memuat data artikel.");
+        setError("Gagal memuat data komentar.");
         setLoading(false);
       });
   }, []);
@@ -62,14 +62,12 @@ const Dartikel = () => {
                 <th className="border p-2">box</th>
                 <th className="border p-2">NO</th>
                 <th className="border p-2">Aksi</th>
-                <th className="border p-2">Judul Artikel</th>
-                <th className="border p-2">Foto Kegiatan</th>
-                <th className="border p-2">Dilihat</th>
-                <th className="border p-2">Terakhir Diperbarui</th>
+                <th className="border p-2">Pesan</th>
+                <th className="border p-2">Tanggal Posting</th>
               </tr>
             </thead>
             <tbody>
-              {artikel.map((item, index) => (
+              {komentar.map((item, index) => (
                 <tr key={item.id} className="text-center">
                   <td className="border p-2">
                     <input type="checkbox" />
@@ -77,61 +75,30 @@ const Dartikel = () => {
                   <td className="border p-2">{index + 1}</td>
                   <td className="border p-2">
                     <div className="flex justify-center space-x-1">
-                      <a href={`/editartikel/${item.id}`}>
-                        <img src="edit.png" alt="Edit" title="Edit Kegiatan" />
-                      </a>
-                      <a href="#">
+                      <a href={`/hapuskomentar/${item.id}`}>
                         <img
                           src="hapus.png"
                           alt="Hapus"
-                          title="Hapus Kegiatan"
+                          title="Hapus Komentar"
                         />
                       </a>
-                      <a href="#">
+                      <a href={`/tutupkomentar/${item.id}`}>
                         <img
                           src="tutup komentar.png"
                           alt="Tutup Komentar"
                           title="Tutup Komentar"
                         />
                       </a>
-                      <a href="#">
-                        <img
-                          src="favorit.png"
-                          alt="Favoritkan"
-                          title="Favoritkan Artikel"
-                        />
-                      </a>
-                      <a href="#">
-                        <img
-                          src="ubah kategori.png"
-                          alt="Ubah Kategori"
-                          title="Ubah Kategori"
-                        />
-                      </a>
-                      <a href="#">
-                        <img
-                          src="pratinjau.png"
-                          alt="Pratinjau"
-                          title="Pratinjau Artikel"
-                        />
-                      </a>
                     </div>
                   </td>
-                  <td className="border p-2">{item.judul}</td>
+                  <td className="border p-2">{item.pengirim}</td>
+                  <td className="border p-2">{item.isi}</td>
+                  <td className="border p-2">{item.email}</td>
+                  <td className="border p-2">{item.judul_artikel}</td>
+                  <td className="border p-2">{item.aktif ? "YA" : "TIDAK"}</td>
                   <td className="border p-2">
-                    {item.dibaca || 0} Kali Dilihat
-                  </td>
-                  <td className="border p-2">
-                    <img
-                      src={item.foto}
-                      alt={item.judul}
-                      width={100}
-                      height={100}
-                    />
-                  </td>
-                  <td className="border p-2">
-                    {item.created_at
-                      ? new Date(item.created_at).toLocaleString()
+                    {item.tanggal
+                      ? new Date(item.tanggal).toLocaleString()
                       : "Tidak tersedia"}
                   </td>
                 </tr>
@@ -149,4 +116,4 @@ const Dartikel = () => {
   );
 };
 
-export default Dartikel;
+export default Dhubungikami;
