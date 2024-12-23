@@ -31,6 +31,7 @@ import Dhubungikami from "./component/dhubungikami.jsx";
 
 
 import EditArtikel from "./component/editArtikel.jsx";
+import UpdateKegiatan from "./component/editKegiatan.jsx";
 
 const AppContent = () => {
   return (
@@ -63,6 +64,7 @@ const AppContent = () => {
       <Route path="/profilmasteradmin" element={<Profilmasteradmin/>} />
 
       <Route path="/editartikel/:id" element={<EditArtikel/>} />
+      <Route path="/updateKegiatan/:id" element={<UpdateKegiatan/>} />
       <Route path="/dhubungikami" element={<Dhubungikami/>} />
 
     </Routes>

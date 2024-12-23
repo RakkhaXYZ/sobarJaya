@@ -164,4 +164,28 @@ class KegiatanController extends Controller
 
         ], 200);
     }
+
+    // app/Http/Controllers/KegiatanController.php
+
+    public function showKegiatan($id)
+    {
+        // Ambil data kegiatan berdasarkan id beserta foto
+        $kegiatan = Kegiatan::with('FotoKegiatan')->findOrFail($id);
+
+        // Format URL foto
+        $fotoUrls = $kegiatan->fotoKegiatan->map(function ($foto) {
+            return [
+                'id' => $foto->id,
+                'url' => asset('storage/kegiatan/' . $foto->foto)
+            ];
+        });
+
+        // Kembalikan data kegiatan dan foto dalam response JSON
+        return response()->json([
+            'data' => [
+                'kegiatan' => $kegiatan,
+                'foto' => $fotoUrls
+            ]
+        ], 200);
+    }
 }
