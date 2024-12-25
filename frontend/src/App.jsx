@@ -33,6 +33,8 @@ import Dhubungikami from "./component/dhubungikami.jsx";
 import EditArtikel from "./component/editArtikel.jsx";
 import UpdateKegiatan from "./component/editKegiatan.jsx";
 
+import ArtikelDetail from "./component/dShowArtikel.jsx";
+
 const AppContent = () => {
   return (
     <Routes>
@@ -66,6 +68,7 @@ const AppContent = () => {
       <Route path="/editartikel/:id" element={<EditArtikel/>} />
       <Route path="/updateKegiatan/:id" element={<UpdateKegiatan/>} />
       <Route path="/dhubungikami" element={<Dhubungikami/>} />
+      <Route path="/dshowArtikel/:id" element={<ArtikelDetail/>} />
 
     </Routes>
   );
