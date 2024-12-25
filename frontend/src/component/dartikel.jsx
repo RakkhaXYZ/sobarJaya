@@ -7,6 +7,7 @@ const Dartikel = () => {
   const [artikel, setArtikel] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [alert , setAlert] = useState({ show: false, message: '', type: ''});
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -25,6 +26,30 @@ const Dartikel = () => {
       });
   }, []);
 
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("Apakah Anda Yakin Ingin menghapus artikel ini?");
+    if(!confirmDelete) return;
+
+    try {
+      const response = await axios.delete(`http://localhost:8000/api/destroyArtikel/${id}`);
+      setArtikel((prevArtikel)=> prevArtikel.filter((item)=> item.id !== id));
+      setAlert({
+        show: true,
+        message: "Artikel berhasil dihapus",
+        type: "success",
+      });
+    } catch (error) {
+      const message = error.response?.data?.message || "terjadi kesalahan saat menghapus artikel";
+      setAlert({ show: true, message: "", type: "error"});
+      
+    }
+
+    // sembunyikan alert setelah beberapa detik
+
+    setTimeout(()=> {
+      setAlert({show: false, message: "", type:""});
+    }, 3000);
+  };
   return (
     <div className="flex bg-[#f4f6f9] min-h-screen">
       {/* Sidebar with responsiveness */}
@@ -70,6 +95,15 @@ const Dartikel = () => {
             <div className="border-t border-black-200"></div>
         {/* Table or other content */}
         <div className="p-4 overflow-x-auto">
+          <div className="p-6">
+            {alert.show && (
+              <div className={`mb-4 p-4 rounded-lg ${alert.type === "success" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
+                {alert.message}
+              </div>
+            )}
+            {error && <div className="text-red-600 mb-4">{error}</div>}
+            
+          </div>
           <table className="min-w-full border-collapse border">
             <thead>
               <tr className="bg-gray-200">
@@ -94,27 +128,14 @@ const Dartikel = () => {
                       <a href={`/editartikel/${item.id}`}>
                         <img src="edit.png" alt="Edit" title="Edit Kegiatan" />
                       </a>
-                      <a href="#">
+                      <a href="#" onClick={(e) => {e.preventDefault(); handleDelete(item.id);}}>
                         <img
                           src="hapus.png"
                           alt="Hapus"
-                          title="Hapus Kegiatan"
+                          title="Hapus Data Artikel Ini"
                         />
                       </a>
-                      <a href="#">
-                        <img
-                          src="tutup komentar.png"
-                          alt="Tutup Komentar"
-                          title="Tutup Komentar"
-                        />
-                      </a>
-                      <a href="#">
-                        <img
-                          src="favorit.png"
-                          alt="Favoritkan"
-                          title="Favoritkan Artikel"
-                        />
-                      </a>
+                      
                       <a href="#">
                         <img
                           src="ubah kategori.png"
@@ -122,7 +143,7 @@ const Dartikel = () => {
                           title="Ubah Kategori"
                         />
                       </a>
-                      <a href="#">
+                      <a href={`/dshowArtikel/${item.id}`}>
                         <img
                           src="pratinjau.png"
                           alt="Pratinjau"

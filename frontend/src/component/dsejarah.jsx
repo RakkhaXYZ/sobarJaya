@@ -2,27 +2,42 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Sidebar from "./NavbarDashborad.jsx";
 
-const Dsejarah = () => {
+const Dsejarah = (id = 2) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [galeri, setGaleri] = useState([]);
+
+  const [sejarahDta, setSejarahDta] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchSejarah = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8000/api/showSejarah/2`
+        );
+        setSejarahDta(response.data);
+      } catch (err) {
+        setError("Data tidak ditemukan atau terjadi kesalahan");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSejarah();
+  }, [id]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/Galeri")
-      .then((response) => {
-        setGaleri(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError("Gagal memuat data galeri.");
-        setLoading(false);
-      });
-  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <div className="flex bg-[#f4f6f9] min-h-screen">
       {/* Sidebar with responsiveness */}
@@ -50,19 +65,19 @@ const Dsejarah = () => {
           </button>
         </header>
         <div className="flex space-x-2">
-              <a href="/dtambahsejarah">
-                <button className="bg-green-500 text-white px-4 py-2 rounded flex items-center">
-                  <i className="fas fa-plus mr-2"></i> Tambah Sejarah
-                </button>
-              </a>
-              <a href="/dhapussejarah">
-                <button className="bg-red-500 text-white px-4 py-2 rounded flex items-center">
-                  <i className="fas fa-trash-alt mr-2"></i> Hapus data terpilih
-                </button>
-              </a>
-            </div>
-            <br />
-            <div className="border-t border-black-200"></div>
+          <a href="/dtambahsejarah">
+            <button className="bg-green-500 text-white px-4 py-2 rounded flex items-center">
+              <i className="fas fa-plus mr-2"></i> Tambah Sejarah
+            </button>
+          </a>
+          <a href="/dhapussejarah">
+            <button className="bg-red-500 text-white px-4 py-2 rounded flex items-center">
+              <i className="fas fa-trash-alt mr-2"></i> Hapus data terpilih
+            </button>
+          </a>
+        </div>
+        <br />
+        <div className="border-t border-black-200"></div>
         {/* Table or other content */}
         <div className="p-4 overflow-x-auto">
           <table className="min-w-full border-collapse border">
@@ -71,15 +86,14 @@ const Dsejarah = () => {
                 <th className="border p-2">box</th>
                 <th className="border p-2">NO</th>
                 <th className="border p-2">Aksi</th>
+                <th className="border p-2">Sejarah</th>
                 <th className="border p-2">Foto Kegiatan</th>
-                <th className="border p-2">Judul</th>
-                <th className="border p-2">Deskripsi</th>
                 <th className="border p-2">Tanggal posting</th>
               </tr>
             </thead>
             <tbody>
-              {galeri.map((item, index) => (
-                <tr key={item.id} className="text-center">
+              {sejarahDta.map((item, index) => (
+                <tr key={item.id}>
                   <td className="border p-2">
                     <input type="checkbox" />
                   </td>
@@ -101,9 +115,27 @@ const Dsejarah = () => {
                       </a>
                     </div>
                   </td>
-                  <td className="border p-2">{item.foto}</td>
-                  <td className="border p-2">{item.judul}</td>
-                  <td className="border p-2">{item.deskripsi}</td>
+                  <td className="border p-2">
+                    {item.foto ? (
+                      <img
+                        src={item.foto}
+                        alt="Foto Galeri"
+                        className="h-24 w-24 object-cover mx-auto"
+                      />
+                    ) : (
+                      <span>Foto tidak tersedia</span>
+                    )}
+                  </td>
+                  <td className="border p-2">
+                    {item.sejarah || "Deskripsi tidak tersedia"}
+                  </td>
+                  <td className="border p-2">
+                    {item.foto ? (
+                      <img src={item.foto} alt="Foto Sejarah" />
+                    ) : (
+                      <span>Foto tidak tersedia</span>
+                    )}
+                  </td>
                   <td className="border p-2">
                     {item.created_at
                       ? new Date(item.created_at).toLocaleString()

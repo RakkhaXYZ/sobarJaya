@@ -47,7 +47,8 @@ Route::delete('/destroyArtikel/{id}', [ArtikelController::class, 'destroyArtikel
 // kegiatan 
 Route::post('/storeKegiatan', [KegiatanController::class, 'storeKegiatan']);
 Route::get('/kegiatan', [KegiatanController::class, 'IndexKegiatan']);
-Route::put('/updateKegiatan/{id}', [KegiatanController::class, 'updateKegiatan']);
+Route::get('/showKegiatan/{id}', [KegiatanController::class, 'showKegiatan']);
+Route::post('/updateKegiatan/{id}', [KegiatanController::class, 'updateKegiatan']);
 Route::delete('/destroyKegiatan/{id}', [KegiatanController::class, 'destroyKegiatan']);
 
 

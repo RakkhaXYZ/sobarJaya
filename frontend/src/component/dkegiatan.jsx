@@ -76,80 +76,97 @@ const Dkegiatan = () => {
                 <th className="border p-2">Aksi</th>
                 <th className="border p-2">Judul</th>
                 <th className="border p-2">Deskripsi Kegiatan</th>
-                <th className="border p-2">Foto Kegiatan</th>
+                <th className="border p-2" width="300px">Foto Kegiatan</th>
               </tr>
             </thead>
+
             <tbody>
-              {loading ? (
-                <tr>
-                  <td colSpan="6" className="text-center p-4">
-                    Memuat data...
-                  </td>
-                </tr>
-              ) : error ? (
-                <tr>
-                  <td colSpan="6" className="text-center text-red-500 p-4">
-                    {error}
-                  </td>
-                </tr>
-              ) : (
-                kegiatan.map((item, index) => (
-                  <tr key={item.id} className="text-center">
-                    <td className="border p-2">
-                      <input type="checkbox" />
-                    </td>
-                    <td className="border p-2">{index + 1}</td>
-                    <td className="border p-2">
-                      <div className="flex justify-center space-x-1">
-                        <a href={`/editkegiatan/${item.id}`}>
-                          <img src="edit.png" alt="Edit" title="Edit Kegiatan" />
-                        </a>
-                        <a href="#">
-                          <img src="hapus.png" alt="Hapus" title="Hapus Kegiatan" />
-                        </a>
-                        <a href="#">
-                          <img
-                            src="tutup komentar.png"
-                            alt="Tutup Komentar"
-                            title="Tutup Komentar"
-                          />
-                        </a>
-                        <a href="#">
-                          <img
-                            src="favorit.png"
-                            alt="Favoritkan"
-                            title="Favoritkan Kegiatan"
-                          />
-                        </a>
-                        <a href="#">
-                          <img
-                            src="ubah kategori.png"
-                            alt="Ubah Kategori"
-                            title="Ubah Kategori"
-                          />
-                        </a>
-                        <a href="#">
-                          <img
-                            src="pratinjau.png"
-                            alt="Pratinjau"
-                            title="Pratinjau Kegiatan"
-                          />
-                        </a>
-                      </div>
-                    </td>
-                    <td className="border p-2">{item.judul}</td>
-                    <td className="border p-2">{item.deskripsi}</td>
-                    <td className="border p-2">
-                      <img
-                        src={item.foto || 'placeholder.png'}
-                        alt={item.judul}
-                        className="w-20 h-20 object-cover"
-                      />
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
+  {loading ? (
+    <tr>
+      <td colSpan="6" className="text-center p-4">
+        Memuat data...
+      </td>
+    </tr>
+  ) : error ? (
+    <tr>
+      <td colSpan="6" className="text-center text-red-500 p-4">
+        {error}
+      </td>
+    </tr>
+  ) : (
+    kegiatan.map((item, index) => (
+      <tr key={item.id} className="text-center">
+        <td className="border p-2">
+          <input type="checkbox" />
+        </td>
+        <td className="border p-2">{index + 1}</td>
+        <td className="border p-2">
+          <div className="flex justify-center space-x-1">
+            <a href={`/updateKegiatan/${item.id}`}>
+              <img src="edit.png" alt="Edit" title="Edit Kegiatan" />
+            </a>
+            <a href="#">
+              <img src="hapus.png" alt="Hapus" title="Hapus Kegiatan" />
+            </a>
+            <a href="#">
+              <img
+                src="tutup komentar.png"
+                alt="Tutup Komentar"
+                title="Tutup Komentar"
+              />
+            </a>
+            <a href="#">
+              <img
+                src="favorit.png"
+                alt="Favoritkan"
+                title="Favoritkan Kegiatan"
+              />
+            </a>
+            <a href="#">
+              <img
+                src="ubah kategori.png"
+                alt="Ubah Kategori"
+                title="Ubah Kategori"
+              />
+            </a>
+            <a href="#">
+              <img
+                src="pratinjau.png"
+                alt="Pratinjau"
+                title="Pratinjau Kegiatan"
+              />
+            </a>
+          </div>
+        </td>
+        <td className="border p-2">{item.judul}</td>
+        <td className="border p-2">{item.deskripsi}</td>
+        <td className="border p-2">
+          {/* Loop untuk menampilkan semua foto yang ada dalam fotoUrls */}
+          <div className="flex space-x-2">
+            {item.fotoUrls.length > 0 ? (
+              item.fotoUrls.map((fotoUrl, fotoIndex) => (
+                <img
+                  key={fotoIndex}
+                  src={fotoUrl}
+                  alt={`Foto ${fotoIndex + 1}`}
+                  className="w-20 h-20 object-cover"
+                />
+              ))
+            ) : (
+              <img
+                src="placeholder.png"
+                alt="Placeholder"
+                className="w-20 h-20 object-cover"
+              />
+            )}
+          </div>
+        </td>
+      </tr>
+    ))
+  )}
+</tbody>
+
+              
           </table>
         </div>
 
