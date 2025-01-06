@@ -1,7 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    alert("Anda akan logout dalam waktu 2 detik");
+    setTimeout(() => {
+      // Hapus token atau session jika diperlukan
+      navigate('/login'); // Redireksi ke halaman login
+    }, 2000);
+  };
   const navItems = [
     { to: '/dartikel', imgSrc: '/Artikel.png', label: 'Artikel' },
     { to: '/dsejarah', imgSrc: '/Gambar.png', label: 'Sejarah' },
@@ -45,9 +54,12 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           ))}
           <br />
           <br />
-          <li className="mt-12 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer">
+          <li
+            onClick={handleLogout}
+            className="mt-12 flex items-center px-4 text-white text-lg font-['Poppins'] hover:bg-blue-700 cursor-pointer"
+          >
             <img src="/Keluar.png" alt="Keluar" className="w-6 h-6 mr-5" />
-            <a href="#">Keluar</a>
+            <span>Keluar</span>
           </li>
         </ul>
       </nav>

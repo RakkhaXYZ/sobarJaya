@@ -106,7 +106,7 @@ const Dtentangkami = () => {
                             title="Hapus Tentang Kami"
                           />
                         </a>
-                        <a href="#">
+                        <a href={`/editourteam/${item.id}`}>
                           <img
                             src="edit.png"
                             alt="Edit"

@@ -9,14 +9,20 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex bg-[#f4f6f9] min-h-screen">
+    <div className="flex min-h-screen bg-[#f4f6f9]">
       {/* Sidebar */}
-      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <div
+        className={`transition-all duration-300 ${
+          isSidebarOpen ? 'w-64' : 'w-16'
+        } lg:w-64 bg-[#22467d]`}
+      >
+        <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      </div>
 
       {/* Konten Utama */}
       <main
-        className={`flex-grow transition-all duration-300 h-screen bg-white p-6 ${
-          isSidebarOpen ? 'ml-[20%]' : 'ml-[0%]'
+        className={`flex-grow p-6 transition-all duration-300 ${
+          isSidebarOpen ? 'ml-64' : 'ml-16'
         }`}
       >
         {/* Header */}

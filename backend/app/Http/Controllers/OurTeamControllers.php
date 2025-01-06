@@ -178,4 +178,25 @@ class OurTeamControllers extends Controller
             ]);
         }
     }
+
+    public function OurteamById($id)
+    {
+        $ourteam = OurTeam::with('ourTeam2')->findOrFail($id);
+
+        // Format URL foto
+        $fotoUrls = $ourteam->ourTeam2->map(function ($foto) {
+            return [
+                'id' => $foto->id,
+                'url' => asset('storage/ourteam/' . $foto->foto_anggota)
+            ];
+        });
+
+        // Kembalikan data kegiatan dan foto dalam response JSON
+        return response()->json([
+            'data' => [
+                'ourteam' => $ourteam,
+                'foto' => $fotoUrls
+            ]
+        ], 200);
+    }
 }
